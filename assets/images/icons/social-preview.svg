@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">sanjanedits social preview</title>
+  <desc id="desc">Dark editorial preview image for the sanjanedits portfolio.</desc>
+  <rect width="1200" height="630" fill="#090909"/>
+  <circle cx="1010" cy="120" r="220" fill="#161616"/>
+  <circle cx="930" cy="510" r="240" fill="#101010"/>
+  <path d="M850 60 260 560" stroke="#C8FF00" stroke-width="10" stroke-linecap="round"/>
+  <text x="90" y="180" fill="#8A8A8A" font-size="26" font-family="Inter, Arial, sans-serif" letter-spacing="5">
+    SANJANEDITS / VIDEO EDITOR
+  </text>
+  <text x="90" y="300" fill="#F5F5F2" font-size="96" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800">
+    Rhythm.
+  </text>
+  <text x="90" y="398" fill="#F5F5F2" font-size="96" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800">
+    Impact.
+  </text>
+  <text x="90" y="496" fill="#F5F5F2" font-size="96" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800">
+    Motion.
+  </text>
+</svg>
+

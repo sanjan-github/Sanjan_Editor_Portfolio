@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projects - sanjanedits</title>
+    <meta
+        name="description"
+        content="Projects archive for sanjanedits, built to browse selected short-form, cinematic, movie, and music-driven edits."
+    >
+    <meta name="theme-color" content="#090909">
+    <meta property="og:title" content="Projects - sanjanedits">
+    <meta
+        property="og:description"
+        content="Projects archive for sanjanedits, built to browse selected short-form, cinematic, movie, and music-driven edits."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/images/icons/social-preview.svg">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/sections.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body class="page page--projects">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="site-brand" href="./index.html" aria-label="sanjanedits home">
+                <span class="site-brand__mark" aria-hidden="true">S</span>
+                <span class="site-brand__text">
+                    <span class="site-brand__name">sanjanedits</span>
+                    <span class="site-brand__sub">Sanjan</span>
+                </span>
+            </a>
+
+            <nav class="site-nav" aria-label="Primary" data-nav>
+                <button
+                    class="site-nav__toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="site-nav-menu"
+                    data-nav-toggle
+                >
+                    <span class="site-nav__toggle-line" aria-hidden="true"></span>
+                    <span class="site-nav__toggle-label">Menu</span>
+                </button>
+
+                <div class="site-nav__panel" id="site-nav-menu" data-nav-panel>
+                    <ul class="site-nav__list">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./projects.html" aria-current="page">Projects</a></li>
+                        <li><a href="./index.html#about">About</a></li>
+                        <li><a href="./index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <a class="button button--nav" href="https://www.instagram.com/sanjanedits/">Instagram</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="archive-hero section" aria-labelledby="archive-heading">
+            <div class="container archive-hero__layout">
+                <div class="archive-hero__content" data-reveal>
+                    <p class="section-kicker">Projects Archive</p>
+                    <h1 id="archive-heading">The full portfolio is structured for a growing archive of published edits.</h1>
+                    <p>
+                        This page is built for category browsing, on-demand playback, and direct Instagram references
+                        without loading every video on first paint.
+                    </p>
+                </div>
+
+                <div class="archive-hero__summary" data-reveal>
+                    <p>Expected archive</p>
+                    <strong>Approximately 45 selected published edits</strong>
+                    <span>Reels, movie edits, cinematic cuts, and music-driven work.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="archive section" aria-labelledby="archive-grid-heading">
+            <div class="container">
+                <div class="section-heading" data-reveal>
+                    <p class="section-kicker">Browse</p>
+                    <h2 id="archive-grid-heading">Projects render from one data layer so future updates stay simple.</h2>
+                    <p data-project-status>
+                        No project metadata has been connected yet. The archive layout, filtering shell, and playback
+                        dialog are ready for the real project list.
+                    </p>
+                </div>
+
+                <div class="filter-bar" data-filter-bar></div>
+
+                <div class="projects-grid projects-grid--empty" data-project-grid>
+                    <article class="empty-state" data-reveal>
+                        <h3>Archive waiting on real media</h3>
+                        <p>
+                            Add selected posters, project metadata, and Cloudinary video URLs to publish the full archive
+                            here without changing the page structure.
+                        </p>
+                        <a class="button button--secondary" href="https://www.instagram.com/sanjanedits/">See current Instagram posts</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <p>sanjanedits</p>
+            <nav aria-label="Footer">
+                <ul class="site-footer__list">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./index.html#contact">Contact</a></li>
+                    <li><a href="https://www.instagram.com/sanjanedits/">Instagram</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <dialog class="video-dialog" id="video-dialog" aria-labelledby="video-dialog-title">
+        <div class="video-dialog__surface">
+            <button class="video-dialog__close" type="button" aria-label="Close video" data-action="close-video">
+                Close
+            </button>
+
+            <div class="video-dialog__body">
+                <div class="video-dialog__media">
+                    <video
+                        class="video-dialog__video"
+                        controls
+                        playsinline
+                        preload="none"
+                        data-video-element
+                        hidden
+                    ></video>
+
+                    <div class="video-dialog__fallback" data-video-fallback>
+                        <span class="video-dialog__fallback-mark">MEDIA SLOT</span>
+                    </div>
+                </div>
+
+                <div class="video-dialog__content">
+                    <p class="video-dialog__eyebrow" id="video-dialog-status">Portfolio playback</p>
+                    <h2 class="video-dialog__title" id="video-dialog-title">Media slot</h2>
+                    <p class="video-dialog__description" data-video-description>
+                        Add a poster and Cloudinary delivery URL to publish this edit.
+                    </p>
+
+                    <div class="video-dialog__actions">
+                        <button class="button button--secondary" type="button" data-video-retry hidden>Retry</button>
+                        <a class="button button--text" href="https://www.instagram.com/sanjanedits/" data-video-instagram hidden>
+                            View on Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
+

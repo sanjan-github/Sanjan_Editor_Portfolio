@@ -1,0 +1,111 @@
+@layer responsive {
+    @media (width >= 48rem) {
+        .site-nav__toggle {
+            display: none;
+        }
+
+        .site-nav__panel {
+            position: static;
+            display: block;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .site-nav__list {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .button--nav {
+            display: inline-flex;
+        }
+
+        .hero__layout,
+        .archive-hero__layout {
+            grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.8fr);
+            align-items: start;
+        }
+
+        .showreel__layout,
+        .about__layout,
+        .contact__panel {
+            grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr);
+            align-items: start;
+        }
+
+        .philosophy__layout {
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+            align-items: start;
+        }
+
+        .capabilities-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .project-card--primary {
+            grid-column: span 7;
+        }
+
+        .project-card {
+            grid-column: span 5;
+        }
+
+        .projects-grid:not(.projects-grid--empty) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .video-dialog__body {
+            grid-template-columns: minmax(20rem, 0.9fr) minmax(0, 1.1fr);
+            align-items: start;
+        }
+    }
+
+    @media (width >= 72rem) {
+        .featured-grid {
+            align-items: start;
+        }
+
+        .project-card--primary {
+            grid-column: span 6;
+            grid-row: span 2;
+            align-self: stretch;
+        }
+
+        .project-card {
+            grid-column: span 3;
+        }
+
+        .projects-grid:not(.projects-grid--empty) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    @media (width < 30rem) {
+        .site-header__inner,
+        .site-footer__inner {
+            grid-template-columns: 1fr;
+        }
+
+        .site-nav {
+            justify-self: stretch;
+        }
+
+        .site-nav__panel {
+            inset-inline: 0;
+        }
+
+        .hero__actions,
+        .video-dialog__actions {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .button {
+            inline-size: 100%;
+        }
+    }
+}
+

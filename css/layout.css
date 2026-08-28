@@ -1,0 +1,60 @@
+@layer layout {
+    .container {
+        width: min(100% - 2rem, var(--container-max));
+        margin-inline: auto;
+    }
+
+    .site-header__inner,
+    .site-footer__inner {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: var(--space-4);
+    }
+
+    .hero__layout,
+    .showreel__layout,
+    .philosophy__layout,
+    .about__layout,
+    .archive-hero__layout {
+        display: grid;
+        gap: clamp(2rem, 5vw, 4rem);
+    }
+
+    .capabilities-grid,
+    .featured-grid,
+    .philosophy__points {
+        display: grid;
+        gap: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .featured-grid {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+
+    .project-card--primary {
+        grid-column: span 12;
+    }
+
+    .project-card {
+        grid-column: span 12;
+    }
+
+    .projects-grid {
+        display: grid;
+        gap: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .contact__panel {
+        display: grid;
+        gap: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-block-end: var(--space-6);
+    }
+}
+

@@ -1,0 +1,47 @@
+@layer sections {
+    .hero {
+        padding-block-start: clamp(3rem, 6vw, 5rem);
+    }
+
+    .hero__content {
+        display: grid;
+        gap: var(--space-5);
+    }
+
+    .hero__title {
+        font-size: clamp(3.5rem, 10vw, 7.8rem);
+        max-width: 11ch;
+    }
+
+    .hero__intro {
+        font-size: clamp(1.05rem, 2vw, 1.2rem);
+        max-width: 36rem;
+    }
+
+    .hero__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+    }
+
+    .selected-work .section-heading {
+        max-width: 46rem;
+    }
+
+    .project-card--primary {
+        padding: clamp(1rem, 2vw, 1.25rem);
+    }
+
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about__content {
+        align-self: center;
+    }
+
+    .archive-hero {
+        padding-block-end: var(--space-7);
+    }
+}
+

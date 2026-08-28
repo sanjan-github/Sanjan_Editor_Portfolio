@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>sanjanedits</title>
+  <rect width="64" height="64" rx="14" fill="#090909"/>
+  <path d="M18 18h28v6H24v11h18v6H24v17h-6V18Z" fill="#F5F5F2"/>
+  <path d="M47 14 18 50" stroke="#C8FF00" stroke-width="4" stroke-linecap="round"/>
+</svg>
+
