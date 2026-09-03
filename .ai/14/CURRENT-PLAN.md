@@ -1431,3 +1431,8 @@ One owner.
 One defined scope.
 One verification point.
 One clean handoff.
+
+--- ACTIVE RESUME CHECKPOINT 2026-09-03 ---
+Completed inspection of the live site, repository, reference image, and Instagram. Replaced index.html with an editorial photo-led homepage, added css/portfolio.css and js/portfolio.js, preserved all authoritative media URLs, and documented the replaceable hero image src.
+
+Validation completed locally. Remaining execution: commit and push to master, then verify the published GitHub Pages URL.

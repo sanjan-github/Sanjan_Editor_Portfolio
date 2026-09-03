@@ -426,3 +426,10 @@ exact assets and URLs supplied by Sanjan
 If authoritative sources conflict:
 STOP and report the conflict.
 Do not silently choose one.
+
+--- RESUME CHECKPOINT 2026-09-03 ---
+The homepage presentation layer is rebuilt in index.html, css/portfolio.css, and js/portfolio.js. The new experience uses the authoritative blue/white palette, oversized editorial typography, an adaptive image wrapper for the replaceable hero photo, overlaying title/photo composition inspired by the supplied reference, responsive layouts, muted Cloudinary work previews, reveal-on-scroll, lightweight scroll-linked parallax, and prefers-reduced-motion support.
+
+Local validation completed: page renders at http://localhost:4173/, hero image loads, document scroll height is 7015px in the preview, parallax transforms are applied, no runtime errors were observed, local asset checks passed, and all five Cloudinary video URLs returned HTTP 200. The old CSS/JS modules remain in the repository but are no longer loaded by index.html.
+
+Instagram review: @sanjanedits, 72 followers, 45 posts, bio “thoughts into edits”; recent work centers on Telugu cinema, football, and music-led reels.
