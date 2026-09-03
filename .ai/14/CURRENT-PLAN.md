@@ -1,1122 +1,583 @@
 CURRENT PLAN
 1. Purpose
-This file is the living execution roadmap for the sanjanedits portfolio.
-It answers:
+This is the master execution plan for the sanjanedits portfolio.
+It defines:
 
-What are we doing next, in what order, and what must be true before moving forward?
+what we are building
+the order in which it should be built
+dependencies between work
+how AI agents must execute the work
+how interrupted work must be resumed
+how changes must be verified
+what must be considered before making changes
 
-It does NOT define:
+This document is an execution plan, not a general coding-rules document.
+The other .ai files remain authoritative for their respective subjects.
 
-General project rules
-Design-system rules
-HTML/CSS/JS rules
-Accessibility rules
-Performance rules
-Historical design decisions
-Detailed current-state information
+2. Product Goal
+Build a polished personal portfolio website for sanjanedits / Sanjan, designed primarily to convert visitors into potential video-editing clients.
+The website must communicate three things immediately:
 
-Those responsibilities belong to the other .ai files.
-This file should change as implementation progresses.
+Sanjan is a real person.
+Sanjan is a video editor.
+The quality of the actual work is the primary proof.
 
-2. Planning Principles
-The project should be developed in controlled phases.
-The core principles are:
-BUILD FOUNDATION
-        ↓
-BUILD STRUCTURE
-        ↓
-BUILD CORE INTERACTIONS
-        ↓
-INTEGRATE MEDIA
-        ↓
-POLISH
-        ↓
-TEST
-        ↓
-DEPLOY
+The website must feel:
 
-Do not optimize or polish unstable architecture prematurely.
-Do not skip foundational work simply because the visual result is more exciting.
-GitHub's project guidance recommends breaking larger work into smaller pieces and making dependencies between work explicit. This plan follows that principle.
+cinematic
+premium
+modern
+editorial
+energetic
+intentional
+lightweight
 
-3. Current Overall Status
-Overall status:
-PRE-IMPLEMENTATION
-Planning/specification:
-Complete
-Implementation:
-Not started
+It must not feel like:
 
-4. Current Phase
-Current phase:
-PHASE 0 — PROJECT SETUP
-Objective:
-Create the repository foundation and establish the environment in which the website will be safely developed by multiple AI coding agents.
-
-5. Phase Status Legend
-Use:
-[ ] Not started
-[~] In progress
-[x] Complete
-[!] Blocked
-[-] Intentionally skipped
-
-Do not mark an item [x] merely because code was generated.
-An item is complete only when its acceptance criteria are satisfied.
-
-6. Definition of Done
-A task is considered complete when:
-
-The requested implementation exists.
-It follows the relevant .ai rules.
-It does not unintentionally break existing functionality.
-It has been tested at the appropriate scope.
-Relevant responsive behavior has been checked.
-Relevant accessibility has been checked.
-Relevant performance behavior has been checked.
-The diff has been reviewed.
-Documentation has been updated when required.
+a generic developer portfolio
+a gaming/neon template
+an agency pretending to be larger than it is
+an over-animated showcase where effects overpower the work
 
 
-7. Phase 0 — Repository Setup
-Status:
-[~] In progress
-Objective
-Establish a clean, predictable repository before writing significant application code.
-Tasks
-0.1 Create repository
-[ ] Create GitHub repository
-[ ] Choose repository name
-[ ] Initialize main branch
+3. Final Website Structure
+The website consists of two primary pages.
+Homepage
+Navigation
+↓
+Hero
+↓
+Selected Work
+↓
+Showreel
+↓
+What I Edit
+↓
+Editing Philosophy
+↓
+About Sanjan
+↓
+Contact CTA
+↓
+Footer
+Projects Page
+Navigation
+↓
+Archive Hero
+↓
+Category Filters
+↓
+Project Grid
+↓
+Video Playback
+↓
+Footer
+The homepage is the primary conversion experience.
+The Projects page is the deeper portfolio archive.
 
-0.2 Create project structure
-[ ] Create .ai/
-[ ] Create assets/
-[ ] Create css/
-[ ] Create js/
-[ ] Create index.html
-[ ] Create projects.html
-[ ] Create README.md
-[ ] Create .gitignore
+4. Hero Direction
+The hero is one of the highest-priority visual experiences.
+The final direction is a photo-led hero, using Sanjan's real profile photograph rather than an invented or artificial identity.
+The hero should establish identity and editing discipline immediately.
+The photograph should not simply sit as a static profile image.
+As the visitor scrolls, the photograph and surrounding typography should participate in a controlled transition.
+The intended motion language is:
+arrival → tension → movement → transformation → reveal
+The animation must feel connected to scrolling rather than being a random entrance animation.
+The hero must remain understandable without animation.
+The hero must work on:
 
-0.3 Add AI specification
-[ ] Add 00-PROJECT-CONTEXT.md
-[ ] Add 01-ARCHITECTURE.md
-[ ] Add 02-DESIGN-SYSTEM.md
-[ ] Add 03-UX-RULES.md
-[ ] Add 04-HTML-RULES.md
-[ ] Add 05-CSS-RULES.md
-[ ] Add 06-JS-RULES.md
-[ ] Add 07-PERFORMANCE-RULES.md
-[ ] Add 08-MEDIA-RULES.md
-[ ] Add 09-ACCESSIBILITY-RULES.md
-[ ] Add 10-GITHUB-RULES.md
-[ ] Add 11-CHANGE-PROTOCOL.md
-[ ] Add 12-CURRENT-STATE.md
-[ ] Add 13-DESIGN-DECISIONS.md
-[ ] Add 14-CURRENT-PLAN.md
+mobile
+tablet
+desktop
+reduced-motion environments
 
-0.4 Initial Git checkpoint
-[ ] Verify git status
-[ ] Verify repository structure
-[ ] Verify no secrets
-[ ] Verify no unnecessary large files
-[ ] Create initial checkpoint commit
+The exact implementation should be determined during development and testing rather than prematurely locked to a specific animation library or technique.
+Do not introduce GSAP, Three.js, React, or another heavy framework merely to achieve the effect.
+CSS transforms, opacity, clipping, positioning, and lightweight JavaScript/scroll observation should be preferred where sufficient.
 
-Acceptance Criteria
-[ ] Repository exists
-[ ] main branch exists
-[ ] Project structure exists
-[ ] .ai specification exists
-[ ] .gitignore exists
-[ ] No unnecessary media is committed
-[ ] Working tree is clean after checkpoint
+5. Visual System
+The visual direction is dark cinematic editorial.
+Current locked foundation:
+Background:
+#090909
+Primary text:
+#F5F5F2
+Secondary text:
+#8A8A8A
+Accent:
+#C8FF00
+Typography:
 
+Plus Jakarta Sans for display
+Inter for body/UI
 
-8. Phase 1 — HTML Foundation
-Status:
-[ ] Not started
-Depends on:
-Phase 0
-Objective
-Create the semantic structural foundation of both pages before visual polish.
-Tasks
-1.1 Global HTML foundation
-[ ] HTML5 doctype
-[ ] lang attribute
-[ ] viewport metadata
-[ ] title
-[ ] meta description
-[ ] Open Graph foundation
+The design should use:
 
-1.2 Global page structure
-[ ] Header
-[ ] Navigation
-[ ] Main
-[ ] Footer
-[ ] Skip link
+strong typography
+large scale differences
+negative space
+asymmetric/editorial composition
+restrained accent usage
+cinematic imagery
+controlled motion
 
-1.3 Homepage structure
-[ ] Hero
-[ ] Selected Work
-[ ] Showreel
-[ ] What I Edit
-[ ] Editing Philosophy
-[ ] About
-[ ] Contact
+Do not add visual effects simply because they are technically possible.
+Every effect must have a communication or interaction purpose.
 
-1.4 Projects page structure
-[ ] Page heading
-[ ] Filter area
-[ ] Project grid container
-[ ] Video dialog container
+6. Portfolio Content Strategy
+The homepage will present five curated projects.
+Structure:
 
-Acceptance Criteria
-[ ] Both pages have semantic structure.
-[ ] Heading hierarchy is logical.
-[ ] Navigation works without JavaScript.
-[ ] Contact links are structurally present.
-[ ] No visual styling is required to understand document structure.
-
-
-9. Phase 2 — CSS Foundation
-Status:
-[ ] Not started
-Depends on:
-Phase 1
-Objective
-Establish the design system and reusable layout foundation.
-Tasks
-2.1 Base styles
-[ ] CSS reset
-[ ] box-sizing
-[ ] base typography
-[ ] body defaults
-[ ] color tokens
-[ ] spacing tokens
-[ ] radius tokens
-[ ] transition tokens where appropriate
-
-2.2 Typography
-[ ] Plus Jakarta Sans
-[ ] Inter
-[ ] Required font weights only
-[ ] Responsive display typography
-[ ] Body typography
-
-2.3 Layout
-[ ] container system
-[ ] section spacing
-[ ] grid foundation
-[ ] flex patterns
-[ ] responsive foundations
-
-2.4 Global interaction states
-[ ] focus
-[ ] hover
-[ ] active
-[ ] selection
-
-Acceptance Criteria
-[ ] Design tokens exist in one authoritative location.
-[ ] Typography is consistent.
-[ ] Responsive base works.
-[ ] No component-specific styling leaks into unrelated areas.
-[ ] Focus states exist.
-
-
-10. Phase 3 — Navigation
-Status:
-[ ] Not started
-Depends on:
-Phase 2
-Objective
-Build stable site navigation before more complex page interactions.
-Tasks
-[ ] Desktop navigation
-[ ] Mobile navigation
-[ ] Mobile menu state
-[ ] Accessible expanded/collapsed state
-[ ] Navigation focus states
-[ ] Projects link
-[ ] Contact access
-
-Acceptance Criteria
-[ ] Navigation works without JavaScript for normal links.
-[ ] Mobile navigation works.
-[ ] Keyboard operation works.
-[ ] Focus remains visible.
-[ ] No horizontal overflow.
-
-
-11. Phase 4 — Hero
-Status:
-[ ] Not started
-Depends on:
-Phase 3
-Objective
-Create the first-impression experience.
-The visitor should immediately understand:
-
-sanjanedits
-Video Editor
-What kind of work is offered
-Where to view the work
-
-Tasks
-[ ] Hero typography
-[ ] Positioning statement
-[ ] Primary CTA
-[ ] Secondary CTA where useful
-[ ] Sanjan photograph integration
-[ ] Hero composition
-[ ] Hero responsive layout
-[ ] Hero motion
-
-Acceptance Criteria
-[ ] Identity is immediately understandable.
-[ ] Video editing is immediately understandable.
-[ ] CTA is obvious.
-[ ] Hero works on mobile.
-[ ] Hero does not introduce unnecessary heavy media.
-[ ] Animation remains fast.
-
-
-12. Phase 5 — Selected Work
-Status:
-[ ] Not started
-Depends on:
-Phase 4
-Objective
-Present the strongest five projects with a premium editorial layout.
-Composition:
-1 featured edit
-+
+1 strongest featured edit
 4 supporting edits
 
-Tasks
-[ ] Project-card component
-[ ] Featured project treatment
-[ ] Supporting project treatment
-[ ] Poster integration
-[ ] Project metadata
-[ ] Play affordance
-[ ] Hover behavior
-[ ] Focus behavior
-[ ] Mobile composition
-
-Acceptance Criteria
-[ ] Five projects can be presented.
-[ ] Strongest work has strongest prominence.
-[ ] Cards are visually distinct but consistent.
-[ ] Posters load without unnecessary video requests.
-[ ] Keyboard interaction works.
-[ ] Mobile cards remain usable.
-
-
-13. Phase 6 — Video System
-Status:
-[ ] Not started
-Depends on:
-Phase 5
-Objective
-Implement the reusable portfolio video experience.
-Tasks
-[ ] Native video implementation
-[ ] Video dialog
-[ ] Open behavior
-[ ] Close behavior
-[ ] Poster handling
-[ ] On-demand video loading
-[ ] Cloudinary URL handling
-[ ] Playback
-[ ] Audio control
-[ ] Error handling
-[ ] Focus management
-[ ] Video cleanup
-
-Acceptance Criteria
-[ ] Videos do not all load on initial page load.
-[ ] Clicking a project opens the intended video.
-[ ] Cloudinary video loads correctly.
-[ ] Playback works.
-[ ] Audio works after intentional playback.
-[ ] Dialog can be closed.
-[ ] Escape works.
-[ ] Focus is handled correctly.
-[ ] Failed video does not break the site.
-[ ] Mobile playback works.
-
-
-14. Phase 7 — Cloudinary Integration
-Status:
-[ ] Not started
-Depends on:
-Phase 6
-Objective
-Connect the real portfolio media.
-Tasks
-[ ] Create/configure Cloudinary account
-[ ] Establish folder convention
-[ ] Upload selected videos
-[ ] Establish poster strategy
-[ ] Establish delivery transformation strategy
-[ ] Add project URLs
-[ ] Verify format/quality behavior
-
-Acceptance Criteria
-[ ] Portfolio videos resolve through Cloudinary.
-[ ] No private Cloudinary credentials appear in frontend code.
-[ ] Delivery quality is acceptable.
-[ ] Delivery size is reasonable.
-[ ] Mobile playback works.
-[ ] Posters and videos correspond correctly.
-
-
-15. Phase 8 — Showreel
-Status:
-[ ] Not started
-Depends on:
-Phase 7
-Objective
-Create the main showreel presentation using the reel selected by Sanjan.
-Tasks
-[ ] Showreel section
-[ ] Poster
-[ ] Playback CTA
-[ ] Cloudinary delivery
-[ ] Audio behavior
-[ ] Responsive presentation
-
-Acceptance Criteria
-[ ] Showreel is visually prominent.
-[ ] Showreel does not block initial page loading.
-[ ] Playback is intentional.
-[ ] Audio works.
-[ ] Mobile presentation is strong.
-
-
-16. Phase 9 — Capability Sections
-Status:
-[ ] Not started
-Depends on:
-Phase 8
-Objective
-Build the supporting sections that explain Sanjan's editing focus.
-Sections:
-What I Edit
-Editing Philosophy
-
-Tasks
-[ ] Short-form category
-[ ] Cinematic category
-[ ] Music-driven category
-[ ] Editing philosophy statement
-[ ] Supporting motion
-[ ] Responsive layouts
-
-Acceptance Criteria
-[ ] Capabilities are clear.
-[ ] Copy is concise.
-[ ] No unsupported claims.
-[ ] Sections support the portfolio rather than overshadow it.
-
-
-17. Phase 10 — About
-Status:
-[ ] Not started
-Depends on:
-Phase 9
-Objective
-Introduce Sanjan as a real person and establish truthful credibility.
-Tasks
-[ ] Profile photo
-[ ] Introduction
-[ ] 70+ edits statistic
-[ ] Approximately 45 published edits
-[ ] Editing focus
-[ ] Responsive composition
-
-Acceptance Criteria
-[ ] Information is factual.
-[ ] Photo is integrated professionally.
-[ ] Section does not become a resume.
-[ ] Typography and spacing match the design system.
-
-
-18. Phase 11 — Contact
-Status:
-[ ] Not started
-Depends on:
-Phase 10
-Objective
-Make contacting Sanjan extremely easy.
-Tasks
-[ ] Strong closing CTA
-[ ] Instagram link
-[ ] WhatsApp username-based link
-[ ] Contact button states
-[ ] Mobile contact behavior
-
-Acceptance Criteria
-[ ] Contact action is obvious.
-[ ] Instagram works.
-[ ] WhatsApp works.
-[ ] Phone number is not publicly exposed.
-[ ] Contact remains accessible without JavaScript.
-
-
-19. Phase 12 — Projects Page
-Status:
-[ ] Not started
-Depends on:
-Phase 7
-Objective
-Create the complete portfolio archive.
-Tasks
-[ ] Projects page layout
-[ ] Central project data
-[ ] Project rendering
-[ ] Approximately 45 projects
-[ ] Category filters
-[ ] Project cards
-[ ] Video integration
-[ ] Instagram links
-[ ] Responsive grid
-
-Acceptance Criteria
-[ ] Projects are rendered from centralized data.
-[ ] Approximately 45 projects can be displayed.
-[ ] Filtering works.
-[ ] Filtering does not reload the page.
-[ ] Filtering does not load all videos.
-[ ] Project cards remain accessible.
-[ ] Project playback works.
-
-
-20. Phase 13 — Full Media Population
-Status:
-[ ] Not started
-Depends on:
-Phase 12
-Objective
-Populate the complete portfolio archive with real selected media.
-Tasks
-[ ] Prepare all project posters
-[ ] Upload required videos
-[ ] Add project metadata
-[ ] Add Instagram URLs
-[ ] Verify project/video pairing
-[ ] Verify categories
-[ ] Verify ordering
-
-Acceptance Criteria
-[ ] No broken project URLs.
-[ ] No missing poster references.
-[ ] No incorrect Instagram links.
-[ ] No broken videos.
-[ ] No unintended duplicate projects.
-
-
-21. Phase 14 — Motion & Interaction Polish
-Status:
-[ ] Not started
-Depends on:
-Phases 1–13
-Objective
-Add the polished motion language after structure and functionality are stable.
-Tasks
-[ ] Hero reveal
-[ ] Section reveals
-[ ] Project-card interaction
-[ ] Button interactions
-[ ] Navigation transitions
-[ ] Video dialog transitions
-[ ] Optional pointer interactions
-[ ] Optional custom cursor
-[ ] Reduced-motion behavior
-
-Acceptance Criteria
-[ ] Motion feels intentional.
-[ ] Motion does not delay content.
-[ ] No unnecessary continuous animation.
-[ ] Reduced-motion mode works.
-[ ] Mobile remains smooth.
-[ ] No major performance regression.
-
-
-22. Phase 15 — Responsive Refinement
-Status:
-[ ] Not started
-Depends on:
-Phase 14
-Objective
-Perform a dedicated responsive pass rather than assuming responsive CSS is already perfect.
-Targets
-[ ] Small mobile
-[ ] Large mobile
-[ ] Tablet
-[ ] Laptop
-[ ] Desktop
-[ ] Large desktop
-
-Check
-[ ] Navigation
-[ ] Hero
-[ ] Project cards
-[ ] Video dialog
-[ ] Showreel
-[ ] About
-[ ] Contact
-[ ] Footer
-[ ] Typography
-[ ] Spacing
-[ ] Overflow
-
-Acceptance Criteria
-[ ] No unintended horizontal scrolling.
-[ ] No clipped text.
-[ ] No broken grids.
-[ ] No unusable controls.
-[ ] No major layout shifts.
-
-
-23. Phase 16 — Accessibility Audit
-Status:
-[ ] Not started
-Depends on:
-Phase 15
-Objective
-Perform a dedicated WCAG 2.2 AA review.
-Tasks
-[ ] Semantic structure
-[ ] Heading hierarchy
-[ ] Keyboard-only navigation
-[ ] Focus states
-[ ] Focus order
-[ ] Mobile navigation accessibility
-[ ] Video dialog accessibility
-[ ] Accessible names
-[ ] Image alt text
-[ ] Contrast
-[ ] Touch targets
-[ ] Reduced motion
-[ ] Zoom/reflow
-[ ] Screen-reader spot check
-
-Tools/Methods
-Where practical:
-[ ] Lighthouse
-[ ] axe DevTools or equivalent
-[ ] Keyboard-only test
-[ ] Screen reader test
-[ ] Browser zoom test
-[ ] Reduced-motion test
-
-Acceptance Criteria
-[ ] No known high-impact accessibility failures.
-[ ] Keyboard navigation works.
-[ ] Focus is visible.
-[ ] Video dialog is operable.
-[ ] Interactive controls have accessible names.
-[ ] Contrast is acceptable.
-[ ] Reduced-motion behavior works.
-
-
-24. Phase 17 — Performance Audit
-Status:
-[ ] Not started
-Depends on:
-Phase 16
-Objective
-Confirm that the portfolio is visually rich without becoming technically heavy.
-Tasks
-[ ] Inspect network waterfall
-[ ] Check initial page requests
-[ ] Verify videos are not eagerly downloaded
-[ ] Check poster sizes
-[ ] Check image sizes
-[ ] Check JavaScript execution
-[ ] Check CSS size
-[ ] Check font requests
-[ ] Check Cloudinary delivery
-[ ] Check mobile behavior
-[ ] Test throttled network
-[ ] Test Core Web Vitals where practical
-
-Metrics of interest
-[ ] LCP
-[ ] INP
-[ ] CLS
-
-Acceptance Criteria
-[ ] No unnecessary video requests.
-[ ] No obviously oversized images.
-[ ] No unnecessary third-party scripts.
-[ ] No major interaction lag.
-[ ] No obvious layout shift problems.
-[ ] Mobile experience remains responsive.
-
-
-25. Phase 18 — SEO & Sharing
-Status:
-[ ] Not started
-Depends on:
-Phase 17
-Tasks
-[ ] Final page titles
-[ ] Meta descriptions
-[ ] Open Graph tags
-[ ] Social preview image
-[ ] robots.txt
-[ ] sitemap.xml
-[ ] Canonical strategy if appropriate
-[ ] Verify heading structure
-[ ] Verify meaningful link text
-
-Acceptance Criteria
-[ ] Homepage has correct metadata.
-[ ] Projects page has correct metadata.
-[ ] Social previews have meaningful content.
-[ ] robots.txt exists if needed.
-[ ] sitemap.xml is valid if used.
-
-
-26. Phase 19 — Final Content Review
-Status:
-[ ] Not started
-Depends on:
-Phase 18
-Objective
-Remove anything that weakens trust.
-Review
-[ ] No fake claims
-[ ] No placeholder text
-[ ] No fake clients
-[ ] No fake testimonials
-[ ] No temporary project names
-[ ] No broken URLs
-[ ] No lorem ipsum
-[ ] No debugging text
-[ ] No unnecessary technical language
-[ ] No inconsistent brand name
-
-Acceptance Criteria
-Every visible statement should be:
-accurate + intentional + useful.
-
-27. Phase 20 — Production Git Review
-Status:
-[ ] Not started
-Depends on:
-Phase 19
-Tasks
-[ ] git status
-[ ] git diff
-[ ] inspect modified files
-[ ] inspect staged diff
-[ ] check repository size
-[ ] check for secrets
-[ ] check untracked files
-[ ] check .gitignore
-[ ] verify deployment configuration
-
-Acceptance Criteria
-[ ] No secrets.
-[ ] No unnecessary large files.
-[ ] No temporary development artifacts.
-[ ] No accidental AI-generated files.
-[ ] All important source files tracked.
-[ ] Diff contains only intended changes.
-
-
-28. Phase 21 — GitHub Pages Deployment
-Status:
-[ ] Not started
-Depends on:
-Phase 20
-Tasks
-[ ] Configure GitHub Pages
-[ ] Select correct deployment source
-[ ] Deploy
-[ ] Open live URL
-[ ] Check homepage
-[ ] Check projects page
-[ ] Check assets
-[ ] Check Cloudinary playback
-[ ] Check external links
-
-Acceptance Criteria
-[ ] Live homepage works.
-[ ] Live Projects page works.
-[ ] CSS loads.
-[ ] JavaScript loads.
-[ ] Posters load.
-[ ] Videos load.
-[ ] Navigation works.
-[ ] No GitHub Pages path issues.
-
-
-29. Phase 22 — Production Verification
-Status:
-[ ] Not started
-Depends on:
-Phase 21
-Desktop
-[ ] Hero
-[ ] Navigation
-[ ] Selected work
-[ ] Showreel
-[ ] All major sections
-[ ] Video playback
-[ ] Contact
-
-Mobile
-[ ] Navigation
-[ ] Hero
-[ ] Project cards
-[ ] Video playback
-[ ] Showreel
-[ ] Contact
-
-Accessibility
-[ ] Keyboard
-[ ] Focus
-[ ] Reduced motion
-[ ] Zoom
-
-Performance
-[ ] Initial loading
-[ ] Video loading
-[ ] Poster loading
-[ ] Interaction responsiveness
-
-Acceptance Criteria
-The deployed site must behave like the final tested local implementation.
-
-30. Phase 23 — Launch
-Status:
-[ ] Not started
-Depends on:
-Phase 22
-Tasks
-[ ] Final Git checkpoint
-[ ] Final deployment
-[ ] Verify live site
-[ ] Add portfolio link to freelancing profiles
-[ ] Add portfolio link where appropriate on Instagram
-
-Acceptance Criteria
-[ ] Portfolio URL is stable.
-[ ] Portfolio is publicly accessible.
-[ ] Contact links work.
-[ ] No obvious production bugs remain.
-
-
-31. Future Enhancements
-These are deliberately not part of the initial launch.
-Potential future work:
-[ ] Custom domain
-[ ] Testimonials
-[ ] Client case studies
-[ ] Email contact form
-[ ] Analytics
-[ ] More advanced project filtering
-[ ] Custom video preview system
-[ ] Additional project categories
-[ ] More advanced interaction experiments
-
-Future enhancements must not be added before the core portfolio is stable unless explicitly prioritized.
-
-32. Deferred Ideas
-Ideas should be recorded here rather than immediately implemented.
+The Projects page will eventually contain approximately 45 published edits.
+The project selection must come from Sanjan.
+AI agents must not invent projects, titles, clients, results, testimonials, awards, experience claims, or performance statistics.
+The portfolio must use actual work as the primary credibility mechanism.
+
+7. Video Architecture
+Portfolio videos will be hosted through Cloudinary.
+GitHub must remain lightweight.
+The repository should contain:
+
+HTML
+CSS
+JavaScript
+posters
+icons
+lightweight static assets
+
+Videos must not be stored directly in the repository.
+The default playback model is:
+poster
+↓
+user interaction
+↓
+video source activated
+↓
+Cloudinary video loads
+↓
+playback
+Videos must not all load during initial page load.
+Audible autoplay is prohibited.
+Video playback must be intentional.
+The video system must support:
+
+desktop
+mobile
+keyboard interaction
+focus management
+Escape-to-close
+error handling
+cleanup
+reduced motion where relevant
+
+
+8. Project Data Architecture
+Project information must remain centralized.
+Rendering logic must be separate from project data.
+The project architecture should allow adding or changing projects without rewriting the rendering system.
+Conceptually:
+project data
+    ↓
+rendering
+    ↓
+project card
+    ↓
+video interaction
+
+The exact implementation may evolve if the change improves maintainability without violating the existing architecture.
+
+9. Responsive Strategy
+Responsiveness is not a final afterthought.
+Every major feature must be designed with responsive behavior in mind.
+Required targets:
+
+small mobile
+large mobile
+tablet
+laptop
+desktop
+large desktop
+
+The hero is especially important because its composition and scroll behavior may need substantially different treatment on mobile.
+Do not force the desktop composition onto mobile.
+
+10. Accessibility Strategy
+Accessibility is a first-class requirement.
+Target:
+WCAG 2.2 AA
+The implementation must consider:
+
+semantic HTML
+heading hierarchy
+keyboard navigation
+visible focus
+accessible names
+navigation state
+video dialog behavior
+image alternative text
+contrast
+touch targets
+reduced motion
+zoom/reflow
+screen-reader behavior
+
+Accessibility must be considered during implementation, not repaired at the end.
+
+11. Performance Strategy
+The portfolio is media-heavy, therefore performance is a design constraint.
+Priorities:
+
+fast initial rendering
+minimal JavaScript
+minimal dependencies
+poster-first media
+on-demand video loading
+appropriately sized images
+limited font weights
+no unnecessary third-party scripts
+no unnecessary continuous animation
+
+The visual richness of the site must not require a technically heavy implementation.
+Core Web Vitals should be checked during final validation.
+
+12. Development Philosophy
+The project must be developed incrementally.
+Do not attempt to implement the entire portfolio in one giant AI task.
+Each task must have:
+
+a clear objective
+defined boundaries
+dependencies
+acceptance criteria
+verification
+a clean stopping point
+
+A task is not complete merely because code was generated.
+It is complete only after the relevant behavior has been inspected and verified.
+
+13. Dependency-Aware Execution
+Implementation order must follow actual dependencies.
+The general sequence is:
+Understand current state
+↓
+Stabilize foundation
+↓
+Build/refine visual structure
+↓
+Build interactions
+↓
+Integrate real media
+↓
+Responsive refinement
+↓
+Motion refinement
+↓
+Accessibility verification
+↓
+Performance verification
+↓
+SEO/sharing
+↓
+Final content review
+↓
+Production deployment
+The exact ordering of individual tasks may change when implementation reveals a dependency.
+Agents must explain such changes rather than silently changing the plan.
+
+14. AI Agent Startup Protocol
+Before modifying the project, every AI agent must:
+
+Read the relevant .ai documentation.
+Inspect the actual repository.
+Inspect the current Git state.
+Determine what is already implemented.
+Determine what is incomplete.
+Identify the exact requested task.
+Identify dependencies and affected files.
+Check whether previous work is partially complete.
+
+Agents must trust the repository over stale assumptions.
+They must never restart an already completed feature simply because their task description describes it as unfinished.
+
+15. Task Boundaries
+AI agents must work on small, logically complete units.
+Bad task:
+
+Build the entire portfolio.
+
+Good task:
+
+Implement the hero photo composition and responsive layout without changing project sections.
+
+A task should be small enough that:
+
+its changes can be reviewed
+its behavior can be tested
+another agent can understand its stopping point
+an interruption does not leave the project ambiguous
+
+
+16. Before Changing Code
+Before making a meaningful change, the agent must identify:
+
+files that will change
+existing code that depends on them
+expected visual effect
+responsive consequences
+accessibility consequences
+performance consequences
+interaction consequences
+future integration consequences
+
+If a change creates unnecessary coupling or technical debt, reconsider the approach.
+Do not optimize one component while creating problems elsewhere.
+
+17. Preserve Existing Work
+Agents must make localized changes whenever possible.
+Do not rewrite entire files when a targeted change is sufficient.
+Do not replace functioning architecture merely because another implementation appears cleaner.
+Do not remove working functionality without explicit reason.
+Before modifying a shared component, determine where it is used.
+Before modifying global CSS, determine which components depend on the affected rules.
+Before modifying JavaScript modules, determine their callers and responsibilities.
+
+18. Interrupted Work / Agent Handoff Protocol
+An agent may stop because of:
+
+credit limits
+context limits
+tool failure
+user interruption
+environment failure
+task completion
+
+The next agent must resume from the repository state, not restart from the beginning.
+When interrupted:
+
+inspect Git status
+inspect the diff
+inspect modified files
+identify completed portions
+identify incomplete portions
+run relevant validation
+continue only from the remaining work
+
+Never discard partial work merely because it was created by another agent.
+Never assume partial work is correct without inspection.
+
+19. Checkpoint Strategy
+Meaningful milestones should produce a clean, understandable checkpoint.
+A checkpoint should represent a coherent state such as:
+
+hero structure complete
+hero responsive behavior complete
+project-card system complete
+video dialog complete
+real media integrated
+responsive pass complete
+accessibility pass complete
+
+Do not create meaningless checkpoints for every tiny CSS change.
+The purpose of checkpoints is recovery and traceability.
+
+20. Verification Protocol
+After each meaningful implementation task, the agent must verify the affected behavior.
+Verification should match the change.
 Examples:
-[ ] Experimental page transition
-[ ] Advanced cursor interaction
-[ ] Scroll-linked video treatment
-[ ] Alternative hero animation
-[ ] Light theme experiment
+Hero change:
 
-A deferred idea is not approved work.
+desktop
+mobile
+scroll behavior
+reduced motion
+overflow
 
-33. Blocked Work
-Current blockers:
-None recorded.
-When blocked, use:
-## Blocker
+Navigation change:
 
-Task:
-...
+desktop
+mobile
+keyboard
+focus
+menu state
 
-Blocked by:
-...
+Video change:
 
-Impact:
-...
+opening
+playback
+closing
+Escape
+focus restoration
+failure state
+mobile
 
-Resolution needed:
-...
+CSS change:
 
-Status:
-Open / Resolved
+affected components
+responsive behavior
+overflow
+visual regressions
 
-Do not silently skip blocked dependencies.
+Do not claim verification that was not actually performed.
 
-34. Dependency Rules
-Some phases must precede others.
-Important dependencies:
-Repository
-    ↓
-HTML foundation
-    ↓
-CSS foundation
-    ↓
-Navigation
-    ↓
-Hero
-    ↓
-Selected Work
-    ↓
-Video System
-    ↓
-Cloudinary
-    ↓
-Projects
-    ↓
-Polish
-    ↓
-Accessibility
-    ↓
-Performance
-    ↓
-Deployment
+21. Definition of Done
+A task may be marked complete only when:
 
-Do not bypass dependencies simply because a later feature is visually interesting.
+implementation exists
+relevant .ai rules are followed
+existing functionality remains intact
+relevant responsive behavior is checked
+relevant accessibility is checked
+relevant performance implications are checked
+the diff has been reviewed
+no obvious unfinished implementation remains
+documentation is updated when the project's actual state changes
 
-35. Parallel Work
-Some low-risk work can happen in parallel when it does not create conflicts.
-Possible parallel work:
-Project data preparation
-+
-Poster preparation
-+
-Cloudinary account setup
+Use explicit status where necessary:
 
-while frontend structure is being developed.
-However:
-Do not have multiple AI agents simultaneously modify the same core files without coordination.
-
-36. AI Agent Task Selection
-When assigning work to an AI agent, choose the smallest currently uncompleted task that has all required dependencies satisfied.
-Good:
-Build project-card component.
-
-Bad:
-Finish the portfolio.
-
-The agent should work against this plan rather than invent its own roadmap.
-
-37. AI Agent Phase Boundaries
-An AI agent should not silently move the project into a later phase because it believes the current phase is "good enough."
-For example:
-If Phase 6 is still incomplete:
-Do not start extensive animation polish.
-If accessibility has not been audited:
-Do not call the project production-ready.
-
-38. AI Agent Completion Rule
-When an agent completes a task:
-It should update the relevant status:
-[ ] → [x]
-
-only after validation.
-If partially complete:
-[~]
-
-If blocked:
-[!]
+Implemented
+Verified
+Partially verified
+Not verified
+Blocked
 
 
-39. AI Agent Reporting
-After a meaningful task, report:
-Task:
-...
+22. Change Management
+Before making a change that affects architecture, shared components, design direction, media architecture, or major interaction behavior, the agent must determine whether it conflicts with an existing locked decision.
+If it does, the agent must stop and document the conflict rather than silently changing the architecture.
+Important design decisions belong in:
+.ai/13/DESIGN-DECISIONS.md
+Current factual state belongs in:
+.ai/12/CURRENT-STATE.md
+Execution roadmap belongs here:
+.ai/14/CURRENT-PLAN.md
+Do not duplicate these responsibilities.
 
-Status:
-...
+23. Media Integration Strategy
+Real media is introduced only after the underlying presentation and playback architecture is stable enough to support it.
+The media sequence is:
 
-Files changed:
-...
+final profile photograph
+five selected homepage projects
+project posters
+Cloudinary videos
+showreel
+full archive
+final Instagram links
+final WhatsApp contact link
 
-Validation performed:
-...
+AI agents must never fabricate missing media or URLs.
+Placeholder states must remain honest until real assets are supplied.
 
-Known issues:
-...
+24. Motion Strategy
+Motion should support hierarchy and storytelling.
+Primary motion priorities:
 
-Next plan item:
-...
+hero
+section reveals
+project interactions
+navigation transitions
+video dialog
+supporting micro-interactions
 
-Do not claim completion based solely on code generation.
+Motion should generally use:
 
-40. Plan Updates
-Update this file when:
+transform
+opacity
+clip-path where appropriate
+IntersectionObserver
+lightweight pointer interactions
 
-a task is completed
-a task is blocked
-task order changes
-a new major task is added
-a major task is removed
-a dependency changes
-a phase is completed
+Avoid continuous animation unless it provides meaningful value.
+Avoid animation that delays access to content.
+Reduced-motion behavior is mandatory.
+A custom cursor is optional and must earn its complexity through actual UX value.
 
-Do not update this file for trivial implementation details.
+25. Testing Order
+Testing is continuous, but the final dedicated validation sequence is:
 
-41. Plan vs Current State
-Use:
-CURRENT-STATE.md
-→ What exists now?
+functionality
+responsive behavior
+accessibility
+performance
+SEO/sharing
+final content
+production deployment
+production verification
 
-CURRENT-PLAN.md
-→ What are we doing next?
+Testing must happen against the actual implementation, not against assumptions.
 
-DESIGN-DECISIONS.md
-→ Why was the project designed this way?
+26. Production Requirements
+The final website must:
 
-Do not mix these responsibilities.
+work on GitHub Pages
+use Cloudinary for portfolio video delivery
+remain lightweight
+work on mobile
+remain accessible
+contain no fake claims
+contain no accidental debug content
+contain no broken links
+contain no missing production media
+expose no private credentials
 
-42. Plan vs Rules
-Use:
-*-RULES.md
-→ What must remain true?
+The final production URL must be verified before the project is considered finished.
 
-CURRENT-PLAN.md
-→ What are we currently trying to accomplish?
+27. Current Execution Phase
+The repository already contains the project foundation and .ai specification system.
+The current implementation is therefore not a greenfield project.
+The next major implementation focus is:
+Refine/build the final hero experience around Sanjan's real photograph and the intended scroll-driven visual transition.
+Before that implementation begins, the project documentation must accurately describe the current repository state.
+After the documentation is reconciled, implementation proceeds incrementally from the hero rather than restarting the project.
 
-A temporary implementation task should not become a permanent project rule.
+28. Immediate Execution Order
+The current intended order is:
+Step 1
+Reconcile .ai/12/CURRENT-STATE.md and .ai/14/CURRENT-PLAN.md with the actual repository.
+Step 2
+Inspect and finalize the existing homepage foundation before changing visual behavior.
+Step 3
+Implement the photo-led hero composition.
+Step 4
+Implement and test the hero's scroll-driven transition.
+Step 5
+Perform responsive and reduced-motion refinement for the hero.
+Step 6
+Build/refine Selected Work using the five real curated projects.
+Step 7
+Finalize the reusable video interaction system.
+Step 8
+Integrate Cloudinary and real portfolio media.
+Step 9
+Build/refine the showreel.
+Step 10
+Build/refine capability, philosophy, and About sections.
+Step 11
+Build/refine the Projects archive and centralized project data.
+Step 12
+Populate the complete real portfolio.
+Step 13
+Perform motion and interaction polish.
+Step 14
+Perform dedicated responsive testing.
+Step 15
+Perform accessibility audit.
+Step 16
+Perform performance audit.
+Step 17
+Finalize SEO and sharing metadata.
+Step 18
+Perform final content/trust review.
+Step 19
+Perform production Git review and deployment.
+Step 20
+Verify the live production website.
 
-43. Plan vs Git History
-Git history records:
-what changed.
-This file records:
-what should happen next.
-Do not turn this file into a chronological commit log.
-
-44. Plan Integrity
-Do not mark a task complete merely because:
-
-files exist
-code compiles
-an AI agent claims success
-the browser displayed something once
-
-Use the task's actual acceptance criteria.
-
-45. Scope Protection
-If an AI agent discovers an unrelated improvement while working:
-Do not automatically implement it.
-Add it as:
-Future enhancement
-
-or a separate task when appropriate.
-This prevents scope creep.
-
-46. Priority Rule
-When priorities conflict, prefer:
-1. Broken functionality
-2. Core portfolio experience
-3. Accessibility
-4. Performance
-5. Responsive behavior
-6. Conversion/contact experience
-7. Visual polish
-8. Experimental effects
-
-Do not polish a decorative animation while a video-loading problem remains unresolved.
-
-47. Launch Gate
-The site should not be considered launch-ready until all of the following are complete:
-[x] Core structure
-[x] Navigation
-[x] Hero
-[x] Selected work
-[x] Video playback
-[x] Cloudinary integration
-[x] Showreel
-[x] About
-[x] Contact
-[x] Projects page
-[x] Responsive refinement
-[x] Accessibility audit
-[x] Performance audit
-[x] SEO/share metadata
-[x] Content review
-[x] Production Git review
-[x] GitHub Pages deployment
-[x] Production verification
-
-A checked item must represent verified completion, not intention.
-
-48. Launch Blockers
-The following should block launch:
-
-Broken primary navigation
-Broken video playback
-Broken contact links
-Broken mobile layout
-Exposed credentials/secrets
-Major accessibility failure
-Major performance regression
-Broken GitHub Pages deployment
-Fake/incorrect public claims
-Missing critical portfolio content
-
-Minor cosmetic imperfections do not automatically block launch.
-
-49. Post-Launch Plan
-After launch:
-[ ] Monitor real user feedback
-[ ] Fix critical production issues
-[ ] Review portfolio conversion
-[ ] Add future projects
-[ ] Revisit deferred ideas only when useful
-
-Do not immediately rewrite the entire site after launch because of minor imperfections.
-Use evidence.
-
-50. Single Source of Truth
-This file is the authoritative source for:
-current execution order and planned work.
-The repository should not maintain a contradictory second roadmap elsewhere.
-GitHub Issues/Projects may be used later as an execution interface, but they should not contradict this plan. GitHub itself recommends maintaining a single source of truth to avoid information getting out of sync.
-
-51. Current Next Action
-The next immediate task is:
-Initialize the GitHub repository and create the project structure.
-After that:
-Establish the HTML and CSS foundations.
-Do not begin large visual experimentation before the foundation is stable.
-
-52. Non-Negotiable Planning Rules
-
-This is a living roadmap.
-It records what should happen next.
-It does not replace the other .ai files.
-Keep tasks small enough to execute and verify.
-Respect phase dependencies.
-Do not skip required foundation work.
-Do not mark work complete without validation.
-Use [~] for partially complete work.
-Use [!] for blocked work.
-Keep future ideas separate from active work.
-Do not silently expand scope.
-Do not turn discovered improvements into automatic work.
-Keep one authoritative execution plan.
-Update the plan after meaningful milestones.
-Update CURRENT-STATE.md when the actual repository state changes.
-Update DESIGN-DECISIONS.md when a durable architectural decision changes.
-Use Git as a checkpoint and rollback mechanism.
-Prefer sequential AI-agent handoffs over simultaneous edits to the same files.
-Do not declare the site production-ready before accessibility, performance, responsive, and deployment checks.
-The plan exists to control execution, not to impress the AI with how ambitious the project is.
-
+29. Critical Rule
+Never optimize for the appearance of progress. Optimize for verified progress.
+Generating more code is not progress if the result is unverified, duplicates existing work, introduces regressions, or leaves the next agent unable to understand the project's state.
+Every agent should leave the repository in a state that another competent agent can inspect and continue without guessing.
