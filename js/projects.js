@@ -1,7 +1,6 @@
 const projectCatalog = [
     {
         id: "srujan-edit",
-        serial: "01",
         title: "Srujan Edit",
         category: "reels",
         categoryLabel: "Featured Reel",
@@ -12,7 +11,6 @@ const projectCatalog = [
     },
     {
         id: "sai-saviour",
-        serial: "02",
         title: "Sai Saviour",
         category: "cinematic",
         categoryLabel: "Cinematic Cut",
@@ -23,7 +21,6 @@ const projectCatalog = [
     },
     {
         id: "athadu-brahmi",
-        serial: "03",
         title: "Athadu Brahmi",
         category: "reels",
         categoryLabel: "Rhythm Edit",
@@ -34,7 +31,6 @@ const projectCatalog = [
     },
     {
         id: "srujan-dude",
-        serial: "04",
         title: "Srujan Dude",
         category: "short-form",
         categoryLabel: "Beat Sync",
@@ -45,7 +41,6 @@ const projectCatalog = [
     },
     {
         id: "space-og",
-        serial: "05",
         title: "Space OG",
         category: "cinematic",
         categoryLabel: "Visual FX",
@@ -56,7 +51,8 @@ const projectCatalog = [
     }
 ];
 
-const featuredProjectIds = ["srujan-edit", "sai-saviour", "athadu-brahmi", "srujan-dude", "space-og"];
+window.projectCatalog = projectCatalog;
+const featuredProjectIds = projectCatalog.map((project) => project.id);
 
 function createProjectCard(project) {
     const article = document.createElement("article");
@@ -66,33 +62,37 @@ function createProjectCard(project) {
     const media = document.createElement("div");
     media.className = "project-card__media";
 
-    if (project.poster) {
-        const image = document.createElement("img");
-        image.className = "project-card__image";
-        image.src = project.poster;
-        image.alt = "";
-        image.loading = "lazy";
-        media.append(image);
+    if (project.video) {
+        const preview = document.createElement("video");
+        preview.className = "project-card__video";
+        preview.muted = true;
+        preview.loop = true;
+        preview.autoplay = true;
+        preview.playsInline = true;
+        preview.preload = "metadata";
+        preview.src = project.video;
+        preview.setAttribute("aria-hidden", "true");
+        media.append(preview);
     } else {
         const placeholder = document.createElement("div");
         placeholder.className = "project-card__placeholder";
         placeholder.setAttribute("aria-hidden", "true");
-
-        const serial = document.createElement("span");
-        serial.className = "project-card__serial";
-        serial.textContent = project.serial || "00";
-
-        placeholder.append(serial);
-
         if (project.statusLabel) {
             const marker = document.createElement("span");
             marker.className = "project-card__marker";
             marker.textContent = project.statusLabel;
             placeholder.append(marker);
         }
-
         media.append(placeholder);
     }
+
+    const mediaButton = document.createElement("button");
+    mediaButton.className = "project-card__media-action";
+    mediaButton.type = "button";
+    mediaButton.dataset.action = "open-video";
+    mediaButton.dataset.projectId = project.id;
+    mediaButton.setAttribute("aria-label", `Play ${project.title} in the video player`);
+    media.append(mediaButton);
 
     const meta = document.createElement("div");
     meta.className = "project-card__meta";
@@ -113,16 +113,8 @@ function createProjectCard(project) {
     button.className = "button button--text";
     button.type = "button";
     button.dataset.action = "open-video";
-    button.textContent = project.video ? "Watch edit" : "Open slot";
-
-    if (project.id) {
-        button.dataset.projectId = project.id;
-    }
-
-    if (!project.video) {
-        button.dataset.slotTitle = project.title;
-        button.dataset.slotDescription = project.description;
-    }
+    button.dataset.projectId = project.id;
+    button.textContent = "Watch edit";
 
     meta.append(category, title, text, button);
 
@@ -130,120 +122,62 @@ function createProjectCard(project) {
         const instagramLink = document.createElement("a");
         instagramLink.className = "button button--text";
         instagramLink.href = project.instagram;
+        instagramLink.target = "_blank";
+        instagramLink.rel = "noopener noreferrer";
         instagramLink.textContent = "View on Instagram";
         meta.append(instagramLink);
     }
 
     article.append(media, meta);
-
     return article;
 }
 
-function renderFeaturedProjects() {
-    const grid = document.querySelector("[data-featured-grid]");
-
-    if (!grid || !featuredProjectIds.length || !projectCatalog.length) {
-        return;
-    }
-
-    const featuredProjects = featuredProjectIds
-        .map((projectId) => getProjectById(projectId))
-        .filter(Boolean)
-        .map((project, index) => ({
-            ...project,
-            featured: index === 0
-        }));
-
-    if (!featuredProjects.length) {
-        return;
-    }
-
-    grid.replaceChildren(...featuredProjects.map(createProjectCard));
-}
-
 function buildCategories(projects) {
-    const categories = new Map();
-    categories.set("all", "All");
-
+    const categories = new Map([["all", "All"]]);
     projects.forEach((project) => {
-        if (!project.category || categories.has(project.category)) {
-            return;
-        }
-
-        const label = project.categoryLabel || project.category;
-        categories.set(project.category, label);
+        if (project.category && !categories.has(project.category)) categories.set(project.category, project.categoryLabel || project.category);
     });
-
     return categories;
 }
 
 function renderArchive(projects, activeFilter) {
     const grid = document.querySelector("[data-project-grid]");
     const status = document.querySelector("[data-project-status]");
+    if (!grid) return;
 
-    if (!grid) {
-        return;
-    }
-
-    const visibleProjects = activeFilter === "all"
-        ? projects
-        : projects.filter((project) => project.category === activeFilter);
-
+    const visibleProjects = activeFilter === "all" ? projects : projects.filter((project) => project.category === activeFilter);
     grid.classList.toggle("projects-grid--empty", visibleProjects.length === 0);
 
     if (!visibleProjects.length) {
         const emptyState = document.createElement("article");
         emptyState.className = "empty-state";
-        emptyState.dataset.reveal = "";
-
         const heading = document.createElement("h3");
         heading.textContent = "No projects in this view yet";
-
         const copy = document.createElement("p");
-        copy.textContent = activeFilter === "all"
-            ? "Project metadata has not been added yet. Connect real project entries in js/projects.js to publish the archive."
-            : "No projects have been assigned to this category yet. Switch back to All once entries are available.";
-
+        copy.textContent = "Switch back to All to browse the available edits.";
         emptyState.append(heading, copy);
         grid.replaceChildren(emptyState);
-
-        if (status) {
-            status.textContent = activeFilter === "all"
-                ? "No project metadata has been connected yet."
-                : `Showing 0 projects for ${activeFilter}.`;
-        }
-
+        if (status) status.textContent = "No edits in this view.";
         return;
     }
 
     grid.replaceChildren(...visibleProjects.map(createProjectCard));
-
-    if (status) {
-        status.textContent = `Showing ${visibleProjects.length} project${visibleProjects.length === 1 ? "" : "s"}.`;
-    }
+    if (status) status.textContent = activeFilter === "all" ? "Browse the selected edits below." : "Browse the filtered selection below.";
 }
 
 function renderFilters(projects) {
     const filterBar = document.querySelector("[data-filter-bar]");
-
-    if (!filterBar || !projects.length) {
-        return;
-    }
+    if (!filterBar || !projects.length) return;
 
     const categories = buildCategories(projects);
     let activeFilter = "all";
-
     const applyFilter = (filterValue) => {
         activeFilter = filterValue;
         renderArchive(projects, activeFilter);
-
-        filterBar.querySelectorAll("[data-filter]").forEach((button) => {
-            const isActive = button.dataset.filter === activeFilter;
-            button.setAttribute("aria-pressed", String(isActive));
-        });
+        filterBar.querySelectorAll("[data-filter]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.filter === activeFilter)));
     };
 
-    const buttons = Array.from(categories.entries()).map(([value, label]) => {
+    filterBar.replaceChildren(...Array.from(categories.entries()).map(([value, label]) => {
         const button = document.createElement("button");
         button.className = "button filter-button";
         button.type = "button";
@@ -252,9 +186,7 @@ function renderFilters(projects) {
         button.textContent = label;
         button.addEventListener("click", () => applyFilter(value));
         return button;
-    });
-
-    filterBar.replaceChildren(...buttons);
+    }));
     renderArchive(projects, activeFilter);
 }
 
@@ -263,16 +195,8 @@ export function getProjectById(projectId) {
 }
 
 export function initProjects() {
-    renderFeaturedProjects();
-
-    if (!document.querySelector("[data-project-grid]")) {
-        return;
-    }
-
-    if (!projectCatalog.length) {
-        return;
-    }
-
-    renderFilters(projectCatalog);
+    const grid = document.querySelector("[data-project-grid]");
+    const featuredGrid = document.querySelector("[data-featured-grid]");
+    if (featuredGrid) featuredGrid.replaceChildren(...featuredProjectIds.map((id) => createProjectCard(getProjectById(id))));
+    if (grid) renderFilters(projectCatalog);
 }
-

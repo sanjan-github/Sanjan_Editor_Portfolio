@@ -9,10 +9,11 @@ This repository now contains the first implementation pass:
 - semantic homepage and projects page
 - shared design system and responsive layout
 - mobile navigation
-- dialog-based video player shell
-- centralized project-data module prepared for real portfolio entries
+- dialog-based video player with native aspect-ratio playback
+- centralized project-data module populated with the current Cloudinary edits
+- Instagram portfolio pathway and WhatsApp contact handle
 
-Real posters, Cloudinary video URLs, the final showreel, and the WhatsApp Business short link still need to be supplied before launch.
+The current portfolio contains five live Cloudinary edits. Add future project records in `js/projects.js`; the public Instagram feed remains the source for the complete published-post archive. WhatsApp contact is displayed as `@sanjan.69` because a phone-based WhatsApp short link has not been supplied.
 
 ## Stack
 

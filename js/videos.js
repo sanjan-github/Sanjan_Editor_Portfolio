@@ -1,21 +1,8 @@
 import { getProjectById } from "./projects.js";
 
-function buildFallbackPayload(button) {
-    return {
-        title: button.dataset.slotTitle || "Media slot",
-        description:
-            button.dataset.slotDescription ||
-            "Add a poster and Cloudinary delivery URL to publish this project.",
-        instagram: button.dataset.instagram || ""
-    };
-}
-
 export function initVideos() {
     const dialog = document.querySelector("#video-dialog");
-
-    if (!dialog) {
-        return;
-    }
+    if (!dialog) return;
 
     const closeButton = dialog.querySelector("[data-action='close-video']");
     const retryButton = dialog.querySelector("[data-video-retry]");
@@ -25,13 +12,21 @@ export function initVideos() {
     const status = dialog.querySelector("#video-dialog-status");
     const description = dialog.querySelector("[data-video-description]");
     const instagramLink = dialog.querySelector("[data-video-instagram]");
+    const audioButton = dialog.querySelector("[data-video-audio]");
+    const seekInput = dialog.querySelector("[data-video-seek]");
 
-    if (!closeButton || !retryButton || !video || !fallback || !title || !status || !description || !instagramLink) {
-        return;
-    }
+    if (!closeButton || !retryButton || !video || !fallback || !title || !status || !description || !instagramLink || !audioButton || !seekInput) return;
 
     let lastTrigger = null;
     let activePayload = null;
+    let isScrubbing = false;
+
+    const updateAudioButton = () => {
+        const isOn = !video.muted;
+        audioButton.textContent = isOn ? "Sound: on" : "Sound: off";
+        audioButton.setAttribute("aria-pressed", String(isOn));
+        audioButton.setAttribute("aria-label", isOn ? "Turn video sound off" : "Turn video sound on");
+    };
 
     const resetVideo = () => {
         video.pause();
@@ -39,8 +34,12 @@ export function initVideos() {
         video.removeAttribute("poster");
         video.load();
         video.hidden = true;
+        video.style.removeProperty("aspect-ratio");
         fallback.hidden = false;
         retryButton.hidden = true;
+        seekInput.value = "0";
+        video.muted = true;
+        updateAudioButton();
     };
 
     const updateInstagramLink = (instagramUrl) => {
@@ -49,30 +48,18 @@ export function initVideos() {
             instagramLink.removeAttribute("href");
             return;
         }
-
         instagramLink.hidden = false;
         instagramLink.href = instagramUrl;
     };
 
-    const openFallback = (payload) => {
+    const openPayload = (payload) => {
         activePayload = payload;
         resetVideo();
-        status.textContent = "Portfolio playback";
-        title.textContent = payload.title;
-        description.textContent = payload.description;
+        title.textContent = payload.title || "Video edit";
+        description.textContent = payload.summary || payload.description || "Cloudinary video playback opens inside the portfolio.";
         updateInstagramLink(payload.instagram);
-        dialog.showModal();
-        closeButton.focus();
-    };
 
-    const openProjectVideo = (project) => {
-        activePayload = project;
-        resetVideo();
-        title.textContent = project.title;
-        description.textContent = project.summary || project.description || "Cloudinary video playback opens inside the portfolio.";
-        updateInstagramLink(project.instagram);
-
-        if (!project.video) {
+        if (!payload.video) {
             status.textContent = "Media pending";
             dialog.showModal();
             closeButton.focus();
@@ -82,86 +69,77 @@ export function initVideos() {
         status.textContent = "Loading video";
         fallback.hidden = true;
         video.hidden = false;
-
-        if (project.poster) {
-            video.poster = project.poster;
-        }
-
-        video.src = project.video;
+        video.src = payload.video;
         video.load();
+        video.muted = true;
+        updateAudioButton();
         dialog.showModal();
         closeButton.focus();
 
-        const handleLoaded = () => {
-            status.textContent = "Now playing";
-
-            const playPromise = video.play();
-
-            if (playPromise && typeof playPromise.catch === "function") {
-                playPromise.catch(() => {
-                    status.textContent = "Ready to play";
-                });
-            }
-        };
-
-        const handleError = () => {
-            status.textContent = "Unable to load video";
-            description.textContent = "This video could not be loaded right now. Try again or use Instagram if it is available.";
-            retryButton.hidden = false;
-            fallback.hidden = false;
-            video.hidden = true;
-        };
-
-        video.addEventListener("loadeddata", handleLoaded, { once: true });
-        video.addEventListener("error", handleError, { once: true });
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(() => { status.textContent = "Ready to play"; });
+        }
     };
 
     document.addEventListener("click", (event) => {
         const trigger = event.target.closest("[data-action='open-video']");
-
-        if (!trigger) {
+        if (!trigger) return;
+        event.preventDefault();
+        lastTrigger = trigger;
+        const project = trigger.dataset.projectId ? getProjectById(trigger.dataset.projectId) : null;
+        if (project) {
+            openPayload(project);
             return;
         }
-
-        lastTrigger = trigger;
-
-        const projectId = trigger.dataset.projectId;
-
-        if (projectId) {
-            const project = getProjectById(projectId);
-
-            if (project) {
-                openProjectVideo(project);
-                return;
-            }
-        }
-
-        openFallback(buildFallbackPayload(trigger));
+        openPayload({
+            title: trigger.dataset.slotTitle || "Video edit",
+            description: trigger.dataset.slotDescription || "Cloudinary video playback opens inside the portfolio.",
+            instagram: trigger.dataset.instagram || "",
+            video: trigger.dataset.videoSrc || ""
+        });
     });
 
     retryButton.addEventListener("click", () => {
-        if (!activePayload || !activePayload.video) {
-            return;
-        }
-
-        openProjectVideo(activePayload);
+        if (activePayload) openPayload(activePayload);
     });
 
-    closeButton.addEventListener("click", () => {
-        dialog.close();
+    audioButton.addEventListener("click", () => {
+        video.muted = !video.muted;
+        updateAudioButton();
+        if (!video.paused) video.play().catch(() => {});
     });
 
+    video.addEventListener("loadedmetadata", () => {
+        if (video.videoWidth && video.videoHeight) video.style.aspectRatio = `${video.videoWidth} / ${video.videoHeight}`;
+        status.textContent = "Now playing";
+    });
+
+    video.addEventListener("error", () => {
+        status.textContent = "Unable to load video";
+        description.textContent = "This video could not be loaded right now. Try again or use Instagram if it is available.";
+        retryButton.hidden = false;
+        fallback.hidden = false;
+        video.hidden = true;
+    });
+
+    video.addEventListener("timeupdate", () => {
+        if (!isScrubbing && video.duration) seekInput.value = String((video.currentTime / video.duration) * 100);
+    });
+
+    seekInput.addEventListener("input", () => {
+        isScrubbing = true;
+        if (video.duration) video.currentTime = (Number(seekInput.value) / 100) * video.duration;
+    });
+    seekInput.addEventListener("change", () => { isScrubbing = false; });
+
+    closeButton.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("cancel", () => dialog.close());
     dialog.addEventListener("click", (event) => {
-        if (event.target === dialog) {
-            dialog.close();
-        }
+        if (event.target === dialog) dialog.close();
     });
-
     dialog.addEventListener("close", () => {
         resetVideo();
-
-        if (lastTrigger instanceof HTMLElement) {
-            lastTrigger.focus();
-        }
+        if (lastTrigger instanceof HTMLElement) lastTrigger.focus();
     });
 }
