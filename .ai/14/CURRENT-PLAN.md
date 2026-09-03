@@ -1,114 +1,299 @@
 CURRENT PLAN
-1. PURPOSE
-This is the master execution plan for the sanjanedits portfolio.
-It defines:
 
-what we are building
-what the visitor should experience
-the approved website copy
-the approved production media
-the dependency-aware order of work
-how AI agents execute work
-how work is handed between agents
-how interrupted work is resumed
-how parallel work is controlled
-how changes are verified
-how wasted effort, duplication, scope creep, regressions, and architectural drift are prevented
-how model/API token limits are handled
-how production content is protected from invention
+Master execution document for the Sanjan / sanjanedits portfolio
+This is the authoritative execution plan for the project.
+It defines the product direction, visual system, approved content, production assets, technical architecture, implementation order, agent operating rules, verification requirements, and current task.
+Every agent must read this document before beginning work.
 
-This document controls project execution.
-Specialized .ai files remain authoritative for their own subjects.
 
-2. PRODUCT GOAL
-Build a polished personal portfolio website for:
-Sanjan
-Video Editor
-Brand:
+1. PROJECT IDENTITY
+Personal Identity
+Name: Sanjan
+Role: Video Editor
+Brand
 sanjanedits
-The website must quickly communicate:
+The portfolio represents Sanjan as an individual freelance video editor.
+It must not position him as:
 
-who Sanjan is
-that Sanjan is a video editor
-what kind of editing he creates
-that the actual work is the primary proof
-how a potential client can contact him
+an agency
+a production company
+a generic creator
+a developer
+a template-based portfolio brand
 
-The experience should feel:
+The distinction is intentional:
+Sanjan = person
+Video Editor = professional role
+sanjanedits = portfolio / brand identity
+
+2. PROJECT OBJECTIVE
+Build a polished, visually driven, scroll-based freelance video-editing portfolio that:
+
+immediately establishes who Sanjan is
+demonstrates his editing ability through real work
+communicates creativity and personality
+feels premium and memorable
+works properly across desktop/laptop, tablet, and mobile
+makes contacting Sanjan simple
+turns the quality of the work into the primary reason for a client to reach out
+
+This is a client-facing portfolio, not a technical showcase.
+Technical choices should serve the visitor experience.
+
+3. CORE POSITIONING
+The central proposition is:
+
+You have the footage. I’ll turn it into the video you want.
+
+Sanjan's primary value is his own creative editing ability.
+The portfolio should communicate:
+
+creative decision-making
+pacing
+rhythm
+storytelling
+visual impact
+transitions
+effects
+emotional emphasis
+personality
+attention to detail
+
+The intended visitor reaction is:
+
+“This person can make something good out of my footage.”
+
+Not:
+
+“This person only copies existing edits.”
+
+
+4. REFERENCE-VIDEO CAPABILITY
+Sanjan can work from a reference video when a client has a specific result or style in mind.
+This is an optional capability, not the central identity.
+When a reference is supplied, Sanjan can potentially:
+
+recreate the style
+closely match the reference
+improve upon the reference
+use the reference as creative direction
+
+However:
+
+Reference-video recreation must never become the main portfolio proposition.
+
+The portfolio must primarily demonstrate Sanjan's independent editing ability.
+Do not build primary messaging around “copying” or “recreating” other editors' work.
+
+5. SERVICE FOCUS
+Short-Form Video Editing
+Primary focus:
+
+Reels
+Shorts
+social content
+other short-form videos
+
+Creative Editing
+Focus areas include:
+
+rhythm
+pacing
+transitions
+effects
+visual storytelling
+emphasis
+creative treatment
+beat synchronization
+visual personality
+
+Long-Form Editing
+Do not advertise long-form editing.
+Do not add long-form services merely because they are common in editing portfolios.
+
+6. VISUAL DIRECTION
+The visual direction is:
+
+Blue + White
+
+The overall feeling should be:
 
 cinematic
 premium
-editorial
 modern
+editorial
+clean
 energetic
-intentional
-lightweight
+confident
 personal
+intentional
 
-It must not become:
+It should not feel:
 
-a generic developer portfolio
-a gaming/neon template
-a fake agency
-a résumé website
-an effects demonstration
-an unnecessarily complex technical project
+neon/gaming
+generic SaaS
+developer-template-like
+agency-template-like
+excessively futuristic
+cluttered
+over-animated
 
-The portfolio should sell the quality of the work through the work itself rather than through exaggerated claims.
 
-3. PORTFOLIO EXPERIENCE SPECIFICATION
-This section defines what the visitor should experience.
-It is the product direction that implementation must serve.
+7. AUTHORITATIVE COLOR PALETTE
+These exact values are authoritative.
+Deep Navy
+#06142D
+Primary dark foundation.
+Dark Blue
+#0A1E3F
+Secondary dark blue.
+Blue Accent
+#1F64FF
+Primary accent blue.
+Soft Blue
+#0E2A55
+Supporting blue surface / tonal variation.
+White
+#FFFFFF
+Primary light color.
+Cool White
+#F7FBFF
+Soft light background / text variation.
+Muted Blue-Gray
+#B7C7DD
+Secondary / muted text.
 
-3.1 FIRST IMPRESSION
-The first screen must immediately establish:
-Sanjan + Video Editor + personality.
-A visitor should understand what Sanjan does without needing to search through the site.
-The first impression should be created primarily through:
+8. HERO COLOR DIRECTION
+The Hero's primary combination is:
+Deep Navy #06142D
 
-typography
-photograph
+
+
+White #FFFFFF
+The Hero should use this pairing as its dominant visual relationship.
+Blue Accent #1F64FF should be used deliberately for emphasis and interaction rather than overwhelming the composition.
+The remaining palette colors should provide hierarchy and depth.
+
+9. PALETTE RULES
+The following palette is now protected.
+Do not:
+
+invent replacement colors
+switch to a lime accent
+reintroduce #C8FF00
+introduce arbitrary gradients as a substitute for the palette
+recolor major sections without a design reason
+create a second unrelated color system
+
+Any additional color must be justified by an actual implementation requirement and should remain visually subordinate to the approved palette.
+
+10. VISUAL REFERENCE
+A screenshot supplied by Sanjan is an important visual reference for the opening experience.
+It should inform:
+
+Hero composition
+visual hierarchy
+image treatment
+scale
+typography hierarchy
+spacing
+alignment
 composition
-concise messaging
-controlled motion
+scroll behavior
+first impression
 
-The site must not depend on a long introduction to explain its purpose.
-The Hero should feel like a creative introduction rather than a résumé header.
+The screenshot is a design reference, not a requirement to make a literal copy.
+The final implementation must preserve:
 
-3.2 EXPERIENCE HIERARCHY
-The overall narrative is:
-Person → Identity → Work → Capability → Personality → Contact
-The intended visitor journey is:
-Who is this?
-↓
-What does he do?
-↓
-What does his work look like?
-↓
-Can he create this kind of edit?
-↓
-What is he like?
-↓
-How do I contact him?
-Every major section should support this progression.
+Sanjan's identity
+approved copy
+approved media
+blue/white visual system
+portfolio positioning
 
-4. APPROVED WEBSITE COPY
-The following copy is approved and must be used exactly unless Sanjan explicitly changes it.
-Agents must not rewrite, paraphrase, “improve,” replace, or invent approved copy.
+The goal is to reproduce the intended visual language and experience, not duplicate another site blindly.
 
-4.1 NAVIGATION
+11. EXPERIENCE TYPE
+The website is:
+
+Scroll-based and visually driven.
+
+Scrolling should produce meaningful visual progression.
+Motion should support:
+
+hierarchy
+storytelling
+section transitions
+emphasis
+continuity
+
+Motion should not exist merely because animation is possible.
+
+12. RESPONSIVE TARGET
+The site must be intentionally designed for:
+Desktop / Laptop
+Tablet
+Mobile
+Responsive behavior is a first-class requirement.
+Do not build a desktop-only composition and simply shrink it for smaller screens.
+Each major section must be considered across all supported viewport categories.
+Mobile may require a different composition rather than a scaled desktop version.
+
+13. SITE STRUCTURE
+Homepage:
+Navigation
+↓
+Hero
+↓
+Here’s My Work
+↓
+Have a look.
+↓
+What I Do
+↓
+About
+↓
+Contact
+↓
+Footer
+Projects page:
+Navigation
+↓
+More of My Work
+↓
+Additional work
+↓
+Video playback
+↓
+Instagram CTA
+↓
+Footer
+
+14. NAVIGATION
 Brand:
 sanjanedits
-Navigation:
+Links:
 Work · About · Contact
-The brand represents the portfolio identity.
+Keep the navigation intentionally simple.
+Do not add unnecessary navigation categories.
 
-4.2 HERO
-Identity:
+15. HERO
+The Hero is the most important first-impression section.
+It must immediately establish:
+
 SANJAN
-Role:
 Video Editor
-Main statement:
+personality
+visual identity
+confidence
+a clear route to the work
+
+The supplied profile image should be integrated into the composition as an intentional visual element.
+It should not feel like a generic profile-card component.
+
+Approved Hero Copy
+SANJAN
+Video Editor
 
 I turn raw footage into videos built to hold attention.
 
@@ -116,41 +301,78 @@ Primary CTA:
 View My Work
 Secondary CTA:
 Let's Work Together
-The Hero copy must remain concise and visually dominant.
+This copy is approved and must not be rewritten without explicit authorization.
 
-4.3 WORK SECTION
-Heading:
+16. HERO MOTION
+The Hero should respond to scrolling.
+The intended experience is conceptually:
+arrival
+→
+movement
+→
+transformation
+→
+reveal
+The movement should feel:
+
+controlled
+cinematic
+smooth
+purposeful
+
+Possible implementation methods include:
+
+CSS transforms
+opacity
+clipping
+positioning
+lightweight JavaScript
+IntersectionObserver
+
+Do not introduce a heavy animation framework solely to create a simple effect.
+The Hero must:
+
+work without motion
+respect prefers-reduced-motion
+avoid horizontal overflow
+remain performant
+work on desktop/laptop
+work on tablet
+work on mobile
+
+
+17. WORK SECTION
+Approved heading:
 Here’s My Work
-Supporting text:
+Approved supporting copy:
 
 Take a look at some of the videos I’ve edited.
 
-This section presents the strongest selected edits.
-Do not rename the heading to:
-
+Do not replace this with:
 Selected Work
-Featured Work
-Portfolio
-My Projects
+or generic portfolio wording unless explicitly authorized.
+The language should sound personal while remaining professional.
 
-unless Sanjan explicitly changes the decision.
-
-4.4 MAIN VIDEO SECTION
-Heading:
+18. MAIN VIDEO SECTION
+Approved heading:
 Have a look.
-No additional explanatory paragraph is required.
-The video itself is responsible for demonstrating the work.
-Do not explicitly label this section:
+Do not use “Showreel” as visible section copy unless the decision is explicitly changed.
+The video itself should communicate quality.
+The primary reel should receive the strongest visual emphasis.
 
-Showreel
-Demo Reel
-Reel
-Showcase
+19. WORK HIERARCHY
+The work should have hierarchy.
+Current intended homepage work structure:
 
-unless Sanjan explicitly changes the decision.
+1 primary highlighted reel
+4 supporting projects
 
-4.5 WHAT I DO
-Heading:
+The strongest work receives the strongest treatment.
+The supporting work demonstrates range.
+Do not make every video visually identical in importance.
+
+20. WHAT I DO
+Approved heading:
 What I Do
 Short-Form Video Editing
 
@@ -160,36 +382,43 @@ Creative Editing
 
 Rhythm-driven cuts, transitions, effects, visual storytelling, and the details that give an edit its personality.
 
-This represents Sanjan's current editing services.
-Long-form editing is NOT advertised.
-Agents must not add long-form editing unless explicitly instructed.
-The section must not become a generic list of software skills.
+Do not advertise long-form editing.
+Do not replace the copy with generic agency language.
 
-4.6 ABOUT
-The following copy is locked exactly as approved:
+21. ABOUT
+Use exactly:
 
 I’m Sanjan, a video editor focused on turning footage into edits with impact, emotion, and personality.
 I look beyond simply putting clips together. I look for the moments that matter — an expression, a movement, a beat, a character — and build the edit around them.
 The goal isn’t to make a video look edited. It’s to make the viewer feel it.
 If you have footage that deserves more than a basic cut, let’s make something out of it.
 
-Agents must not rewrite this copy.
+Do not rewrite this copy automatically.
 
-4.7 CONTACT
-Heading:
+22. CONTACT
+Approved heading:
 Got something in mind?
-Supporting text:
+Supporting copy:
 Let’s talk about it.
-Contact:
+Contact identity:
 Instagram: sanjanedits
 WhatsApp: @sanjan.69
-The actual production destinations are supplied by Sanjan.
-Agents must never invent or guess contact URLs.
+The final production URLs must come from Sanjan.
+Never invent contact URLs.
+Do not expose a phone number in the repository unless explicitly approved.
 
-4.8 PROJECTS PAGE
-Heading:
+23. INSTAGRAM STRATEGY
+The website does not need to host every edit Sanjan has produced.
+Instagram is the destination for the broader body of work.
+The website should make it easy for visitors to continue to:
+sanjanedits
+Do not build unnecessary infrastructure to reproduce the entire Instagram portfolio.
+Do not imply the website contains all of Sanjan's work.
+
+24. PROJECTS PAGE
+Approved heading:
 More of My Work
-Supporting text:
+Approved supporting copy:
 
 Have a look through some of my other edits.
 
@@ -197,367 +426,120 @@ CTA:
 See More on Instagram
 Instagram:
 sanjanedits
-The Projects page does NOT claim to contain every video Sanjan has created.
-Instagram is the destination for the broader body of work.
+The page should communicate additional work while making clear that Instagram contains the broader portfolio.
 
-4.9 FOOTER
-Use:
+25. FOOTER
+Approved footer content:
 Sanjan
 Video Editor
 sanjanedits
 Instagram · WhatsApp
 © 2026 Sanjan
-The distinction is intentional:
 
-personal name: Sanjan
-professional role: Video Editor
-brand identity: sanjanedits
+26. PRODUCTION MEDIA
+The following media were directly supplied by Sanjan.
+These are authoritative production assets.
+Do not replace them with invented placeholders once integrated.
 
-
-5. APPROVED PRODUCTION MEDIA
-Production media has now been supplied by Sanjan.
-These are authoritative production inputs.
-Agents must use the exact supplied URLs.
-Agents must never:
-
-invent a Cloudinary URL
-guess a URL
-replace a URL
-modify a URL
-substitute unrelated media
-upload replacement media
-silently change the selected media
-
-
-5.1 PROFILE PHOTO
+Profile Photo
 Asset:
 sanjan2.jpg
-Cloudinary URL:
+URL:
 https://res.cloudinary.com/sdsqadch/image/upload/v1787892415/sanjan2.jpg
-Purpose:
+Primary purpose:
 
-Hero/profile visual
-About/profile usage where appropriate
+Hero
+profile / About usage where appropriate
 
 
-5.2 MAIN HIGHLIGHTED REEL
+Main Highlighted Reel
 Asset:
 srujan-edit.mp4
-Cloudinary URL:
+URL:
 https://res.cloudinary.com/sdsqadch/video/upload/v1787904198/srujan-edit.mp4
 Purpose:
 Primary highlighted reel
-This is the reel to receive the strongest visual emphasis.
 
-5.3 SUPPORTING PROJECT 1
+Supporting Video 1
 Asset:
 Sai_Saviour.mp4
-Cloudinary URL:
+URL:
 https://res.cloudinary.com/sdsqadch/video/upload/v1787904812/Sai_Saviour.mp4
 
-5.4 SUPPORTING PROJECT 2
+Supporting Video 2
 Asset:
 athadu_brahmi.mp4
-Cloudinary URL:
+URL:
 https://res.cloudinary.com/sdsqadch/video/upload/v1787904770/athadu_brahmi.mp4
 
-5.5 SUPPORTING PROJECT 3
+Supporting Video 3
 Asset:
 Srujan-Dude.mp4
-Cloudinary URL:
+URL:
 https://res.cloudinary.com/sdsqadch/video/upload/v1787903555/Srujan-Dude.mp4
 
-5.6 SUPPORTING PROJECT 4
+Supporting Video 4
 Asset:
 Space-OG.mp4
-Cloudinary URL:
+URL:
 https://res.cloudinary.com/sdsqadch/video/upload/v1787892867/Space-OG.mp4
 
-5.7 MEDIA STATUS
-Current production-media status:
+27. MEDIA INTEGRATION RULES
+Production media must:
 
+use the exact supplied URLs
+remain externally hosted in Cloudinary
+be integrated through the existing architecture where possible
+use appropriate poster-first loading
+avoid unnecessary downloads
 
+Agents must not:
 
-Asset
-Status
+invent URLs
+guess URLs
+modify URLs
+replace supplied production assets without approval
+silently substitute unrelated media
+copy large production videos into GitHub without a real requirement
 
+If an asset fails:
+investigate the implementation first.
+Do not silently replace it.
 
-
-
-Profile photo
-SUPPLIED
-
-
-Main highlighted reel
-SUPPLIED
-
-
-Supporting project 1
-SUPPLIED
-
-
-Supporting project 2
-SUPPLIED
-
-
-Supporting project 3
-SUPPLIED
-
-
-Supporting project 4
-SUPPLIED
-
-
-Cloudinary source
-AVAILABLE
-
-
-
-The production-media dependency is no longer blocked.
-Posters/thumbnails may still need to be generated or selected appropriately.
-
-6. HERO EXPERIENCE
-The Hero is the strongest visual statement on the site.
-It must establish:
-Sanjan + Video Editor + personality
-The real supplied profile photograph must be used.
-The photograph should feel integrated into the composition rather than appearing as a conventional profile card.
-The composition should combine:
-
-photograph
-large typography
-approved copy
-clear visual hierarchy
-controlled negative space
-restrained accent treatment
-controlled motion
-
-The Hero must feel like an introduction to an editor's creative identity, not a résumé header.
-
-6.1 HERO MOTION
-The Hero should use a scroll-linked visual progression.
-Intended motion language:
-arrival
+28. VIDEO LOADING STRATEGY
+Preferred behavior:
+poster
 ↓
-tension
+user interaction / appropriate activation
 ↓
-movement
+video source loaded
 ↓
-transformation
-↓
-reveal
-The motion should feel connected to the visitor's scrolling.
-It must not feel like unrelated entrance animations stacked together.
-The exact implementation is not locked prematurely.
-Use the lightest appropriate approach.
-Preferred techniques:
+playback
+Do not unnecessarily load every video on initial page load.
+Do not use audible autoplay.
+Any autoplay used for presentation must be muted and must remain subordinate to usability.
 
-CSS transforms
-opacity
-clipping
-positioning
-lightweight JavaScript
-IntersectionObserver where appropriate
+29. VIDEO INTERACTION REQUIREMENTS
+The reusable video system should support:
 
-Do not introduce a heavy animation framework merely to create this effect.
+opening
+playback
+closing
+Escape
+keyboard access
+accessible controls
+focus management
+focus restoration
+cleanup
+error handling
+mobile interaction
+tablet interaction
+desktop interaction
 
-6.2 HERO REQUIREMENTS
-The Hero must:
+Accessibility is part of completion.
 
-work on desktop
-work on mobile
-remain understandable without animation
-support reduced motion
-avoid unwanted horizontal overflow
-avoid blocking content
-avoid delaying access to the portfolio
-remain performant
-
-Desktop and mobile may use substantially different compositions.
-Do not force the desktop composition onto mobile.
-
-7. WORK EXPERIENCE
-The Work section appears near the top because the actual editing work is the strongest credibility signal.
-The homepage contains:
-
-1 strongest featured edit
-4 supporting edits
-
-The supplied srujan-edit.mp4 is the primary highlighted reel.
-The four remaining supplied videos provide supporting project media.
-The presentation should make the work feel like the main product rather than thumbnails inside a generic template.
-
-8. VIDEO EXPERIENCE
-The main video receives a deliberate visual moment.
-Approved heading:
-Have a look.
-The video should:
-
-be easy to start
-be visually prominent
-load efficiently
-use a meaningful poster
-avoid unnecessary initial video loading
-avoid audible autoplay
-
-
-9. WHAT I DO EXPERIENCE
-This section communicates Sanjan's actual editing work.
-It focuses on:
-
-short-form video editing
-creative editing
-pacing
-visual impact
-rhythm
-transitions
-effects
-visual storytelling
-personality
-
-Long-form editing is not advertised.
-The section must not become:
-
-a software list
-a generic skills grid
-a résumé section
-a list of buzzwords
-
-
-10. ABOUT EXPERIENCE
-The About section introduces the person behind the work.
-Its purpose is to establish:
-
-personality
-context
-creative identity
-credibility
-human connection
-
-The approved copy from Section 4.6 must be used.
-The section should not become a résumé or biography dump.
-
-11. CONTACT EXPERIENCE
-The Contact section is the conversion point.
-Approved copy:
-Got something in mind?
-Let’s talk about it.
-Available destinations:
-
-Instagram: sanjanedits
-WhatsApp: @sanjan.69
-
-The website should make contacting Sanjan straightforward.
-Final production URLs are supplied by Sanjan.
-Agents must not fabricate URLs.
-
-12. PROJECTS PAGE EXPERIENCE
-The Projects page provides additional work.
-Approved copy:
-More of My Work
-
-Have a look through some of my other edits.
-
-CTA:
-See More on Instagram
-The page does not claim to be the complete portfolio.
-The broader collection of work is available through Instagram.
-The page may contain selected additional projects for which Sanjan provides the necessary media.
-
-13. PORTFOLIO CONTENT RULE
-The portfolio must use real work.
-Agents must never invent:
-
-projects
-clients
-testimonials
-awards
-results
-revenue
-experience claims
-performance statistics
-personal facts
-contact URLs
-Cloudinary URLs
-project descriptions presented as facts
-
-If required information is missing, the agent must:
-
-use an explicitly approved placeholder
-leave the feature incomplete
-or mark the task BLOCKED
-
-It must not fabricate content.
-
-14. VISUAL DIRECTION
-Locked direction:
-Dark cinematic editorial
-Current foundation:
-Background:
-#090909
-Primary text:
-#F5F5F2
-Secondary text:
-#8A8A8A
-Accent:
-#C8FF00
-Display typography:
-Plus Jakarta Sans
-Body/UI typography:
-Inter
-The visual system should emphasize:
-
-large typography
-strong hierarchy
-negative space
-editorial composition
-restrained accent usage
-cinematic imagery
-controlled motion
-
-Every visual effect must have a communication, hierarchy, or interaction purpose.
-
-15. MOTION DIRECTION
-Motion is a supporting layer, not the product itself.
-Priority:
-
-Hero
-section reveals
-project interactions
-navigation transitions
-video interaction
-micro-interactions
-
-Motion should generally prefer:
-
-transform
-opacity
-clipping
-lightweight observation
-lightweight pointer interaction
-
-Avoid continuous animation unless it provides meaningful value.
-Avoid motion that delays access to content.
-Reduced-motion behavior is mandatory.
-A custom cursor is optional and must justify its complexity through actual UX value.
-
-16. RESPONSIVE EXPERIENCE
-Mobile is not a smaller desktop version.
-Every major section must have deliberate behavior across:
-
-small mobile
-large mobile
-tablet
-laptop
-desktop
-large desktop
-
-The Hero is especially important.
-Typography, spacing, image composition, project presentation, navigation, and video interaction may all change between breakpoints.
-Do not preserve desktop composition at the expense of mobile usability.
-
-17. TECHNICAL ARCHITECTURE
-Current stack:
+30. TECHNICAL FOUNDATION
+Current intended stack:
 
 HTML5
 CSS3
@@ -567,7 +549,7 @@ GitHub
 GitHub Pages
 Cloudinary
 
-No frontend framework is currently required.
+The project does not require a frontend framework.
 Do not introduce:
 
 React
@@ -576,45 +558,29 @@ Angular
 Tailwind
 GSAP
 Three.js
-other significant dependencies
+large UI frameworks
+unnecessary build tooling
 
-unless an actual technical requirement demonstrates that the current architecture cannot satisfy the requirement.
-Any such change requires explicit documentation and approval.
-Project data remains centralized.
-Rendering remains separate from data.
-Video playback remains reusable.
-Repository assets remain lightweight.
+unless a genuine project requirement justifies it.
+A major architecture change requires explicit approval.
 
-18. VIDEO ARCHITECTURE
-Videos are hosted through Cloudinary.
-Videos must not be stored directly in GitHub.
-Default flow:
-poster
-↓
-user interaction
-↓
-video source activated
-↓
-Cloudinary video loads
-↓
-playback
-Videos must not all load during initial page load.
-Audible autoplay is prohibited.
-The system must support:
+31. EXISTING CODE
+The repository already contains a working implementation foundation.
+Before changing anything:
 
-desktop
-mobile
-keyboard interaction
-focus management
-Escape-to-close
-error handling
-cleanup
-reduced-motion considerations
+inspect the current implementation
+identify reusable systems
+identify reusable components
+inspect current data structures
+inspect current media handling
+inspect current responsive behavior
+inspect current video behavior
 
+Do not rewrite working systems merely because another architecture appears cleaner.
 
-19. PORTFOLIO DATA ARCHITECTURE
-Project information must remain centralized.
-Conceptually:
+32. PROJECT DATA
+Project data should remain centralized.
+Preferred conceptual structure:
 project data
 ↓
 rendering
@@ -622,400 +588,552 @@ rendering
 project card
 ↓
 video interaction
-Adding or changing a project should not require rewriting the rendering system.
-The exact implementation may evolve if maintainability improves without violating the architecture.
+Adding or changing a project should not require duplicated information across unrelated files.
 
-20. DEVELOPMENT ORDER
-Work follows dependencies.
-Phase 1 — Hero
-HERO-01
-Inspect the existing Hero implementation and define the exact modification boundary.
-This task is inspection/planning only.
-The agent must:
+33. CSS ARCHITECTURE
+CSS should remain maintainable and consistent with the current codebase.
+Use existing architecture where practical.
+Relevant responsibilities may include:
 
-read relevant .ai documentation
-inspect the repository
-inspect Git state
-inspect existing Hero HTML
-inspect relevant CSS
-inspect relevant JavaScript
-inspect current media integration
-inspect supplied profile-photo availability
-identify reusable existing code
-identify what must change
-identify dependencies
-identify risks and consequences
-define the smallest safe implementation boundary
-define the verification approach for HERO-02
+base
+layout
+components
+sections
+animation
+responsive rules
 
-The agent must NOT implement the final Hero during HERO-01.
-Acceptance criteria:
+Do not perform a global CSS rewrite for a localized feature.
 
-existing Hero is understood
-relevant files are identified
-reusable code is identified
-unnecessary rewrites are ruled out
-implementation boundary is clearly reported
-no unrelated code is changed
-final Hero is not implemented
+34. RESPONSIVE IMPLEMENTATION
+Use appropriate responsive techniques such as:
 
+fluid sizing
+clamp()
+CSS Grid
+Flexbox
+media queries
+responsive spacing
+viewport-aware composition
+container-aware sizing where appropriate
+
+Do not rely on fixed desktop dimensions.
+Responsive correctness must be verified rather than assumed.
+
+35. ACCESSIBILITY
+Relevant implementation must consider:
+
+semantic HTML
+keyboard navigation
+visible focus
+accessible buttons
+accessible controls
+dialog behavior
+Escape
+focus restoration
+reduced motion
+sufficient contrast
+readable typography
+suitable touch targets
+
+Accessibility is an implementation requirement, not a cosmetic final pass.
+
+36. PERFORMANCE
+Primary performance priorities:
+
+fast initial rendering
+efficient media loading
+limited JavaScript
+minimal dependencies
+deferred video loading where possible
+efficient image loading
+restrained animation
+avoidance of expensive continuous work during scrolling
+
+Do not sacrifice the visual experience for meaningless micro-optimizations.
+
+37. SEO / SHARING
+The final website should contain appropriate:
+
+page titles
+meta descriptions
+canonical information where appropriate
+Open Graph metadata
+social sharing metadata
+semantic structure
+appropriate image alt text
+
+These should be checked before final deployment.
+
+38. IMPLEMENTATION PHASES
+The portfolio is built through controlled implementation phases.
+Do not combine unrelated phases into one uncontrolled task.
+
+PHASE 1 — HERO
+HERO-01 — Inspect Hero
+Purpose:
+Understand the existing Hero before implementation.
+The agent must inspect:
+
+.ai documentation
+Git status
+current diff
+Hero HTML
+relevant CSS
+relevant JavaScript
+current responsive behavior
+current media handling
+supplied profile image
+visual-reference requirements
+
+The agent must determine:
+
+what already works
+what can be reused
+what must change
+what must remain unchanged
+dependencies
+risks
+exact implementation boundary
+verification strategy
+
+HERO-01 MUST NOT IMPLEMENT THE FINAL HERO.
+It is an inspection/planning task.
 When complete:
 STOP.
 
-HERO-02
-Implement the final photo-led Hero based on the verified HERO-01 boundary.
-Scope includes:
+HERO-02 — Implement Hero
+Implement the final photo-led Hero using the verified HERO-01 boundary.
+Requirements:
 
-supplied profile photograph
-final composition
-typography
+supplied profile photo
 approved Hero copy
-desktop behavior
-mobile behavior
+#06142D + #FFFFFF as the primary Hero combination
+approved blue palette
+screenshot-informed composition
 scroll-linked transition
-reduced-motion behavior
 responsive behavior
-performance considerations
-
-The agent must not modify unrelated sections.
-
-HERO-03
-Verify the completed Hero.
-Verification includes:
-
-desktop
+desktop/laptop
+tablet
 mobile
-scrolling
 reduced motion
+accessibility
+performance
+
+Do not modify unrelated sections.
+
+HERO-03 — Verify Hero
+Verify:
+
+desktop/laptop
+tablet
+mobile
+scroll behavior
 visual hierarchy
+reduced motion
 accessibility
 overflow
 performance
 
-Only after successful verification may the Hero phase be considered complete.
+Only after successful verification should the Hero phase be marked complete.
 
-21. PHASE 2 — SELECTED WORK
-Implement:
-
-featured project
-four supporting projects
-centralized project data
-posters
-metadata
-interactions
-responsive behavior
-
-The supplied production videos must be used.
-Do not implement unrelated sections during these tasks.
-Meaningful features should be separate tasks rather than one uncontrolled implementation.
-
-22. PHASE 3 — VIDEO SYSTEM
+39. PHASE 2 — WORK
 Implement/refine:
 
-reusable playback
+featured work
+supporting projects
+project data
+poster treatment
+visual hierarchy
+video presentation
+responsive behavior
+
+Keep project work separate from unrelated sections.
+
+40. PHASE 3 — VIDEO SYSTEM
+Implement/refine:
+
+playback
 dialog
-focus management
-on-demand loading
-error handling
-mobile behavior
+focus
 keyboard behavior
+Escape
+loading
 cleanup
+errors
+responsive behavior
 
-Each meaningful feature should be separately scoped and verified.
 
-23. PHASE 4 — REAL MEDIA INTEGRATION
-Integrate the supplied:
+41. PHASE 4 — PRODUCTION MEDIA
+Integrate:
 
-profile photo
-main highlighted reel
+profile image
+primary reel
 four supporting videos
-posters
-Cloudinary URLs
+poster treatment
+exact Cloudinary URLs
 
-The exact supplied URLs are authoritative.
-No invented media is permitted.
 
-24. PHASE 5 — SUPPORTING SECTIONS
+42. PHASE 5 — SUPPORTING CONTENT
 Implement/refine:
 
 What I Do
 About
 Contact
 
-Approved copy must remain unchanged.
+Approved copy remains unchanged.
 
-25. PHASE 6 — PROJECTS PAGE
-Implement:
+43. PHASE 6 — PROJECTS PAGE
+Implement/refine:
 
 additional selected projects
 centralized project data
-playback
+video playback
 Instagram CTA
 
-Filtering/categories should only be added if there is an actual UX requirement.
-The Projects page must not imply that all videos are hosted on the website.
 
-26. PHASE 7 — REFINEMENT
+44. PHASE 7 — REFINEMENT
+Refine:
 
-motion
-responsive behavior
-interactions
-visual polish
-spacing
 typography
-media presentation
-
-Refinement must not become uncontrolled redesign.
-
-27. PHASE 8 — VERIFICATION
-Verify:
-
-functionality
+spacing
+hierarchy
+visual rhythm
 responsive behavior
-accessibility
-performance
-SEO
-social sharing metadata
-final content
-media loading
-video playback
+animation
+interaction
+media presentation
+consistency
+visual polish
+
+Refinement does not authorize an uncontrolled redesign.
+
+45. PHASE 8 — FINAL VERIFICATION
+Verify:
+Functionality
+
 navigation
+CTAs
+video playback
+dialogs
 contact links
+Instagram link
+
+Responsive
+
+desktop/laptop
+tablet
+mobile
+
+Accessibility
+
+keyboard
+focus
+contrast
+reduced motion
+semantic structure
+
+Performance
+
+initial load
+image loading
+video loading
+JavaScript behavior
+animation behavior
+
+SEO / Sharing
+
+metadata
+page structure
+sharing preview
+
+Production
+
+Cloudinary assets
+contact links
+deployed behavior
 
 
-28. PHASE 9 — PRODUCTION
+46. PHASE 9 — DEPLOYMENT
+Before deployment:
 
-Git review
-deployment
-live verification
+inspect Git status
+inspect final diff
+verify intended files
+verify there are no accidental files
+verify production assets
+verify deployment
+verify the live website
 
-The order may change only when a real dependency requires it.
+Deployment is not complete until the live site has been checked.
 
-29. ONE ACTIVE TASK RULE
-There must be exactly one ACTIVE TASK for the project at any given time.
-Example:
-HERO-02 — Implement final photo-led Hero
-Only the active task may be worked on.
-An agent is NOT authorized to:
+47. ONE ACTIVE TASK RULE
+At all times:
 
-start the next task
-prepare the next task
-partially implement the next task
-redesign another section
+Exactly ONE task may be ACTIVE.
+
+An agent must work only on the current active task.
+The agent must not:
+
+start future tasks
+implement future features
+redesign unrelated sections
 refactor unrelated code
-optimize unrelated code
-clean up unrelated files
+clean unrelated files
+“improve” the rest of the site
+prepare future implementation in advance
 
-Finishing early means:
+If the current task finishes early:
 STOP.
-The next task requires explicit assignment.
 
-30. ONE TASK OWNER RULE
-Every active task has exactly one owner.
-No second agent may independently work on the same active task.
-If another agent takes over:
+48. ONE TASK OWNER RULE
+Exactly one agent owns an active task at a time.
+A second agent must not independently modify the same active scope unless explicitly taking over.
+When another agent takes over:
 
-inspect the repository
-inspect Git state
-inspect the active task
-inspect previous changes
-establish the last verified state
-continue only from the remaining work
+inspect repository
+inspect Git status
+inspect current diff
+inspect active task
+inspect changed files
+establish last verified state
+identify incomplete work
+continue from that state
 
-The new agent does not restart the task.
+Do not automatically restart.
 
-31. STRICT TASK SCOPE
-An agent may modify only what is necessary to complete the active task.
-The task defines:
+49. NO WORK-AHEAD RULE
+Knowing the future task list does not authorize implementing future work.
+Example:
+During HERO-01, the agent must not implement:
 
-objective
-allowed scope
-affected files
-dependencies
-acceptance criteria
-verification requirements
+HERO-02
+HERO-03
+projects
+video-system changes unrelated to inspection
+contact redesign
+unrelated CSS refactors
 
-If an agent discovers an unrelated improvement:
-DO NOT IMPLEMENT IT.
-Record it for a future task if useful.
+Future knowledge does not equal future authorization.
 
-32. NO WORK-AHEAD RULE
-Agents must not work ahead of the roadmap.
-If the active task is:
-HERO-01 — Inspect existing Hero
-the agent must not also:
+50. STRICT SCOPE RULE
+The active task defines the work boundary.
+Modify only what is necessary to complete the current task.
+If unrelated improvements are discovered:
+do not implement them.
+Record them for later consideration.
 
-implement the Hero
-redesign project cards
-build the video system
-populate the archive
-integrate all Cloudinary videos
-rewrite the Projects page
+51. MINIMUM-CHANGE PRINCIPLE
+Prefer the smallest safe change that satisfies the active task.
+Reuse:
 
-Understanding future work does not authorize implementation.
-The next task begins only after explicit assignment.
+existing components
+existing utilities
+existing data
+existing CSS architecture
+existing behavior
 
-33. NO UNREQUESTED REFACTORING
-Do not refactor working code merely because another implementation appears cleaner.
+Avoid:
+
+unnecessary rewrites
+speculative abstractions
+dependency additions
+global refactors
+unrelated cleanup
+
+
+52. NO UNREQUESTED REFACTORING
 Do not:
 
 rename unrelated files
-restructure unrelated modules
+reorganize unrelated modules
+replace working architecture
 rewrite global CSS
-replace functioning architecture
-introduce speculative abstractions
+remove working functionality
 change dependencies
-perform broad cleanup
+restructure unrelated systems
 
-unless required by the active task.
-If existing code blocks the active task, fix the minimum necessary portion.
-Otherwise leave it alone.
+unless the active task genuinely requires it.
 
-34. MINIMUM-CHANGE PRINCIPLE
-Use the smallest safe implementation that satisfies the active task.
-Prefer:
+53. BEFORE CODING CHECKLIST
+Every implementation agent must first:
 
-localized changes
-existing architecture
-existing utilities
-existing modules
-existing design tokens
-
-Avoid unnecessary rewrites.
-
-35. BEFORE CODING
-Before changing code, the agent must:
-
-read the relevant .ai documentation
-inspect the current repository
-inspect Git state
-inspect the active task
+read CURRENT-STATE.md
+read CURRENT-PLAN.md
+read relevant DESIGN-DECISIONS.md
+inspect Git status
+inspect active task
 inspect affected files
-inspect existing implementation
+inspect the current implementation
+determine task state
+identify reusable code
+identify risks
 identify dependencies
-determine whether the task is already complete, partial, blocked, or not started
+understand the task acceptance criteria
 
-The task description alone is never sufficient.
-The repository is authoritative.
+Then implementation may begin.
 
-36. CHANGE IMPACT CHECK
-Before a meaningful change, consider consequences across:
+54. CHANGE IMPACT CHECK
+Before making meaningful changes, consider:
 
-desktop
-mobile
+desktop consequences
+tablet consequences
+mobile consequences
 accessibility
 performance
-JavaScript
+JavaScript interactions
 CSS interactions
-future media integration
-existing components
+media behavior
+task dependencies
 maintainability
-future agent handoff
+handoff implications
 
-A locally successful change that damages the larger system is not acceptable.
+A change is not complete merely because it appears to work locally.
 
-37. PROTECTED DECISIONS
-Current protected decisions include:
+55. PROTECTED DECISIONS
+The following are protected project decisions.
+Identity
 
-personal identity: Sanjan
-professional role: Video Editor
-portfolio brand: sanjanedits
-static website
-GitHub Pages
-Cloudinary video hosting
-Vanilla HTML/CSS/JS
+Sanjan
+Video Editor
+sanjanedits
+
+Product
+
+freelance video-editing portfolio
+client-facing
+scroll-based
+visually driven
 homepage + Projects page
-poster-first video loading
-on-demand playback
-no audible autoplay
-dark cinematic editorial direction
-Plus Jakarta Sans + Inter
-near-black / off-white / lime visual system
-lightweight implementation
-accessibility as a first-class requirement
-approved website copy
-short-form editing as the advertised editing focus
-no long-form editing claim
-Instagram as the destination for the broader body of work
-supplied production media
+
+Visual
+
+blue + white direction
+exact approved palette
+Hero primary colors #06142D + #FFFFFF
+supplied screenshot as visual reference
+no lime #C8FF00
+
+Content
+
+approved navigation
+approved Hero
+approved Work copy
+approved “Have a look.”
+approved What I Do
+approved About copy
+approved Contact copy
+approved Projects copy
+short-form focus
+creative editing focus
+no long-form advertising
+
+Positioning
+
+Sanjan is a creative editor first
+reference recreation is optional
+reference recreation is not the main proposition
+
+Media
+
+supplied profile photo
+supplied highlighted reel
+supplied four supporting videos
+supplied Cloudinary URLs
+
+Technical
+
+HTML
+CSS
+Vanilla JavaScript
+Cloudinary
+GitHub
+GitHub Pages
+
+Execution
+
 one active task
-one task owner
+one owner
 no work-ahead
-no invented production content
+no unrequested refactoring
+verified handoffs
+repository-backed continuity
 
-If an active task conflicts with a protected decision:
+If implementation appears to require changing a protected decision:
 STOP.
-Explain:
+Report the conflict.
+Do not silently override the decision.
 
-what conflicts
-why it conflicts
-possible alternatives
+56. AGENT CONTINUITY
+The project is deliberately designed to survive agent changes.
+A new agent must never assume:
 
-Do not silently override a protected decision.
+“Nothing has been done.”
 
-38. PARALLEL AGENT RULE
-Parallel implementation is allowed only when scopes are genuinely isolated.
-Parallel implementation is prohibited when agents may modify the same:
-
-file
-component
-module
-shared stylesheet
-project data
-architecture
-design decision
+It must inspect the repository.
+The continuity chain is:
+CURRENT-PLAN
+↓
+CURRENT-STATE
+↓
+DESIGN-DECISIONS
+↓
+Git status
+↓
+Git diff
+↓
+actual implementation
+↓
 active task
+↓
+remaining work
+This allows different agents and models to continue without depending on previous chat memory.
 
-When uncertain:
-work sequentially.
-More agents do not automatically mean faster progress.
+57. INTERRUPTION RECOVERY
+Interruptions may result from:
 
-39. INTERRUPTED WORK
-An agent may stop because of:
-
-token/credit limits
+token limits
+usage limits
+NVIDIA NIM rate limits
 context limits
 tool failure
-environment failure
 user interruption
-external dependency
-task completion
+environment failure
 
-The next agent must resume from repository state.
-It must:
+An interruption does not invalidate existing work.
+The next agent must:
 
+inspect the repository
 inspect Git status
-inspect the diff
+inspect diff
+inspect active task
 inspect modified files
-inspect the active task
-identify the last verified state
+identify last verified state
 identify incomplete work
-validate existing work
-continue from the remaining work
+validate existing changes
+continue from remaining work
 
-Never restart automatically.
-Never discard partial work merely because another agent created it.
+Do not discard valid partial implementation.
 
-40. HANDOFF STATE
-At the end of meaningful work, the active task must contain enough information for another agent to continue without the previous conversation.
-The handoff must state:
+58. HANDOFF REQUIREMENTS
+After meaningful work, the agent must leave a usable handoff.
+The handoff must identify:
 
 task ID
-final status
-what changed
+task state
 files changed
-what was verified
-what was not verified
+implementation completed
+verification performed
+verification not performed
 known issues
+blockers
 important decisions
 remaining work
 exact next task
 
-The repository is the continuity mechanism.
-Chat history is not.
+A handoff should allow a competent new agent to continue without asking the previous agent to explain the project.
 
-41. TASK STATES
-Every task uses one of:
+59. TASK STATES
+Allowed task states:
 NOT STARTED
 READY
 ACTIVE
@@ -1023,262 +1141,342 @@ PARTIAL
 BLOCKED
 VERIFIED
 ABANDONED
-Only VERIFIED means the acceptance criteria have been satisfied.
+Only:
+VERIFIED
+means acceptance criteria have been satisfied.
 
-42. MANDATORY STOP RULE
+60. MANDATORY STOP CONDITIONS
 An agent must stop when:
 
-the active task is verified complete
-the active task is blocked
-required user input is missing
-an architectural conflict is discovered
+the task is verified
+the task is blocked
+user input is required
+a protected decision conflicts with implementation
+verification cannot be completed
 scope would materially expand
-required behavior cannot be verified
 another task owns the affected area
+required production media is missing
+a major architecture change is required
 
-The agent must not search for additional work.
-A clean stop is successful execution.
+Do not improvise through blockers.
 
-43. CHECKPOINT STRATEGY
-Create checkpoints at meaningful milestones.
-Examples:
+61. VERIFICATION CONTRACT
+Verification must match the task.
+Do not claim:
 
-Hero structure complete
-Hero desktop verified
-Hero mobile verified
-Hero motion verified
-project-card system complete
-video dialog complete
-real media integrated
-responsive pass complete
-accessibility pass complete
-performance pass complete
+“Everything works.”
 
-The purpose is recovery and traceability.
-A checkpoint does not prove correctness.
+unless the relevant behavior was actually checked.
+Verification should state what was tested.
+For visual tasks, inspect actual layouts.
+For responsive tasks, check:
 
-44. VERIFICATION CONTRACT
-Every task must define verification appropriate to its scope.
-Examples:
-Hero
-
-desktop
+desktop/laptop
+tablet
 mobile
-scroll behavior
-reduced motion
-overflow
 
-Navigation
+For interaction tasks, check:
 
-desktop
-mobile
-keyboard
+mouse/touch interaction
+keyboard interaction
 focus
-expanded/collapsed state
-
-Video
-
-opening
-playback
-closing
 Escape
-focus restoration
-failure state
-mobile
+loading
+errors
+cleanup
 
-CSS
+For motion, check:
 
-affected components
-responsive behavior
-overflow
-visual regressions
+standard motion
+reduced motion
 
-No verification may be claimed without actual evidence.
 
-45. DEFINITION OF DONE
-A task is complete only when:
+62. DEFINITION OF DONE
+A task is DONE only when:
 
-implementation exists where required
-relevant rules are followed
+required implementation exists
+scope was respected
 existing functionality remains intact
-required behavior is verified
-relevant responsive behavior is checked
-relevant accessibility behavior is checked
-relevant performance implications are considered
-diff is reviewed
-no obvious unfinished implementation remains
-handoff state is recorded
+required behavior was verified
+responsive behavior was checked where relevant
+accessibility was checked where relevant
+performance was considered where relevant
+Git diff was reviewed
+no obvious unfinished work remains
+handoff information is recorded
 
-Only then may the task become:
+Then the task can become:
 VERIFIED
 
-46. STOP CONDITIONS
-The agent must STOP instead of improvising when:
-
-a required user decision is missing
-required media is missing
-an architectural decision is unclear
-a protected decision would need to change
-verification cannot be completed
-another subsystem must be redesigned
-scope would materially expand
-credentials or external configuration are required
-
-Report the blocker and wait.
-
-47. GIT RECOVERY BOUNDARY
+63. GIT CHECKPOINT RULE
 Before meaningful implementation:
 
-inspect Git status
-understand branch
-inspect relevant history
+inspect branch
+inspect status
+inspect relevant history when useful
 
 After meaningful implementation:
 
 inspect diff
-verify intended files changed
-verify unrelated files did not change
-create a coherent checkpoint when appropriate
+confirm intended files changed
+confirm unrelated files did not change
+create a coherent checkpoint where appropriate
 
-A commit does not prove correctness.
-Verification is still required.
+A commit is not proof of verification.
 
-48. EFFICIENCY PRINCIPLES
+64. PARALLEL AGENT RULE
+Parallel agents are allowed only when their scopes are genuinely isolated.
+Do not run multiple agents simultaneously on overlapping:
+
+files
+components
+CSS systems
+JavaScript systems
+project data
+architecture
+design decisions
+active task ownership
+
+When uncertain:
+
+Work sequentially.
+
+More agents do not automatically mean faster progress.
+
+65. EFFICIENCY RULE
 The objective is:
-maximum verified forward progress per unit of agent effort.
+
+Maximum verified progress per unit of agent effort.
+
 Not:
 
 maximum code generated
-maximum agents
+maximum tokens consumed
+maximum tool calls
+maximum files touched
 maximum commits
-maximum files changed
-maximum visible activity
+maximum agent activity
 
-Therefore:
+Prefer:
 
-prefer one informed agent over conflicting agents
-reuse repository state
-avoid repeated full-project discovery
-divide work by logical boundaries
-keep tasks small
-preserve partial work
-verify before handoff
-stop when blocked
-never restart without evidence
-never work ahead
+small tasks
+clear boundaries
+targeted inspection
+reuse
+localized changes
+meaningful checkpoints
+precise handoffs
+minimal repeated discovery
 
 
-49. NIM / API BUDGET AWARENESS
-When working through a model or API with token, rate, or context limits, agents must work efficiently within those constraints.
-Agents must avoid unnecessary:
+66. NVIDIA NIM / MODEL BUDGET RULES
+Some agents or models may operate under:
 
-full-repository rereads
-repeated searches
-redundant tool calls
-oversized prompts
-repeated explanations
+tokens-per-minute limits
+context limits
+credit limits
+rate limits
+
+The project must account for this.
+Agents should minimize unnecessary model usage.
+Avoid:
+
+repeatedly reading the entire repository
+repeating the same documentation
+redundant searches
+unnecessarily huge prompts
 unrelated analysis
-unnecessary file rewrites
+rewriting entire files for localized changes
+repeatedly verifying unrelated work that is already verified
 
-The agent must not waste the available NIM/API budget on work outside the active task.
-If an API rate/token limit is reached:
+Available model budget should primarily go toward the active task.
+
+67. RATE-LIMIT RECOVERY
+If a model/API reaches its limit:
 
 stop safely
-preserve the current repository state
-preserve the active-task handoff state
-do not restart the task
-allow the next available session/agent to resume from the checkpoint
+preserve repository state
+preserve task state
+document the current handoff
+do not restart completed work
+allow another agent/session to continue from the recorded state
 
-Rate limits must never cause the project to lose progress.
+A model limit must not cause project progress to disappear.
 
-50. HUMAN DECISION GATES
-Explicit user control is required for:
+68. HUMAN APPROVAL GATES
+Explicit approval is required before:
 
-final project selection changes
-final profile photograph changes
-major visual direction changes
-major architecture changes
-significant dependency additions
-changing protected decisions
+changing the visual direction
+changing the blue/white palette
 changing approved copy
+changing project selection
 changing supplied production media
-final showreel selection changes
-final production content changes
-deployment approval
+changing the primary reel
+changing the profile image
+changing the primary positioning
+turning reference recreation into the main proposition
+major architecture changes
+adding major dependencies
+materially changing site structure
 
-Agents may prepare options but must not invent user decisions.
+Agents may identify problems and propose solutions.
+Agents must not invent the user's decision.
 
-51. DOCUMENTATION RESPONSIBILITIES
-.ai/12/CURRENT-STATE.md
+69. DOCUMENT RESPONSIBILITIES
+CURRENT-STATE.md
 Answers:
+
 What is true right now?
-.ai/13/DESIGN-DECISIONS.md
-Answers:
-Why was an important decision made?
-.ai/14/CURRENT-PLAN.md
-Answers:
-What are we building, what is approved, what are we doing next, and how must agents execute it?
-Do not duplicate these responsibilities unnecessarily.
 
-52. CURRENT EXECUTION STATE
-The documentation and project-control system are ready.
-The repository is not greenfield.
-The project already has an implementation foundation.
-The production media has now been supplied.
-Therefore:
-the project is ready to begin implementation work.
-No additional state-control task is required before HERO-01.
+It records the current repository reality, current implementation, media state, task state, and verified facts.
 
-53. CURRENT ACTIVE TASK
-Task ID:
+DESIGN-DECISIONS.md
+Answers:
+
+Why was an important design or architecture decision made?
+
+It records the reasoning behind protected decisions.
+
+CURRENT-PLAN.md
+Answers:
+
+What are we building, what is approved, how should agents execute it, and what happens next?
+
+
+70. SOURCE-OF-TRUTH HIERARCHY
+For implementation reality:
+actual repository > CURRENT-STATE.md
+For approved execution direction:
+CURRENT-PLAN.md + DESIGN-DECISIONS.md
+For production media:
+exact media and URLs supplied by Sanjan
+For user decisions:
+explicit current user instruction
+When sources conflict:
+STOP.
+Do not silently choose.
+Report the conflict.
+
+71. CURRENT PROJECT STATUS
+Current project foundation includes:
+
+repository
+.ai documentation system
+implementation foundation
+homepage foundation
+Projects page foundation
+reusable video-dialog foundation
+centralized project data
+responsive foundation
+supplied Cloudinary production media
+approved copy
+approved positioning
+approved blue/white palette
+supplied screenshot/reference direction
+agent-control protocol
+
+The project is intended to proceed through controlled implementation rather than uncontrolled “vibe coding.”
+
+72. CURRENT ACTIVE TASK
 HERO-01
-Status:
-READY
-Task:
-Inspect the existing Hero implementation and define the exact modification boundary.
-This is the first implementation task.
-It is inspection/planning only.
-The agent must NOT implement the final Hero during this task.
-Required output:
+Status: READY
+Objective
+Inspect the existing Hero and establish the exact implementation boundary for the final Hero.
+Required actions
+The agent must:
 
-current Hero structure
-relevant files
-reusable implementation
-required modifications
-dependencies
-risks
-consequences
-smallest safe implementation boundary
-verification strategy for HERO-02
+read the relevant .ai documentation
+inspect Git status
+inspect the existing Hero
+inspect relevant HTML
+inspect relevant CSS
+inspect relevant JavaScript
+inspect responsive behavior
+inspect current media handling
+inspect profile image integration
+compare current implementation against the approved Hero direction
+identify reusable code
+identify necessary changes
+identify dependencies
+identify risks
+define the smallest safe implementation boundary
+define HERO-02 verification strategy
 
-Acceptance criteria:
+Forbidden during HERO-01
+The agent must NOT:
 
-existing Hero is understood
-affected files are identified
+implement the final Hero
+redesign unrelated sections
+begin HERO-02
+introduce new dependencies
+perform unrelated refactoring
+change approved copy
+change palette
+change visual direction
+
+Acceptance criteria
+HERO-01 is complete only when:
+
+the current Hero is understood
+relevant files are identified
 reusable code is identified
 unnecessary rewrites are ruled out
-implementation boundary is clearly defined
+screenshot implications are identified
+responsive implications are identified
+media implications are identified
+implementation boundary is defined
+verification strategy is defined
 no unrelated files are modified
 final Hero is not implemented
 
-When complete:
+Then:
 STOP.
 
-54. NEXT TASK
-After HERO-01 is reviewed and explicitly marked VERIFIED:
-HERO-02 — Implement the final photo-led Hero.
-The next task must be explicitly assigned.
+73. NEXT TASK
+After HERO-01 is explicitly marked:
+VERIFIED
+the next task is:
+HERO-02
+Implement the final photo-led Hero using the verified HERO-01 plan.
 No agent may automatically proceed to HERO-02.
 
-55. FINAL OPERATING PRINCIPLE
-The project must always have:
-one product direction
-one authoritative execution plan
-one active task
-one task owner
-one defined scope
-one verifiable stopping point
-one clear handoff
-The purpose of multiple AI agents is continuity and efficient execution—not independent agents making independent decisions.
-Every agent must leave the repository in a state where the next competent agent can determine:
-what exists → what changed → what is verified → what remains → exactly what to do next.
+74. FINAL OPERATING LOOP
+Every task follows:
+READ
+↓
+INSPECT
+↓
+UNDERSTAND
+↓
+PLAN
+↓
+IMPLEMENT ONE TASK
+↓
+VERIFY
+↓
+DOCUMENT
+↓
+STOP
+↓
+NEXT TASK
+The system exists to prevent:
+
+duplicated work
+lost progress
+conflicting edits
+uncontrolled scope
+agent restarts
+unnecessary token consumption
+invented project decisions
+accidental redesign
+broken handoffs
+premature implementation
+
+The project should always be understandable to a competent new agent from the repository itself.
+One project direction.
+One authoritative plan.
+One active task.
+One owner.
+One defined scope.
+One verification point.
+One clean handoff.
