@@ -83,12 +83,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .service-item p { color: var(--muted); font-size: .85rem; line-height: 1.6; margin: 0; }
 .service-item b { justify-self: end; font-family: var(--mono); font-weight: 400; font-size: 1.2rem; color: var(--blue); }
 
-.about-section { display: grid; grid-template-columns: 1.2fr .8fr; gap: 8vw; align-items: center; background: var(--ice); color: var(--navy); }
+.about-section { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 8vw; align-items: center; background: #fff; color: var(--navy); }
 .about-copy { max-width: 42rem; }
 .about-copy h2 { font-size: clamp(3rem, 6vw, 6rem); margin-bottom: 2rem; }
 .about-copy p { color: #52627a; line-height: 1.7; }
-.about-photo { height: min(45rem, 58vw); display: grid; place-items: end center; }
-.about-photo img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 2rem 2rem rgba(6, 20, 45, .15)); }
+.about-photo { width: 100%; height: auto; min-height: 0; display: flex; align-items: center; justify-content: flex-start; background: #fff; }
+.about-photo img { display: block; width: 100%; height: auto; max-width: none; object-fit: contain; object-position: left center; filter: none; }
 
 .instagram-section { display: grid; grid-template-columns: 1.2fr .8fr; gap: 8vw; align-items: center; background: var(--blue); color: var(--white); }
 .instagram-section .eyebrow { color: var(--ice); }
@@ -149,7 +149,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
     .services-section, .about-section, .instagram-section { display: block; }
     .service-item { grid-template-columns: 1fr 2rem; }
     .service-item p { grid-column: 1 / -1; margin-top: .5rem; }
-    .about-photo { height: min(70vw, 26rem); margin-top: 3rem; }
+    .about-photo { width: 100%; margin: 0 0 3rem; }
+    .about-photo img { width: 100%; height: auto; }
     .instagram-card { min-height: 14rem; margin-top: 3rem; }
     .contact-meta { display: grid; gap: .8rem; }
     .contact-link { margin-top: 3rem; font-size: clamp(1.8rem, 9vw, 3rem); }

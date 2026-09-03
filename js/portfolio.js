@@ -6,7 +6,7 @@ function updateParallax() {
     parallaxItems.forEach((element) => {
         const speed = Number(element.dataset.parallax || 0);
         const rect = element.getBoundingClientRect();
-        const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed;
+        const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed * 1.35;
         element.style.setProperty('--parallax-y', reduceMotion ? '0px' : `${Math.round(offset)}px`);
     });
     ticking = false;
