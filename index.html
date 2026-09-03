@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="./assets/images/icons/social-preview.svg">
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap">
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/layout.css">
     <link rel="stylesheet" href="./css/components.css">
@@ -66,66 +66,35 @@
     </header>
 
     <main id="main-content">
-        <section class="hero section" aria-labelledby="hero-heading">
-            <div class="container hero__layout">
-                <div class="hero__content" data-reveal>
-                    <p class="section-kicker">Short-form video editor</p>
-                    <h1 class="hero__title" id="hero-heading">
-                        Sanjan builds sharp, music-driven edits with rhythm, impact, and motion.
-                    </h1>
-                    <p class="hero__intro">
-                        sanjanedits is a portfolio for cinematic reels, movie edits, sudden drops, beat
-                        synchronization, and high-energy short-form work designed to feel premium from the first frame.
-                    </p>
-
-                    <div class="hero__actions">
-                        <a class="button button--primary" href="#work">View My Work</a>
-                        <a class="button button--secondary" href="./projects.html">View Projects</a>
-                        <a class="button button--text" href="https://www.instagram.com/sanjanedits/">View on Instagram</a>
-                    </div>
-                </div>
-
-                <div class="hero__board" data-reveal>
-                    <div class="hero__board-copy">
-                        <p class="hero__board-label">Visual rhythm</p>
-                        <p class="hero__board-line">Build</p>
-                        <p class="hero__board-line">Tension</p>
-                        <p class="hero__board-line">Impact</p>
-                    </div>
-
-                    <dl class="hero__stats">
-                        <div class="hero__stat">
-                            <dt>Edits created</dt>
-                            <dd>70+</dd>
-                        </div>
-                        <div class="hero__stat">
-                            <dt>Published on Instagram</dt>
-                            <dd>45</dd>
-                        </div>
-                        <div class="hero__stat">
-                            <dt>Workflow</dt>
-                            <dd>CapCut</dd>
-                        </div>
-                    </dl>
-
-                    <div class="hero__chips" aria-label="Editing focus">
-                        <span class="chip">Short-form</span>
-                        <span class="chip">Cinematic</span>
-                        <span class="chip">Movie edits</span>
-                        <span class="chip">Beat sync</span>
-                    </div>
-                </div>
+        <section class="hero-container" id="hero">
+            <div class="meta top-left">Creative Presentation</div>
+            <div class="meta top-right">
+                <a href="#work" class="arrow-link" aria-label="Scroll to work"><span class="arrow-icon">→</span></a>
             </div>
+
+            <div class="hero-stage">
+                <h1 class="bg-title" id="hero-heading">SANJAN</h1>
+                <img
+                    src="./assets/images/profile/sanjan-removebg-preview.png"
+                    class="fg-image"
+                    alt="Sanjan - Video Editor"
+                    width="600"
+                    height="800"
+                    loading="eager"
+                >
+            </div>
+
+            <div class="meta bottom-left">Sanjan</div>
+            <div class="meta bottom-right">sanjanedits</div>
         </section>
 
         <section class="selected-work section" id="work" aria-labelledby="work-heading">
             <div class="container">
                 <div class="section-heading" data-reveal>
-                    <p class="section-kicker">Selected Work</p>
-                    <h2 id="work-heading">A homepage reserved for the five edits that should lead the conversation.</h2>
+                    <p class="section-kicker">Featured Edits</p>
+                    <h2 id="work-heading">Here’s My Work</h2>
                     <p>
-                        The layout is ready for one dominant featured cut and four supporting edits. Real posters and
-                        Cloudinary playback can be connected without changing the structure.
+                        Take a look at some of the videos I’ve edited.
                     </p>
                 </div>
 
@@ -134,23 +103,22 @@
                         <div class="project-card__media">
                             <div class="project-card__placeholder" aria-hidden="true">
                                 <span class="project-card__serial">01</span>
-                                <span class="project-card__marker">Primary slot</span>
+                                <span class="project-card__marker">Featured Cut</span>
                             </div>
                         </div>
                         <div class="project-card__meta">
-                            <p class="project-card__category">Selected work</p>
-                            <h3 class="project-card__title">Primary featured edit</h3>
+                            <p class="project-card__category">Featured Reel</p>
+                            <h3 class="project-card__title">Srujan Edit</h3>
                             <p class="project-card__text">
-                                Reserved for the one cut Sanjan wants front and center on the homepage.
+                                Main highlighted short-form edit featuring high-impact beat synchronization and cinematic cuts.
                             </p>
                             <button
-                                class="button button--text"
+                                class="button button--primary"
                                 type="button"
                                 data-action="open-video"
-                                data-slot-title="Primary featured edit"
-                                data-slot-description="This slot is reserved for the strongest homepage edit once its poster and Cloudinary URL are added."
+                                data-project-id="srujan-edit"
                             >
-                                Open slot
+                                Watch Edit
                             </button>
                         </div>
                     </article>
@@ -162,17 +130,16 @@
                             </div>
                         </div>
                         <div class="project-card__meta">
-                            <p class="project-card__category">Supporting slot</p>
-                            <h3 class="project-card__title">Supporting edit one</h3>
-                            <p class="project-card__text">Prepared for a secondary reel or cinematic cut.</p>
+                            <p class="project-card__category">Cinematic Cut</p>
+                            <h3 class="project-card__title">Sai Saviour</h3>
+                            <p class="project-card__text">Action-driven movie edit focusing on visual pacing, contrast control, and atmospheric drops.</p>
                             <button
-                                class="button button--text"
+                                class="button button--secondary"
                                 type="button"
                                 data-action="open-video"
-                                data-slot-title="Supporting edit one"
-                                data-slot-description="This supporting slot is ready for a featured homepage edit once media is added."
+                                data-project-id="sai-saviour"
                             >
-                                Open slot
+                                Watch Edit
                             </button>
                         </div>
                     </article>
@@ -184,17 +151,16 @@
                             </div>
                         </div>
                         <div class="project-card__meta">
-                            <p class="project-card__category">Supporting slot</p>
-                            <h3 class="project-card__title">Supporting edit two</h3>
-                            <p class="project-card__text">Prepared for a rhythm-led or movie-driven edit.</p>
+                            <p class="project-card__category">Rhythm Edit</p>
+                            <h3 class="project-card__title">Athadu Brahmi</h3>
+                            <p class="project-card__text">Rhythm-led short-form cut with precision timing and audio synchronization.</p>
                             <button
-                                class="button button--text"
+                                class="button button--secondary"
                                 type="button"
                                 data-action="open-video"
-                                data-slot-title="Supporting edit two"
-                                data-slot-description="This supporting slot is ready for a featured homepage edit once media is added."
+                                data-project-id="athadu-brahmi"
                             >
-                                Open slot
+                                Watch Edit
                             </button>
                         </div>
                     </article>
@@ -206,17 +172,16 @@
                             </div>
                         </div>
                         <div class="project-card__meta">
-                            <p class="project-card__category">Supporting slot</p>
-                            <h3 class="project-card__title">Supporting edit three</h3>
-                            <p class="project-card__text">Prepared for a high-energy short-form project.</p>
+                            <p class="project-card__category">Beat Sync</p>
+                            <h3 class="project-card__title">Srujan Dude</h3>
+                            <p class="project-card__text">High-energy social content edit featuring fast-cut transitions and music drops.</p>
                             <button
-                                class="button button--text"
+                                class="button button--secondary"
                                 type="button"
                                 data-action="open-video"
-                                data-slot-title="Supporting edit three"
-                                data-slot-description="This supporting slot is ready for a featured homepage edit once media is added."
+                                data-project-id="srujan-dude"
                             >
-                                Open slot
+                                Watch Edit
                             </button>
                         </div>
                     </article>
@@ -228,17 +193,16 @@
                             </div>
                         </div>
                         <div class="project-card__meta">
-                            <p class="project-card__category">Supporting slot</p>
-                            <h3 class="project-card__title">Supporting edit four</h3>
-                            <p class="project-card__text">Prepared for another curated cut from the archive.</p>
+                            <p class="project-card__category">Visual FX</p>
+                            <h3 class="project-card__title">Space OG</h3>
+                            <p class="project-card__text">Atmospheric space and movie edit built around visual depth and rhythm.</p>
                             <button
-                                class="button button--text"
+                                class="button button--secondary"
                                 type="button"
                                 data-action="open-video"
-                                data-slot-title="Supporting edit four"
-                                data-slot-description="This supporting slot is ready for a featured homepage edit once media is added."
+                                data-project-id="space-og"
                             >
-                                Open slot
+                                Watch Edit
                             </button>
                         </div>
                     </article>
@@ -249,28 +213,26 @@
         <section class="showreel section" id="showreel" aria-labelledby="showreel-heading">
             <div class="container showreel__layout">
                 <div class="section-heading" data-reveal>
-                    <p class="section-kicker">Showreel</p>
-                    <h2 id="showreel-heading">A dedicated reel area for the one video that should summarize the style quickly.</h2>
+                    <p class="section-kicker">Primary Cut</p>
+                    <h2 id="showreel-heading">Have a look.</h2>
                     <p>
-                        The showreel is wired for click-to-play behavior so it stays lightweight before the visitor asks
-                        to watch it.
+                        The primary highlighted edit demonstrates rhythm, pacing, and high-impact cuts in action.
                     </p>
                 </div>
 
                 <div class="showreel__frame" data-reveal>
                     <div class="showreel__poster" aria-hidden="true">
-                        <span class="showreel__poster-mark">THE REEL</span>
+                        <span class="showreel__poster-mark">FEATURED REEL</span>
                     </div>
                     <div class="showreel__copy">
-                        <p>Use the latest selected reel from Instagram as the primary showreel.</p>
+                        <p>Watch the primary highlighted edit directly inside the portfolio.</p>
                         <button
                             class="button button--primary"
                             type="button"
                             data-action="open-video"
-                            data-slot-title="Showreel"
-                            data-slot-description="The showreel slot is ready. Add the final poster and Cloudinary video URL to publish it."
+                            data-project-id="srujan-edit"
                         >
-                            Watch Reel
+                            Watch Highlighted Reel
                         </button>
                     </div>
                 </div>

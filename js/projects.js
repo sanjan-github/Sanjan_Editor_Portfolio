@@ -1,6 +1,62 @@
-const projectCatalog = [];
+const projectCatalog = [
+    {
+        id: "srujan-edit",
+        serial: "01",
+        title: "Srujan Edit",
+        category: "reels",
+        categoryLabel: "Featured Reel",
+        statusLabel: "Featured Cut",
+        description: "Main highlighted short-form edit featuring high-impact beat synchronization and cinematic cuts.",
+        video: "https://res.cloudinary.com/sdsqadch/video/upload/v1787904198/srujan-edit.mp4",
+        instagram: "https://www.instagram.com/sanjanedits/"
+    },
+    {
+        id: "sai-saviour",
+        serial: "02",
+        title: "Sai Saviour",
+        category: "cinematic",
+        categoryLabel: "Cinematic Cut",
+        statusLabel: "Supporting Cut",
+        description: "Action-driven movie edit focusing on visual pacing, contrast control, and atmospheric drops.",
+        video: "https://res.cloudinary.com/sdsqadch/video/upload/v1787904812/Sai_Saviour.mp4",
+        instagram: "https://www.instagram.com/sanjanedits/"
+    },
+    {
+        id: "athadu-brahmi",
+        serial: "03",
+        title: "Athadu Brahmi",
+        category: "reels",
+        categoryLabel: "Rhythm Edit",
+        statusLabel: "Supporting Cut",
+        description: "Rhythm-led short-form cut with precision timing and audio synchronization.",
+        video: "https://res.cloudinary.com/sdsqadch/video/upload/v1787904770/athadu_brahmi.mp4",
+        instagram: "https://www.instagram.com/sanjanedits/"
+    },
+    {
+        id: "srujan-dude",
+        serial: "04",
+        title: "Srujan Dude",
+        category: "short-form",
+        categoryLabel: "Beat Sync",
+        statusLabel: "Supporting Cut",
+        description: "High-energy social content edit featuring fast-cut transitions and music drops.",
+        video: "https://res.cloudinary.com/sdsqadch/video/upload/v1787903555/Srujan-Dude.mp4",
+        instagram: "https://www.instagram.com/sanjanedits/"
+    },
+    {
+        id: "space-og",
+        serial: "05",
+        title: "Space OG",
+        category: "cinematic",
+        categoryLabel: "Visual FX",
+        statusLabel: "Supporting Cut",
+        description: "Atmospheric space and movie edit built around visual depth and rhythm.",
+        video: "https://res.cloudinary.com/sdsqadch/video/upload/v1787892867/Space-OG.mp4",
+        instagram: "https://www.instagram.com/sanjanedits/"
+    }
+];
 
-const featuredProjectIds = [];
+const featuredProjectIds = ["srujan-edit", "sai-saviour", "athadu-brahmi", "srujan-dude", "space-og"];
 
 function createProjectCard(project) {
     const article = document.createElement("article");

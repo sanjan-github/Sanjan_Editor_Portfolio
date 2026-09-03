@@ -1,6 +1,7 @@
 import { initNavigation } from "./navigation.js";
 import { initProjects } from "./projects.js";
 import { initVideos } from "./videos.js";
+import { initHeroParallax } from "./hero-parallax.js";
 
 function initReveal() {
     const revealTargets = Array.from(document.querySelectorAll("[data-reveal]"));
@@ -39,5 +40,6 @@ function initReveal() {
 initNavigation();
 initProjects();
 initVideos();
+initHeroParallax();
 initReveal();
 
