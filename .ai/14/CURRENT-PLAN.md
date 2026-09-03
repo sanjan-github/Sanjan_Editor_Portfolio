@@ -50,7 +50,6 @@ an unnecessarily complex technical project
 3. PORTFOLIO EXPERIENCE SPECIFICATION
 This section defines what the visitor should experience.
 It is the product direction that implementation must serve.
-
 3.1 First Impression
 The first screen must immediately establish:
 Sanjan + video editor + personality.
@@ -64,7 +63,6 @@ concise messaging
 controlled motion
 
 The site must not depend on a long introduction to explain its purpose.
-
 3.2 Experience Hierarchy
 The overall narrative is:
 Person → Identity → Work → Capability → Personality → Contact
@@ -85,14 +83,12 @@ Every major section should support this progression.
 4. APPROVED WEBSITE COPY
 The following copy is approved and must be used exactly unless Sanjan explicitly changes it.
 Agents must not rewrite, paraphrase, “improve,” or replace approved copy.
-
 4.1 Navigation
 Brand:
 sanjanedits
 Navigation:
 Work · About · Contact
 The brand represents the portfolio identity.
-
 4.2 Hero
 Brand/name:
 SANJAN
@@ -107,7 +103,6 @@ View My Work
 Secondary CTA:
 Let's Work Together
 The Hero copy must remain concise and visually dominant.
-
 4.3 Work Section
 Heading:
 Here’s My Work
@@ -124,7 +119,6 @@ Portfolio
 My Projects
 
 unless Sanjan explicitly changes it.
-
 4.4 Video Section
 Heading:
 Have a look.
@@ -138,7 +132,6 @@ Reel
 Showcase
 
 unless Sanjan explicitly changes the decision.
-
 4.5 What I Do
 Heading:
 What I Do
@@ -153,7 +146,6 @@ Rhythm-driven cuts, transitions, effects, visual storytelling, and the details t
 This section represents Sanjan's current editing services.
 Long-form editing is NOT advertised.
 Agents must not add long-form editing unless explicitly instructed.
-
 4.6 About
 The following copy is locked exactly as approved:
 
@@ -163,7 +155,6 @@ The goal isn’t to make a video look edited. It’s to make the viewer feel it.
 If you have footage that deserves more than a basic cut, let’s make something out of it.
 
 Agents must not rewrite this copy.
-
 4.7 Contact
 Heading:
 Got something in mind?
@@ -174,7 +165,6 @@ Instagram: sanjanedits
 WhatsApp: @sanjan.69
 The actual production destinations are supplied by Sanjan.
 Agents must never invent or guess contact URLs.
-
 4.8 Projects Page
 Heading:
 More of My Work
@@ -188,7 +178,6 @@ Instagram:
 sanjanedits
 The Projects page does NOT claim to contain every video Sanjan has created.
 Instagram is the destination for the broader body of work.
-
 4.9 Footer
 The footer uses:
 Sanjan
@@ -219,7 +208,6 @@ controlled negative space
 restrained accent treatment
 
 The Hero must feel like an introduction to an editor's creative identity, not a résumé header.
-
 5.2 Hero Motion
 The Hero should use a scroll-linked visual progression.
 Intended motion language:
@@ -246,7 +234,6 @@ lightweight JavaScript
 IntersectionObserver where appropriate
 
 Do not introduce a heavy animation framework merely to create this effect.
-
 5.3 Hero Requirements
 The Hero must:
 
@@ -543,22 +530,77 @@ The exact implementation may evolve if maintainability improves without violatin
 20. DEVELOPMENT ORDER
 Work follows dependencies.
 Phase 0 — State Control
+This phase has already been completed sufficiently for implementation to begin.
+The repository contains:
 
-accurate current state
-accurate execution plan
+current state documentation
+current plan
 design decisions
-active-task control
-repository understanding
+.ai operating documentation
+task-control rules
 
+No additional STATE-01 task is required.
 Phase 1 — Hero
+HERO-01
+Inspect the existing Hero implementation and define the exact modification boundary.
+This task is inspection/planning only.
+The agent must:
 
-Hero structure
-photograph integration
-desktop composition
-mobile composition
+read relevant .ai documentation
+inspect the repository
+inspect Git state
+inspect existing Hero HTML
+inspect relevant CSS
+inspect relevant JavaScript
+identify reusable existing code
+identify what must change
+identify dependencies
+identify potential consequences
+define the smallest safe implementation boundary
+
+The agent must NOT implement the final Hero during HERO-01.
+Acceptance criteria:
+
+existing Hero is understood
+relevant files are identified
+existing reusable code is identified
+unnecessary rewrites are ruled out
+implementation boundary is clearly reported
+no unrelated code is changed
+
+When complete:
+STOP.
+Do not start HERO-02.
+HERO-02
+Implement the final photo-led Hero based on the verified HERO-01 boundary.
+Scope includes:
+
+real photograph integration
+final composition
+typography
+approved Hero copy
+desktop behavior
+mobile behavior
 scroll-linked transition
 reduced-motion behavior
-verification
+responsive behavior
+performance considerations
+
+The agent must not modify unrelated sections.
+HERO-03
+Verify the completed Hero.
+Verification includes:
+
+desktop
+mobile
+scrolling
+reduced motion
+overflow
+visual hierarchy
+performance
+accessibility
+
+Only after successful verification may the Hero phase be considered complete.
 
 Phase 2 — Selected Work
 
@@ -568,6 +610,10 @@ supporting projects
 posters
 metadata
 interaction
+responsive behavior
+
+Each meaningful feature must be a separate task.
+Do not implement the entire phase as one uncontrolled task.
 
 Phase 3 — Video System
 
@@ -577,6 +623,10 @@ focus management
 on-demand loading
 error handling
 mobile behavior
+keyboard behavior
+cleanup
+
+Each meaningful feature must be separately scoped and verified.
 
 Phase 4 — Real Media
 
@@ -586,12 +636,15 @@ posters
 Cloudinary URLs
 showreel
 
+Real production media is integrated only when supplied by Sanjan.
+
 Phase 5 — Supporting Sections
 
 What I Do
-Editing Philosophy if retained in the final design
 About
 Contact
+
+Approved copy from Section 4 must be preserved exactly.
 
 Phase 6 — Projects Page
 
@@ -603,12 +656,15 @@ playback
 Instagram CTA
 
 The Projects page must not imply that all videos are hosted on the website.
+
 Phase 7 — Refinement
 
 motion
 responsive behavior
 interactions
 visual polish
+
+Refinement must not become uncontrolled redesign.
 
 Phase 8 — Verification
 
@@ -618,6 +674,7 @@ accessibility
 performance
 SEO/sharing
 final content
+
 
 Phase 9 — Production
 
@@ -630,7 +687,7 @@ The order may change only when a real dependency requires it.
 21. ONE ACTIVE TASK RULE
 There must be exactly one ACTIVE TASK for the project at any given time.
 Example:
-HERO-02 — Implement desktop Hero composition
+HERO-02 — Implement final photo-led Hero
 Only the active task may be worked on.
 An agent is NOT authorized to:
 
@@ -678,9 +735,10 @@ Record it for a future task if useful.
 24. NO WORK-AHEAD RULE
 Agents must not work ahead of the roadmap.
 If the active task is:
-HERO-01 — Implement Hero structure
+HERO-01 — Inspect existing Hero
 the agent must not also:
 
+implement the Hero
 redesign project cards
 build the video system
 populate the archive
@@ -1045,38 +1103,87 @@ Answers:
 What are we building, what content is approved, what are we doing next, and how must agents execute it?
 Do not duplicate these responsibilities.
 
-44. CURRENT EXECUTION STATE
+44. CURRENT REPOSITORY STATE
 The repository already contains the project foundation and .ai specification system.
 The project is not greenfield.
-The product direction and approved copy are defined above.
-Implementation must proceed from the actual repository state rather than restarting the project.
+Current state includes:
 
-45. CURRENT ACTIVE TASK
+homepage
+Projects page
+.ai/00 through .ai/14
+HTML structure
+CSS architecture
+JavaScript module architecture
+mobile navigation
+responsive foundations
+accessible video-dialog foundation
+centralized project-data layer
+lightweight static assets
+
+The first implementation pass exists.
+The final visual experience and real production media are still incomplete.
+
+45. CURRENT KNOWN INCOMPLETE AREAS
+Current open areas include:
+
+final photo-led Hero
+final Hero scroll behavior
+final profile photograph integration
+five selected homepage projects
+real posters
+Cloudinary video URLs
+showreel
+complete project archive
+final WhatsApp link
+final responsive refinement
+final accessibility audit
+final performance audit
+final SEO/sharing verification
+production deployment verification
+
+No other issue should be treated as open unless actually observed.
+
+46. CURRENT ACTIVE TASK
 Task ID:
-STATE-01
+HERO-01
 Task:
-Verify that CURRENT-STATE accurately reflects the actual repository before implementation begins.
+Inspect the existing Hero implementation and define the exact modification boundary.
 Status:
 READY
-Scope:
-Documentation/state verification only.
-No visual redesign is part of this task.
+This is the first implementation task.
+The agent must NOT implement the final Hero during this task.
+The agent must inspect first and report:
+
+what currently exists
+what can be reused
+what must change
+which files are affected
+dependencies
+risks/consequences
+smallest safe implementation boundary
+verification approach for the next task
+
 Acceptance criteria:
 
-CURRENT-STATE matches the actual repository
-stale claims are corrected
-current plan is consistent with actual state
-next implementation task is explicitly identified
-no unrelated application changes are made
+existing Hero is understood
+affected files are identified
+reusable code is identified
+unnecessary rewrites are ruled out
+implementation boundary is clearly defined
+no unrelated files are modified
+no final Hero implementation is performed
 
+When these criteria are met:
+STOP.
+The next task is not automatically started.
 
-46. NEXT TASK
-After STATE-01 becomes VERIFIED:
-HERO-01 — Inspect the existing Hero implementation and define the exact modification boundary.
-HERO-01 must be explicitly assigned before implementation begins.
+47. NEXT TASK
+After HERO-01 is reviewed and explicitly marked VERIFIED:
+HERO-02 — Implement the final photo-led Hero.
+HERO-02 must be explicitly assigned before implementation begins.
 No agent may begin HERO-02 or any later task while HERO-01 is active.
 
-47. FINAL OPERATING PRINCIPLE
+48. FINAL OPERATING PRINCIPLE
 The project must always have:
 one product direction
 one authoritative execution plan
