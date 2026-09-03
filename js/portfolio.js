@@ -22,15 +22,21 @@ if (parallaxItems.length && !reduceMotion) {
     updateParallax();
 }
 
-const revealTargets = [...document.querySelectorAll('[data-reveal]')];
+const automaticTextTargets = [...document.querySelectorAll('h1, h2, h3, p, a, button, li, strong')]
+    .filter((element) => element.textContent.trim() && !element.classList.contains('work-card-trigger'));
+automaticTextTargets.forEach((element) => {
+    if (!element.hasAttribute('data-reveal')) element.dataset.reveal = 'slide-up';
+});
+const revealTargets = [...new Set([...document.querySelectorAll('[data-reveal]'), ...automaticTextTargets])];
 if ('IntersectionObserver' in window && !reduceMotion) {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             entry.target.classList.toggle('is-visible', entry.isIntersecting);
         });
     }, { threshold: 0.12 });
-    revealTargets.forEach((element) => {
+    revealTargets.forEach((element, index) => {
         element.classList.add('js-reveal');
+        element.style.setProperty('--reveal-delay', `${Math.min(index * 24, 360)}ms`);
         observer.observe(element);
     });
 } else {
