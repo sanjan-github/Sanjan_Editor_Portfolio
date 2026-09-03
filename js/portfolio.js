@@ -39,123 +39,77 @@ if ('IntersectionObserver' in window && !reduceMotion) {
     revealTargets.forEach((element) => element.classList.add('is-visible'));
 }
 
-const videoModal = document.querySelector('#video-modal');
+const previewVideos = [...document.querySelectorAll('.work-card video')];
 
-if (videoModal) {
-    const modalVideo = videoModal.querySelector('[data-modal-video]');
-    const modalTitle = videoModal.querySelector('[data-modal-title]');
-    const modalStatus = videoModal.querySelector('[data-modal-status]');
-    const modalError = videoModal.querySelector('[data-modal-error]');
-    const closeButton = videoModal.querySelector('[data-modal-close]');
-    const audioButton = videoModal.querySelector('[data-modal-audio]');
-    const seekInput = videoModal.querySelector('[data-modal-seek]');
-    let lastTrigger = null;
-    let isScrubbing = false;
+function updateAudioButton(video) {
+    const button = video.closest('.work-card-media')?.querySelector('[data-video-audio]');
+    if (!button) return;
+    const isOn = !video.muted;
+    button.textContent = isOn ? 'Sound on' : 'Sound off';
+    button.setAttribute('aria-pressed', String(isOn));
+    button.setAttribute('aria-label', isOn ? 'Turn this video sound off' : 'Turn this video sound on');
+}
 
-    const updateAudioButton = () => {
-        const isOn = !modalVideo.muted;
-        audioButton.textContent = isOn ? 'Sound: on' : 'Sound: off';
-        audioButton.setAttribute('aria-pressed', String(isOn));
-        audioButton.setAttribute('aria-label', isOn ? 'Turn video sound off' : 'Turn video sound on');
-    };
-
-    const resetModalVideo = () => {
-        modalVideo.pause();
-        modalVideo.removeAttribute('src');
-        modalVideo.load();
-        modalVideo.style.removeProperty('aspect-ratio');
-        seekInput.value = '0';
-        modalError.hidden = true;
-        modalStatus.textContent = 'Portfolio playback';
-    };
-
-    const openVideoModal = (src, title, trigger) => {
-        if (!src) return;
-        lastTrigger = trigger;
-        document.querySelectorAll('.work-card video, .project-card__video').forEach((preview) => preview.pause());
-        resetModalVideo();
-        modalVideo.src = src;
-        modalVideo.muted = true;
-        modalTitle.textContent = title || 'Video edit';
-        modalStatus.textContent = 'Loading video';
-        updateAudioButton();
-        videoModal.showModal();
-        closeButton.focus();
-
-        const playPromise = modalVideo.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-            playPromise.catch(() => {
-                modalStatus.textContent = 'Ready to play';
-            });
-        }
-    };
-
-    document.addEventListener('click', (event) => {
-        const trigger = event.target.closest('[data-action="open-video"]');
-        if (!trigger) return;
-
-        event.preventDefault();
-        const project = trigger.dataset.projectId;
-        if (project) {
-            const projectRecord = window.projectCatalog?.find((item) => item.id === project);
-            if (projectRecord?.video) {
-                openVideoModal(projectRecord.video, projectRecord.title, trigger);
-                return;
-            }
-        }
-        openVideoModal(trigger.dataset.videoSrc, trigger.dataset.videoTitle, trigger);
-    });
-
-    document.querySelectorAll('.work-card video').forEach((preview) => {
-        preview.muted = true;
-        preview.addEventListener('loadedmetadata', () => {
-            const media = preview.closest('.work-card-media');
-            if (media && preview.videoWidth && preview.videoHeight) {
-                media.style.aspectRatio = `${preview.videoWidth} / ${preview.videoHeight}`;
-            }
-        });
-        preview.addEventListener('error', () => {
-            preview.closest('.work-card-media')?.classList.add('has-video-error');
-        });
-    });
-
-    audioButton.addEventListener('click', () => {
-        modalVideo.muted = !modalVideo.muted;
-        updateAudioButton();
-        if (!modalVideo.paused) modalVideo.play().catch(() => {});
-    });
-
-    modalVideo.addEventListener('loadedmetadata', () => {
-        if (modalVideo.videoWidth && modalVideo.videoHeight) {
-            modalVideo.style.aspectRatio = `${modalVideo.videoWidth} / ${modalVideo.videoHeight}`;
-        }
-        modalStatus.textContent = 'Now playing';
-    });
-
-    modalVideo.addEventListener('error', () => {
-        modalStatus.textContent = 'Unable to load video';
-        modalError.hidden = false;
-    });
-
-    modalVideo.addEventListener('timeupdate', () => {
-        if (!isScrubbing && modalVideo.duration) {
-            seekInput.value = String((modalVideo.currentTime / modalVideo.duration) * 100);
-        }
-    });
-
-    seekInput.addEventListener('input', () => {
-        isScrubbing = true;
-        if (modalVideo.duration) modalVideo.currentTime = (Number(seekInput.value) / 100) * modalVideo.duration;
-    });
-
-    seekInput.addEventListener('change', () => { isScrubbing = false; });
-    closeButton.addEventListener('click', () => videoModal.close());
-    videoModal.addEventListener('cancel', () => videoModal.close());
-    videoModal.addEventListener('click', (event) => {
-        if (event.target === videoModal) videoModal.close();
-    });
-    videoModal.addEventListener('close', () => {
-        resetModalVideo();
-        if (lastTrigger instanceof HTMLElement) lastTrigger.focus();
+function keepOnlyOneAudio(video) {
+    previewVideos.forEach((otherVideo) => {
+        if (otherVideo === video) return;
+        otherVideo.muted = true;
+        updateAudioButton(otherVideo);
     });
 }
+
+previewVideos.forEach((video) => {
+    video.muted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    updateAudioButton(video);
+
+    const startPreview = () => {
+        if (document.visibilityState === 'hidden') return;
+        video.play().catch(() => {});
+    };
+
+    video.addEventListener('loadeddata', startPreview);
+    video.addEventListener('canplay', startPreview);
+    video.addEventListener('volumechange', () => {
+        if (!video.muted) keepOnlyOneAudio(video);
+        updateAudioButton(video);
+    });
+    startPreview();
+
+    const media = video.closest('.work-card-media');
+    const playButton = media?.querySelector('[data-video-play]');
+    const audioButton = media?.querySelector('[data-video-audio]');
+
+    playButton?.addEventListener('click', () => {
+        if (video.paused) {
+            video.play().catch(() => {});
+            playButton.textContent = 'Pause edit';
+        } else {
+            video.pause();
+            playButton.textContent = 'Play edit ↗';
+        }
+    });
+
+    video.addEventListener('play', () => {
+        if (playButton) playButton.textContent = 'Pause edit';
+    });
+    video.addEventListener('pause', () => {
+        if (playButton) playButton.textContent = 'Play edit ↗';
+    });
+
+    audioButton?.addEventListener('click', () => {
+        video.muted = !video.muted;
+        if (!video.muted) keepOnlyOneAudio(video);
+        updateAudioButton(video);
+        video.play().catch(() => {});
+    });
+});
+
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState !== 'visible') return;
+    previewVideos.forEach((video) => {
+        if (video.autoplay && video.paused) video.play().catch(() => {});
+    });
+});
