@@ -2,12 +2,16 @@ CURRENT STATE
 1. Repository
 Repository:
 https://github.com/sanjan-github/Portfolio
+Default branch:
+master
 The project is an existing static portfolio implementation, not a greenfield project.
-Current architecture:
+Current technical foundation:
 
 HTML5
 CSS3
 Vanilla JavaScript
+Git
+GitHub
 GitHub Pages
 Cloudinary
 centralized project data
@@ -18,14 +22,14 @@ mobile navigation
 
 
 2. Documentation System
-The .ai directory contains the project-control documentation.
-Important documents:
+The .ai directory contains the project's control and specification documents.
+Important responsibilities:
 
 CURRENT-STATE.md — what currently exists
 DESIGN-DECISIONS.md — why important decisions were made
-CURRENT-PLAN.md — what we are building and how execution is controlled
+CURRENT-PLAN.md — what we are building, approved content, execution order, and agent operating rules
 
-The documentation system is designed to allow a new AI agent to understand the project from the repository rather than relying on previous chat history.
+The documentation exists so a new AI agent can understand the project from repository state rather than relying on previous chat history.
 
 3. Product Identity
 Personal name:
@@ -34,11 +38,28 @@ Professional role:
 Video Editor
 Portfolio/brand:
 sanjanedits
-The portfolio is a personal video-editing portfolio, not an agency website.
+The portfolio represents an individual editor, not a fictional agency.
 
-4. Product Direction
+4. Product Goal
+Build a freelance video-editing portfolio designed to:
+
+showcase Sanjan's actual editing work
+communicate his creative ability
+make his personality visible
+make contacting him simple
+convert visitors into potential editing clients
+
+The site is intended for freelance editing work, including the current target range of approximately ₹500–₹2,000 per edit.
+This pricing context guides the business goal but must not be presented as a public claim unless explicitly approved.
+
+5. Visual Direction
 The intended visual direction is:
-Dark cinematic editorial
+Blue + white
+with a dark visual foundation where appropriate.
+The visual reference supplied by Sanjan is an important reference for the opening experience, composition, spacing, typography, image treatment, and scroll behavior.
+The earlier lime-accent palette is NOT a locked decision.
+Do not use #C8FF00 as the site's accent.
+The exact final blue/white values must come from the approved design reference/design decision and must not be invented by an agent.
 The experience should feel:
 
 cinematic
@@ -57,44 +78,67 @@ a fake agency
 a résumé website
 an effects showcase
 
-The work itself is the primary proof of ability.
 
-5. Current Website Structure
-The project currently contains:
+6. Website Structure
+Current website foundation contains:
+Homepage:
 
-homepage
+navigation
 Hero
 Work section
-video presentation
-What I Do section
-About section
-Contact section
-Projects page
+main video presentation
+What I Do
+About
+Contact
 footer
-mobile navigation
-reusable video interaction
 
-The existing implementation provides a foundation, but the final visual experience is not yet complete.
+Projects page:
 
-6. Approved Website Identity
-Navigation brand:
+archive structure
+additional project presentation foundation
+video interaction foundation
+Instagram CTA direction
+
+The current implementation is a foundation.
+The final visual experience is not yet complete.
+
+7. Approved Navigation
+Brand:
 sanjanedits
-Hero identity:
+Navigation:
+Work · About · Contact
+
+8. Approved Hero Copy
+Identity:
 SANJAN
+Role:
 Video Editor
-Approved Hero statement:
+Statement:
 
 I turn raw footage into videos built to hold attention.
 
-Work heading:
+Primary CTA:
+View My Work
+Secondary CTA:
+Let's Work Together
+
+9. Approved Work Copy
+Heading:
 Here’s My Work
-Work supporting copy:
+Supporting text:
 
 Take a look at some of the videos I’ve edited.
 
-Video section:
+
+10. Approved Main Video Copy
+Heading:
 Have a look.
-What I Do:
+The video itself should demonstrate the work.
+The section should not be explicitly labelled “Showreel” unless Sanjan changes this decision.
+
+11. Approved What I Do Copy
+Heading:
+What I Do
 Short-Form Video Editing
 
 Reels, Shorts, and social content built around strong pacing and visual impact.
@@ -105,8 +149,7 @@ Rhythm-driven cuts, transitions, effects, visual storytelling, and the details t
 
 Long-form editing is not advertised.
 
-7. Approved About Copy
-The About section uses:
+12. Approved About Copy
 
 I’m Sanjan, a video editor focused on turning footage into edits with impact, emotion, and personality.
 I look beyond simply putting clips together. I look for the moments that matter — an expression, a movement, a beat, a character — and build the edit around them.
@@ -115,68 +158,88 @@ If you have footage that deserves more than a basic cut, let’s make something 
 
 This copy is locked.
 
-8. Contact
+13. Approved Contact
+Heading:
+Got something in mind?
+Supporting text:
+Let’s talk about it.
 Instagram:
 sanjanedits
-WhatsApp:
+WhatsApp identity:
 @sanjan.69
-The final production URLs are supplied by Sanjan.
-Agents must not invent contact URLs.
+The actual production URLs are supplied by Sanjan.
+Agents must not invent or guess them.
 
-9. Production Media
-The previously missing production media has now been supplied by Sanjan.
+14. Approved Projects Page Copy
+Heading:
+More of My Work
+Supporting text:
+
+Have a look through some of my other edits.
+
+CTA:
+See More on Instagram
+Instagram:
+sanjanedits
+The Projects page must not imply that it contains every video Sanjan has created.
+Instagram is the destination for the broader body of work.
+
+15. Approved Footer
+Sanjan
+Video Editor
+sanjanedits
+Instagram · WhatsApp
+© 2026 Sanjan
+The distinction is intentional:
+
+personal name: Sanjan
+professional role: Video Editor
+brand identity: sanjanedits
+
+
+16. Production Media
+Production media has been supplied by Sanjan.
 Profile Photo
-Cloudinary asset:
+Asset:
 sanjan2.jpg
 URL:
 https://res.cloudinary.com/sdsqadch/image/upload/v1787892415/sanjan2.jpg
 Purpose:
 
-Hero/profile visual
-About/profile usage where appropriate
+Hero
+profile/about usage where appropriate
 
 Main Highlighted Reel
-Cloudinary asset:
+Asset:
 srujan-edit.mp4
 URL:
 https://res.cloudinary.com/sdsqadch/video/upload/v1787904198/srujan-edit.mp4
 Purpose:
-Primary highlighted video / main reel
-This is the reel that receives the strongest visual emphasis.
-Additional Project 1
+Primary highlighted reel
+Supporting Project 1
 Asset:
 Sai_Saviour.mp4
 URL:
 https://res.cloudinary.com/sdsqadch/video/upload/v1787904812/Sai_Saviour.mp4
-Additional Project 2
+Supporting Project 2
 Asset:
 athadu_brahmi.mp4
 URL:
 https://res.cloudinary.com/sdsqadch/video/upload/v1787904770/athadu_brahmi.mp4
-Additional Project 3
+Supporting Project 3
 Asset:
 Srujan-Dude.mp4
 URL:
 https://res.cloudinary.com/sdsqadch/video/upload/v1787903555/Srujan-Dude.mp4
-Additional Project 4
+Supporting Project 4
 Asset:
 Space-OG.mp4
 URL:
 https://res.cloudinary.com/sdsqadch/video/upload/v1787892867/Space-OG.mp4
-These are production assets supplied by Sanjan.
-Agents must use the exact supplied URLs.
-Agents must not:
+All supplied URLs are authoritative.
+Agents must not invent, guess, replace, or modify them without explicit instruction.
 
-invent Cloudinary URLs
-guess missing URLs
-replace these URLs
-modify these URLs
-upload replacement media
-substitute unrelated media
-
-
-10. Media Status
-Current production-media status:
+17. Media Status
 
 
 
@@ -194,19 +257,19 @@ Main highlighted reel
 SUPPLIED
 
 
-Project video 1
+Supporting project 1
 SUPPLIED
 
 
-Project video 2
+Supporting project 2
 SUPPLIED
 
 
-Project video 3
+Supporting project 3
 SUPPLIED
 
 
-Project video 4
+Supporting project 4
 SUPPLIED
 
 
@@ -215,24 +278,57 @@ AVAILABLE
 
 
 
-The media dependency is therefore no longer blocked.
-Posters/thumbnails may still need to be generated or selected appropriately.
+The production-media dependency is no longer blocked.
+Posters/thumbnails may still need to be created or selected.
 
-11. Video Architecture
-Videos are hosted externally through Cloudinary.
-Videos should not be stored in GitHub.
-Expected behavior:
+18. Editing Positioning
+Sanjan's own creative editing ability is the primary positioning.
+The editing should communicate:
+
+creativity
+pacing
+rhythm
+visual impact
+transitions
+effects
+storytelling
+personality
+
+Sanjan can independently create edits from supplied footage.
+A client may also provide a reference video.
+Reference-video recreation is an optional client convenience, not the primary identity of the editor.
+It may allow Sanjan to:
+
+recreate a reference style
+closely match a reference
+improve upon a reference
+
+The portfolio must NOT position Sanjan primarily as a replication editor.
+
+19. Responsive Target
+The experience must be deliberately optimized for:
+
+desktop/laptop
+tablet
+mobile
+
+Mobile is not simply a scaled-down desktop composition.
+The Hero, navigation, typography, media, project presentation, motion, and spacing may adapt substantially across screen sizes.
+
+20. Video Architecture
+Videos are hosted through Cloudinary.
+Videos should not be stored directly in GitHub.
+Expected flow:
 poster
 ↓
 user interaction
 ↓
 video source activated
 ↓
-Cloudinary video loads
+Cloudinary loads
 ↓
 playback
-The current project already has a reusable video-dialog foundation.
-The final implementation must preserve:
+The video system must preserve:
 
 on-demand loading
 keyboard accessibility
@@ -244,82 +340,94 @@ error handling
 
 Audible autoplay is prohibited.
 
-12. Current Visual Foundation
-Current visual direction:
-Background:
-#090909
-Primary text:
-#F5F5F2
-Secondary text:
-#8A8A8A
-Accent:
-#C8FF00
-Display font:
-Plus Jakarta Sans
-Body/UI font:
-Inter
-The final implementation must preserve this direction unless a protected design decision is explicitly changed.
+21. Current JavaScript Foundation
+Current modules include:
 
-13. Current Incomplete Areas
-The main remaining work includes:
+main.js
+navigation.js
+videos.js
+projects.js
 
+The project contains a reusable video-dialog foundation and centralized project-data layer.
+The actual implementation should be inspected before modification.
+
+22. Current CSS Foundation
+The CSS is structured around separate responsibilities including:
+
+base
+layout
+components
+sections
+animations
+responsive behavior
+
+The existing visual foundation must be inspected before being replaced.
+Do not assume the existing implementation should be rewritten.
+
+23. Current Incomplete Areas
+Main remaining work includes:
+
+final visual direction implementation
 final photo-led Hero
-Hero scroll-linked transition
-final responsive Hero behavior
-real profile photo integration
-real project integration
-real posters
+scroll-linked Hero behavior
+responsive Hero behavior
+production profile photo integration
+project integration
+poster treatment
 main reel presentation
-video loading/playback refinement
-Projects page population
-final Instagram destination
-final WhatsApp destination
+video playback refinement
+Projects page refinement
+final contact links
 responsive refinement
-accessibility audit
-performance audit
-SEO/social sharing verification
+accessibility verification
+performance verification
+SEO/sharing verification
 production verification
 
-These are open implementation areas, not permission for an agent to work on all of them simultaneously.
+These are separate implementation areas.
+They are not permission for an agent to work on all of them simultaneously.
 
-14. Current Execution State
-The project is ready to enter implementation.
-The first active task is:
+24. Current Execution State
+The project is ready to begin implementation.
+Current active task:
 HERO-01
-Task:
-Inspect the existing Hero implementation and define the exact modification boundary.
 Status:
 READY
+Task:
+Inspect the existing Hero implementation and define the exact modification boundary.
 HERO-01 is inspection/planning only.
 The agent must not implement the final Hero during HERO-01.
 
-15. Next Task
-After HERO-01 is reviewed and explicitly marked VERIFIED:
+25. Next Task
+After HERO-01 is explicitly marked VERIFIED:
 HERO-02 — Implement the final photo-led Hero.
-The next task must not be started automatically.
-Only the currently assigned active task may be executed.
+The next task must not start automatically.
 
-16. Important Continuity Rule
-A new AI agent must assume that previous agents may have left partial work.
-Before modifying anything, the agent must inspect:
+26. Continuity Rule
+A new AI agent must assume previous work may be partial.
+Before modifying anything, inspect:
 
 Git status
 current diff
 relevant files
-.ai documentation
+current plan
+current state
+design decisions
 current active task
 existing implementation
 
-It must continue from the actual repository state.
-It must never restart the project merely because it is a new agent.
+Continue from actual repository state.
+Do not restart the project merely because the agent is new.
 
-17. Source of Truth
+27. Source of Truth
 For implementation:
-Repository state > documentation > previous chat assumptions
+Actual repository state > documentation > previous chat assumptions
 For approved product decisions:
 CURRENT-PLAN.md + DESIGN-DECISIONS.md
 For current implementation reality:
 CURRENT-STATE.md + actual repository
 For production media:
 exact assets and URLs supplied by Sanjan
-If these conflict, the agent must stop and report the conflict rather than silently choosing.
+If authoritative sources conflict:
+STOP and report the conflict.
+Do not silently choose one.
