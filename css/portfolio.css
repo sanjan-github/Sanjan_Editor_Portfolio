@@ -37,7 +37,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .hero-topline, .hero-footer { display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: .67rem; letter-spacing: .05em; color: var(--muted); position: relative; z-index: 3; }
 .hero-arrow { font-size: 1.3rem; color: var(--white); }
 .hero-stage { min-height: 78svh; display: grid; place-items: center; position: relative; }
-.hero-title { font-family: var(--display); font-size: clamp(9rem, 27vw, 30rem); line-height: .78; letter-spacing: -.045em; color: var(--ice); font-weight: 700; margin: 0; position: absolute; z-index: 1; white-space: nowrap; }
+.hero-title { --hero-title-y: 0px; font-family: var(--display); font-size: clamp(9rem, 27vw, 30rem); line-height: .78; letter-spacing: -.045em; color: var(--ice); font-weight: 700; margin: 0; position: absolute; z-index: 1; white-space: nowrap; transform: translate3d(0, calc(var(--hero-title-y) - 2rem), 0); transition: transform 1s var(--ease); }
+.hero-title.hero-title-ready { transform: translate3d(0, var(--hero-title-y), 0); }
 .hero-image-wrap { position: absolute; z-index: 2; bottom: -2rem; height: min(74svh, 52rem); width: min(56vw, 38rem); display: grid; place-items: end center; }
 .hero-image { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 2rem 3rem rgba(0, 0, 0, .28)); }
 .hero-kicker, .hero-stamp { position: absolute; z-index: 3; font-family: var(--mono); font-size: .62rem; line-height: 1.5; letter-spacing: .08em; color: var(--muted); }
@@ -135,7 +136,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
     .header-cta { font-size: .58rem; padding: .6rem .7rem; }
     .hero { padding-inline: 1.1rem; }
     .hero-stage { min-height: 78svh; align-items: end; }
-    .hero-title { top: 23%; left: 50%; max-width: 100%; font-size: clamp(4.6rem, 21vw, 8rem); line-height: .82; transform: translateX(-50%); }
+    .hero-title { top: 23%; left: 50%; max-width: 100%; font-size: clamp(4.6rem, 21vw, 8rem); line-height: .82; transform: translate3d(-50%, calc(var(--hero-title-y) - 2rem), 0); }
+    .hero-title.hero-title-ready { transform: translate3d(-50%, var(--hero-title-y), 0); }
     .hero-image-wrap { width: min(84vw, 25rem); height: min(61svh, 36rem); bottom: -.5rem; }
     .hero-kicker { top: 25%; left: 0; font-size: .55rem; }
     .hero-stamp { right: 0; bottom: 5%; }
@@ -166,5 +168,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
     html { scroll-behavior: auto; }
     .js-reveal { opacity: 1; transform: translate3d(0, var(--parallax-y, 0px), 0); transition: none; }
     [data-parallax] { --parallax-y: 0px; }
+    .hero-title, .hero-title.hero-title-ready { --hero-title-y: 0px; transition: none; transform: translate3d(0, 0, 0); }
     .work-card-actions button, .instagram-card, .header-cta { transition: none; }
 }

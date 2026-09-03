@@ -1,6 +1,14 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const heroTitle = document.querySelector('.hero-title');
 const parallaxItems = [...document.querySelectorAll('[data-parallax]')];
 let ticking = false;
+
+function updateHeroTitle() {
+    if (!heroTitle) return;
+    const hero = heroTitle.closest('.hero');
+    const offset = hero ? Math.max(-18, Math.min(18, hero.getBoundingClientRect().top * -0.08)) : 0;
+    heroTitle.style.setProperty('--hero-title-y', reduceMotion ? '0px' : `${Math.round(offset)}px`);
+}
 
 function updateParallax() {
     parallaxItems.forEach((element) => {
@@ -15,15 +23,24 @@ function updateParallax() {
 if (parallaxItems.length && !reduceMotion) {
     window.addEventListener('scroll', () => {
         if (!ticking) {
-            window.requestAnimationFrame(updateParallax);
+            window.requestAnimationFrame(() => {
+                updateParallax();
+                updateHeroTitle();
+            });
             ticking = true;
         }
     }, { passive: true });
     updateParallax();
+    updateHeroTitle();
+}
+
+updateHeroTitle();
+if (heroTitle && !reduceMotion) {
+    window.requestAnimationFrame(() => heroTitle.classList.add('hero-title-ready'));
 }
 
 const automaticTextTargets = [...document.querySelectorAll('h1, h2, h3, p, a, button, li, strong')]
-    .filter((element) => element.textContent.trim() && !element.classList.contains('work-card-trigger'));
+    .filter((element) => element.textContent.trim() && !element.classList.contains('work-card-trigger') && !element.classList.contains('hero-title'));
 automaticTextTargets.forEach((element) => {
     if (!element.hasAttribute('data-reveal')) element.dataset.reveal = 'slide-up';
 });
