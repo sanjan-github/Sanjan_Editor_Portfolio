@@ -83,11 +83,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .service-item p { color: var(--muted); font-size: .85rem; line-height: 1.6; margin: 0; }
 .service-item b { justify-self: end; font-family: var(--mono); font-weight: 400; font-size: 1.2rem; color: var(--blue); }
 
-.about-section { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 8vw; align-items: center; background: #fff; color: var(--navy); }
-.about-copy { max-width: 42rem; }
+.about-section { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 5vw; align-items: center; background: #fff; color: var(--navy); }
+.about-copy { max-width: 42rem; position: relative; z-index: 2; margin-left: -12vw; }
 .about-copy h2 { font-size: clamp(3rem, 6vw, 6rem); margin-bottom: 2rem; }
 .about-copy p { color: #52627a; line-height: 1.7; }
-.about-photo { width: 100%; height: auto; min-height: 0; display: flex; align-items: center; justify-content: flex-start; background: #fff; }
+.about-photo { width: calc(100% + clamp(1.25rem, 7vw, 8rem)); height: auto; min-height: 0; margin-left: calc(-1 * clamp(1.25rem, 7vw, 8rem)); display: flex; align-items: center; justify-content: flex-start; background: #fff; position: relative; z-index: 1; }
 .about-photo img { display: block; width: 100%; height: auto; max-width: none; object-fit: contain; object-position: left center; filter: none; }
 
 .instagram-section { display: grid; grid-template-columns: 1.2fr .8fr; gap: 8vw; align-items: center; background: var(--blue); color: var(--white); }
@@ -116,7 +116,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 
 [data-parallax] { --parallax-y: 0px; will-change: transform; transform: translate3d(0, var(--parallax-y), 0); }
 .js-reveal { opacity: 0; transform: translate3d(0, calc(var(--parallax-y, 0px) + 2rem), 0); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+[data-reveal="slide-left"].js-reveal { transform: translate3d(-8vw, calc(var(--parallax-y, 0px) + 1rem), 0); }
+[data-reveal="slide-right"].js-reveal { transform: translate3d(8vw, calc(var(--parallax-y, 0px) + 1rem), 0); }
 .js-reveal.is-visible { opacity: 1; transform: translate3d(0, var(--parallax-y, 0px), 0); }
+[data-reveal="slide-left"].js-reveal.is-visible, [data-reveal="slide-right"].js-reveal.is-visible { transform: translate3d(0, var(--parallax-y, 0px), 0); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 
@@ -151,6 +154,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
     .service-item p { grid-column: 1 / -1; margin-top: .5rem; }
     .about-photo { width: 100%; margin: 0 0 3rem; }
     .about-photo img { width: 100%; height: auto; }
+    .about-copy { margin-left: 0; }
     .instagram-card { min-height: 14rem; margin-top: 3rem; }
     .contact-meta { display: grid; gap: .8rem; }
     .contact-link { margin-top: 3rem; font-size: clamp(1.8rem, 9vw, 3rem); }

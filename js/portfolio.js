@@ -24,11 +24,9 @@ if (parallaxItems.length && !reduceMotion) {
 
 const revealTargets = [...document.querySelectorAll('[data-reveal]')];
 if ('IntersectionObserver' in window && !reduceMotion) {
-    const observer = new IntersectionObserver((entries, currentObserver) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('is-visible');
-            currentObserver.unobserve(entry.target);
+            entry.target.classList.toggle('is-visible', entry.isIntersecting);
         });
     }, { threshold: 0.12 });
     revealTargets.forEach((element) => {
