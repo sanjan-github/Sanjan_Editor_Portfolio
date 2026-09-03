@@ -1,4 +1,6 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobileViewport = window.matchMedia('(max-width: 47.99rem)').matches;
+const enableScrollMotion = !reduceMotion && !isMobileViewport;
 const heroTitle = document.querySelector('.hero-title');
 const parallaxItems = [...document.querySelectorAll('[data-parallax]')];
 let ticking = false;
@@ -20,7 +22,7 @@ function updateParallax() {
     ticking = false;
 }
 
-if (parallaxItems.length && !reduceMotion) {
+if (parallaxItems.length && enableScrollMotion) {
     window.addEventListener('scroll', () => {
         if (!ticking) {
             window.requestAnimationFrame(() => {
@@ -35,7 +37,7 @@ if (parallaxItems.length && !reduceMotion) {
 }
 
 updateHeroTitle();
-if (heroTitle && !reduceMotion) {
+if (heroTitle && enableScrollMotion) {
     window.requestAnimationFrame(() => heroTitle.classList.add('hero-title-ready'));
 }
 
@@ -50,10 +52,10 @@ if ('IntersectionObserver' in window && !reduceMotion) {
         entries.forEach((entry) => {
             entry.target.classList.toggle('is-visible', entry.isIntersecting);
         });
-    }, { threshold: 0.12 });
+    }, { threshold: isMobileViewport ? 0.06 : 0.12 });
     revealTargets.forEach((element, index) => {
         element.classList.add('js-reveal');
-        element.style.setProperty('--reveal-delay', `${Math.min(index * 24, 360)}ms`);
+        element.style.setProperty('--reveal-delay', enableScrollMotion ? `${Math.min(index * 24, 360)}ms` : '0ms');
         observer.observe(element);
     });
 } else {

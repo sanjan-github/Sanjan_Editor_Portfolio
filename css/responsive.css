@@ -109,3 +109,17 @@
     }
 }
 
+
+
+/* Mobile-only motion tuning: keep video autoplay while reducing scroll work. */
+@media (max-width: 47.99rem) {
+    [data-reveal] {
+        transform: translateY(12px);
+        transition-duration: 260ms;
+        transition-delay: 0ms !important;
+    }
+
+    [data-reveal].is-visible {
+        transform: translateY(0);
+    }
+}
