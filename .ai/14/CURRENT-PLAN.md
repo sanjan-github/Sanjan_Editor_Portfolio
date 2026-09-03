@@ -5,6 +5,7 @@ It defines:
 
 what we are building
 what the visitor should experience
+the approved website copy
 the dependency-aware order of work
 how AI agents execute work
 how work is handed between agents
@@ -52,7 +53,7 @@ It is the product direction that implementation must serve.
 
 3.1 First Impression
 The first screen must immediately establish:
-Sanjan + video editing + personality.
+Sanjan + video editor + personality.
 A visitor should understand what Sanjan does without needing to search through the site.
 The first impression should be created primarily through:
 
@@ -67,7 +68,6 @@ The site must not depend on a long introduction to explain its purpose.
 3.2 Experience Hierarchy
 The overall narrative is:
 Person → Identity → Work → Capability → Personality → Contact
-The website must prioritize the work rather than burying it beneath decorative sections.
 The intended visitor journey is:
 Who is this?
 ↓
@@ -82,48 +82,146 @@ What is he like?
 How do I contact him?
 Every major section should support this progression.
 
-3.3 Homepage
-The homepage is the primary conversion experience.
-Structure:
-Navigation
-↓
-Hero
-↓
-Selected Work
-↓
-Showreel
-↓
-What I Edit
-↓
-Editing Philosophy
-↓
-About Sanjan
-↓
-Contact CTA
-↓
-Footer
-Sections must not exist merely because portfolios traditionally contain them.
-Each section must have a clear purpose in the visitor journey.
+4. APPROVED WEBSITE COPY
+The following copy is approved and must be used exactly unless Sanjan explicitly changes it.
+Agents must not rewrite, paraphrase, “improve,” or replace approved copy.
 
-4. HERO EXPERIENCE
-The hero is the strongest visual statement on the site.
+4.1 Navigation
+Brand:
+sanjanedits
+Navigation:
+Work · About · Contact
+The brand represents the portfolio identity.
+
+4.2 Hero
+Brand/name:
+SANJAN
+Role:
+Video Editor
+Main statement:
+
+I turn raw footage into videos built to hold attention.
+
+Primary CTA:
+View My Work
+Secondary CTA:
+Let's Work Together
+The Hero copy must remain concise and visually dominant.
+
+4.3 Work Section
+Heading:
+Here’s My Work
+Supporting text:
+
+Take a look at some of the videos I’ve edited.
+
+This section presents the strongest selected edits.
+Do not rename the heading to:
+
+Selected Work
+Featured Work
+Portfolio
+My Projects
+
+unless Sanjan explicitly changes it.
+
+4.4 Video Section
+Heading:
+Have a look.
+No additional explanatory paragraph is required.
+The video itself is responsible for demonstrating the work.
+Do not explicitly label this section:
+
+Showreel
+Demo Reel
+Reel
+Showcase
+
+unless Sanjan explicitly changes the decision.
+
+4.5 What I Do
+Heading:
+What I Do
+Short-Form Video Editing
+
+Reels, Shorts, and social content built around strong pacing and visual impact.
+
+Creative Editing
+
+Rhythm-driven cuts, transitions, effects, visual storytelling, and the details that give an edit its personality.
+
+This section represents Sanjan's current editing services.
+Long-form editing is NOT advertised.
+Agents must not add long-form editing unless explicitly instructed.
+
+4.6 About
+The following copy is locked exactly as approved:
+
+I’m Sanjan, a video editor focused on turning footage into edits with impact, emotion, and personality.
+I look beyond simply putting clips together. I look for the moments that matter — an expression, a movement, a beat, a character — and build the edit around them.
+The goal isn’t to make a video look edited. It’s to make the viewer feel it.
+If you have footage that deserves more than a basic cut, let’s make something out of it.
+
+Agents must not rewrite this copy.
+
+4.7 Contact
+Heading:
+Got something in mind?
+Supporting text:
+Let’s talk about it.
+Contact options:
+Instagram: sanjanedits
+WhatsApp: @sanjan.69
+The actual production destinations are supplied by Sanjan.
+Agents must never invent or guess contact URLs.
+
+4.8 Projects Page
+Heading:
+More of My Work
+Supporting text:
+
+Have a look through some of my other edits.
+
+CTA:
+See More on Instagram
+Instagram:
+sanjanedits
+The Projects page does NOT claim to contain every video Sanjan has created.
+Instagram is the destination for the broader body of work.
+
+4.9 Footer
+The footer uses:
+Sanjan
+Video Editor
+sanjanedits
+Instagram · WhatsApp
+© 2026 Sanjan
+The distinction is intentional:
+
+personal name: Sanjan
+professional role: Video Editor
+brand identity: sanjanedits
+
+
+5. HERO EXPERIENCE
+The Hero is the strongest visual statement on the site.
 It must establish identity and editing quality immediately.
-4.1 Hero Composition
-The hero uses Sanjan's real photograph.
+5.1 Hero Composition
+The Hero uses Sanjan's real photograph.
 The photograph should feel integrated into the composition rather than appearing as a conventional profile card.
 The composition should combine:
 
 photograph
 large typography
-supporting copy where necessary
+approved copy
 clear visual hierarchy
 controlled negative space
 restrained accent treatment
 
-The hero must feel like an introduction to an editor's creative identity, not a résumé header.
+The Hero must feel like an introduction to an editor's creative identity, not a résumé header.
 
-4.2 Hero Motion
-The hero should use a scroll-linked visual progression.
+5.2 Hero Motion
+The Hero should use a scroll-linked visual progression.
 Intended motion language:
 arrival
 ↓
@@ -137,7 +235,7 @@ reveal
 The motion should feel connected to the visitor's scrolling.
 It must not feel like unrelated entrance animations stacked together.
 The exact animation implementation is not locked prematurely.
-The implementation should use the lightest appropriate approach.
+Use the lightest appropriate approach.
 Preferred techniques:
 
 CSS transforms
@@ -149,8 +247,8 @@ IntersectionObserver where appropriate
 
 Do not introduce a heavy animation framework merely to create this effect.
 
-4.3 Hero Requirements
-The hero must:
+5.3 Hero Requirements
+The Hero must:
 
 work on desktop
 work on mobile
@@ -164,21 +262,23 @@ remain performant
 Desktop and mobile may use substantially different compositions.
 Do not force the desktop composition onto mobile.
 
-5. SELECTED WORK EXPERIENCE
-Selected Work appears near the top because the actual editing work is the strongest credibility signal.
+6. WORK EXPERIENCE
+The Work section appears near the top because the actual editing work is the strongest credibility signal.
 The homepage contains:
 
 1 strongest featured edit
 4 supporting edits
 
-The featured project should receive greater visual emphasis.
-Supporting projects should remain visually connected to the same system.
-The section should make the work feel like the main product rather than thumbnails inside a generic template.
-Each project presentation should provide enough information to understand what is being shown without creating unnecessary text.
+The featured project receives greater visual emphasis.
+Supporting projects remain visually connected to the same system.
+The presentation should make the work feel like the main product rather than thumbnails inside a generic template.
 
-6. SHOWREEL EXPERIENCE
-The showreel gets a deliberate visual moment rather than being treated as another project card.
-It should:
+7. VIDEO EXPERIENCE
+The video section gets a deliberate visual moment.
+The approved copy is:
+Have a look.
+No generic “showreel” label is required.
+The video should:
 
 be easy to start
 be visually prominent
@@ -187,32 +287,23 @@ use a meaningful poster
 avoid unnecessary initial video loading
 avoid audible autoplay
 
-The showreel should reinforce the editing identity established by the hero and Selected Work.
 
-7. WHAT I EDIT
-This section answers:
-“Can this person make the kind of content I need?”
-It communicates the types of editing Sanjan offers.
-It should prioritize clarity over buzzwords.
-It must not become an artificial list of skills designed only to fill space.
-Final categories and wording come from Sanjan.
-Agents must not invent service claims.
+8. WHAT I DO EXPERIENCE
+This section communicates Sanjan's actual editing work.
+It focuses on:
 
-8. EDITING PHILOSOPHY
-This section explains how Sanjan approaches editing.
-It should communicate ideas such as:
-
+short-form video editing
+creative editing
 pacing
-storytelling
-attention
-sound
-visual rhythm
-intentionality
+visual impact
+rhythm
+transitions
+effects
+visual storytelling
+personality
 
-The section exists to differentiate the person behind the edits from someone merely listing software skills.
-It should remain concise.
-It must not become a long résumé.
-Final claims and wording come from Sanjan.
+Long-form editing is not advertised.
+The section must not become a generic software/skills list.
 
 9. ABOUT EXPERIENCE
 The About section introduces the person behind the work.
@@ -220,47 +311,39 @@ Its purpose is to establish:
 
 personality
 context
+creative identity
 credibility
 human connection
 
-It should not become a biography dump.
-The visitor should feel that there is a real person behind the portfolio.
-Final personal information comes from Sanjan.
-Agents must not invent personal facts.
+The approved copy from Section 4.6 must be used.
+The section should not become a résumé or biography dump.
 
 10. CONTACT EXPERIENCE
-The contact section is the conversion point.
-The primary intent is:
-make it easy for a potential client to contact Sanjan about editing work.
-The final contact experience may include:
+The Contact section is the conversion point.
+Approved copy:
+Got something in mind?
+Let’s talk about it.
+The available destinations are:
 
-WhatsApp
-Instagram
-other final contact methods supplied by Sanjan
+Instagram: sanjanedits
+WhatsApp: @sanjan.69
 
-The final production links are supplied by Sanjan.
-Agents must not invent or guess URLs.
-The public phone number should not be exposed in the repository when a safe short-link solution is available.
+The website should make contacting Sanjan straightforward.
+The final production URLs are supplied by Sanjan.
+Agents must not fabricate URLs.
 
 11. PROJECTS PAGE EXPERIENCE
-The Projects page is the comprehensive portfolio archive.
-Structure:
-Navigation
-↓
-Archive Hero
-↓
-Category Filters
-↓
-Project Grid
-↓
-Video Playback
-↓
-Footer
-The archive is intended to contain approximately 45 real edits.
-The archive must remain easy to browse.
-The page should not feel like a wall of identical thumbnails.
-Projects should have a consistent information hierarchy.
-Final projects and categories are supplied by Sanjan.
+The Projects page provides additional work.
+Approved copy:
+More of My Work
+
+Have a look through some of my other edits.
+
+CTA:
+See More on Instagram
+The page does not claim to be the complete portfolio.
+The broader collection of work is available through Instagram.
+The page may contain selected additional projects for which Sanjan provides the necessary media.
 
 12. PORTFOLIO CONTENT RULE
 The portfolio must use real work.
@@ -274,6 +357,9 @@ results
 revenue
 experience claims
 performance statistics
+personal facts
+contact URLs
+Cloudinary URLs
 
 If required information is missing, the agent must:
 
@@ -315,7 +401,7 @@ Every visual effect must have a communication, hierarchy, or interaction purpose
 Motion is a supporting layer, not the product itself.
 Priority:
 
-hero
+Hero
 section reveals
 project interactions
 navigation transitions
@@ -346,7 +432,7 @@ laptop
 desktop
 large desktop
 
-The hero is especially important.
+The Hero is especially important.
 Typography, spacing, image composition, project presentation, navigation, and video interaction may all change between breakpoints.
 Do not preserve desktop composition at the expense of mobile usability.
 
@@ -466,7 +552,7 @@ repository understanding
 
 Phase 1 — Hero
 
-hero structure
+Hero structure
 photograph integration
 desktop composition
 mobile composition
@@ -502,20 +588,21 @@ showreel
 
 Phase 5 — Supporting Sections
 
-What I Edit
-Editing Philosophy
+What I Do
+Editing Philosophy if retained in the final design
 About
 Contact
 
-Phase 6 — Projects Archive
+Phase 6 — Projects Page
 
+additional selected projects
 centralized project data
-approximately 45 projects
-categories
-filtering
+categories if actually required
+filtering only if useful
 playback
-Instagram links
+Instagram CTA
 
+The Projects page must not imply that all videos are hosted on the website.
 Phase 7 — Refinement
 
 motion
@@ -543,7 +630,7 @@ The order may change only when a real dependency requires it.
 21. ONE ACTIVE TASK RULE
 There must be exactly one ACTIVE TASK for the project at any given time.
 Example:
-HERO-02 — Implement desktop hero composition
+HERO-02 — Implement desktop Hero composition
 Only the active task may be worked on.
 An agent is NOT authorized to:
 
@@ -591,7 +678,7 @@ Record it for a future task if useful.
 24. NO WORK-AHEAD RULE
 Agents must not work ahead of the roadmap.
 If the active task is:
-HERO-01 — Implement hero structure
+HERO-01 — Implement Hero structure
 the agent must not also:
 
 redesign project cards
@@ -665,7 +752,8 @@ A locally successful change that damages the larger system is not acceptable.
 29. PROTECTED DECISIONS
 Current protected decisions include:
 
-personal sanjanedits identity
+personal identity: Sanjan
+portfolio brand: sanjanedits
 static website
 GitHub Pages
 Cloudinary video hosting
@@ -679,6 +767,10 @@ Plus Jakarta Sans + Inter
 near-black / off-white / lime visual system
 lightweight implementation
 accessibility as a first-class requirement
+approved website copy in Section 4
+short-form editing as the advertised editing focus
+no long-form editing claim
+Instagram as the destination for the broader body of work
 
 If an active task conflicts with a protected decision:
 STOP.
@@ -780,10 +872,10 @@ A clean stop is successful execution.
 Create checkpoints at meaningful milestones.
 Examples:
 
-hero structure complete
-hero desktop verified
-hero mobile verified
-hero motion verified
+Hero structure complete
+Hero desktop verified
+Hero mobile verified
+Hero motion verified
 project-card system complete
 video dialog complete
 real media integrated
@@ -950,14 +1042,14 @@ Answers:
 Why was an important decision made?
 .ai/14/CURRENT-PLAN.md
 Answers:
-What are we building, what are we doing next, and how must agents execute it?
+What are we building, what content is approved, what are we doing next, and how must agents execute it?
 Do not duplicate these responsibilities.
 
 44. CURRENT EXECUTION STATE
 The repository already contains the project foundation and .ai specification system.
-The project is therefore not greenfield.
-Current product direction is defined above.
-The next implementation work must proceed from the actual repository state rather than restarting the project.
+The project is not greenfield.
+The product direction and approved copy are defined above.
+Implementation must proceed from the actual repository state rather than restarting the project.
 
 45. CURRENT ACTIVE TASK
 Task ID:
@@ -980,7 +1072,7 @@ no unrelated application changes are made
 
 46. NEXT TASK
 After STATE-01 becomes VERIFIED:
-HERO-01 — Inspect the existing hero implementation and define the exact modification boundary.
+HERO-01 — Inspect the existing Hero implementation and define the exact modification boundary.
 HERO-01 must be explicitly assigned before implementation begins.
 No agent may begin HERO-02 or any later task while HERO-01 is active.
 
