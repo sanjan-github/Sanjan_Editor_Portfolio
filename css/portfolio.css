@@ -108,7 +108,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .contact-link { display: flex; justify-content: space-between; align-items: center; max-width: 60rem; border-bottom: 2px solid var(--navy); padding: 2rem 0 1rem; margin-top: 5rem; text-decoration: none; color: var(--navy); font-family: var(--display); font-size: clamp(2rem, 5vw, 5rem); text-transform: uppercase; transition: color .2s ease; }
 .contact-link:hover { color: var(--blue); }
 .contact-link span { font-family: var(--body); font-size: 2rem; }
-.sample-edit-note { max-width: 34rem; margin: 2rem 0 0; padding: 1.2rem 1.35rem 1.35rem; border-left: .35rem solid var(--blue); background: var(--blue); color: var(--white) !important; font-family: var(--display); font-size: clamp(1.5rem, 3vw, 3rem); line-height: .95; box-shadow: .65rem .65rem 0 var(--navy); }
+.sample-edit-note { max-width: 60rem; margin: 3rem 0 0; color: var(--navy); font-family: var(--display); font-size: clamp(2.5rem, 6vw, 6rem); line-height: .88; text-transform: uppercase; }
+.sample-edit-note em { color: var(--blue); font-style: italic; }
 .contact-meta { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 1rem; font-family: var(--mono); font-size: .65rem; color: #52627a; text-transform: uppercase; }
 .contact-meta span { display: inline-flex; gap: .45rem; flex-wrap: wrap; }
 .contact-meta a { color: inherit; text-decoration: none; }
@@ -162,7 +163,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
     .instagram-card { min-height: 14rem; margin-top: 3rem; }
     .contact-meta { display: grid; gap: .8rem; }
     .contact-link { margin-top: 3rem; font-size: clamp(1.8rem, 9vw, 3rem); }
-    .sample-edit-note { max-width: 20rem; margin-top: 1.5rem; padding: 1rem 1.05rem 1.1rem; border-left-width: .25rem; font-size: clamp(1.35rem, 6vw, 2rem); box-shadow: .4rem .4rem 0 var(--navy); }
+    .sample-edit-note { max-width: 23rem; margin-top: 2rem; font-size: clamp(2rem, 9vw, 3.5rem); }
     .site-footer { gap: 1rem; flex-wrap: wrap; }
 }
 
