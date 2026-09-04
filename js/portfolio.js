@@ -1,6 +1,7 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isMobileViewport = window.matchMedia('(max-width: 47.99rem)').matches;
-const enableScrollMotion = !reduceMotion && !isMobileViewport;
+const enableScrollMotion = !reduceMotion;
+const parallaxMultiplier = isMobileViewport ? 0.7 : 1.35;
 const heroTitle = document.querySelector('.hero-title');
 const parallaxItems = [...document.querySelectorAll('[data-parallax]')];
 const activeParallaxItems = new Set(parallaxItems);
@@ -20,7 +21,7 @@ if ('IntersectionObserver' in window && enableScrollMotion) {
 function updateHeroTitle() {
     if (!heroTitle) return;
     const hero = heroTitle.closest('.hero');
-    const offset = hero ? Math.max(-18, Math.min(18, hero.getBoundingClientRect().top * -0.08)) : 0;
+    const offset = hero ? Math.max(-18, Math.min(18, hero.getBoundingClientRect().top * -0.08 * parallaxMultiplier)) : 0;
     heroTitle.style.setProperty('--hero-title-y', reduceMotion ? '0px' : `${Math.round(offset)}px`);
 }
 
@@ -28,7 +29,9 @@ function updateParallax() {
     activeParallaxItems.forEach((element) => {
         const speed = Number(element.dataset.parallax || 0);
         const rect = element.getBoundingClientRect();
-        const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed * 1.35;
+        const rawOffset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed * parallaxMultiplier;
+        const maxOffset = isMobileViewport ? 36 : 120;
+        const offset = Math.max(-maxOffset, Math.min(maxOffset, rawOffset));
         element.style.setProperty('--parallax-y', reduceMotion ? '0px' : `${Math.round(offset)}px`);
     });
     ticking = false;
