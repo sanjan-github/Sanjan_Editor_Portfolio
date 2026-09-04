@@ -108,6 +108,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .contact-link { display: flex; justify-content: space-between; align-items: center; max-width: 60rem; border-bottom: 2px solid var(--navy); padding: 2rem 0 1rem; margin-top: 5rem; text-decoration: none; color: var(--navy); font-family: var(--display); font-size: clamp(2rem, 5vw, 5rem); text-transform: uppercase; transition: color .2s ease; }
 .contact-link:hover { color: var(--blue); }
 .contact-link span { font-family: var(--body); font-size: 2rem; }
+.sample-edit-note { max-width: 34rem; margin: 2rem 0 0; color: #52627a; font-family: var(--display); font-size: clamp(1.5rem, 3vw, 3rem); line-height: .95; }
 .contact-meta { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 1rem; font-family: var(--mono); font-size: .65rem; color: #52627a; text-transform: uppercase; }
 .contact-meta span { display: inline-flex; gap: .45rem; flex-wrap: wrap; }
 .contact-meta a { color: inherit; text-decoration: none; }
@@ -161,6 +162,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
     .instagram-card { min-height: 14rem; margin-top: 3rem; }
     .contact-meta { display: grid; gap: .8rem; }
     .contact-link { margin-top: 3rem; font-size: clamp(1.8rem, 9vw, 3rem); }
+    .sample-edit-note { max-width: 20rem; margin-top: 1.5rem; font-size: clamp(1.35rem, 6vw, 2rem); }
     .site-footer { gap: 1rem; flex-wrap: wrap; }
 }
 
