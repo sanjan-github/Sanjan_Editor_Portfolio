@@ -54,7 +54,8 @@ if (heroTitle && enableScrollMotion) {
 }
 
 const automaticTextTargets = [...document.querySelectorAll('h1, h2, h3, p, a, button, li, strong')]
-    .filter((element) => element.textContent.trim() && !element.classList.contains('work-card-trigger') && !element.classList.contains('hero-title'));
+    .filter((element) => element.textContent.trim() && !element.classList.contains('work-card-trigger') && !element.classList.classList.contains('hero-title') && !element.closest('.work-card'));
+
 automaticTextTargets.forEach((element) => {
     if (!element.hasAttribute('data-reveal')) element.dataset.reveal = 'slide-up';
 });
@@ -76,6 +77,19 @@ if ('IntersectionObserver' in window && !reduceMotion) {
 } else {
     revealTargets.forEach((element) => element.classList.add('is-visible'));
 }
+
+// Keep controls and supporting copy in each card's own layout layer.
+// Video dimensions remain natural, preserving the original aspect ratio.
+const cardLayoutFix = document.createElement('style');
+cardLayoutFix.textContent = `
+.work-card { position: relative; isolation: isolate; }
+.work-card-media { position: relative; overflow: hidden; line-height: 0; }
+.work-card video { display: block; width: 100%; height: auto; }
+.work-card-actions { position: absolute; inset: auto 1rem 1rem auto; z-index: 4; max-width: calc(100% - 2rem); }
+.work-card-meta { position: relative; zindex: 1; clear: both; transform: none; }
+@media (max-width: 47.99rem) { .work-card-actions { inset: auto .65rem .65rem auto; } }
+`;
+document.head.append(cardLayoutFix);
 
 const previewVideos = [...document.querySelectorAll('.work-card video')];
 
