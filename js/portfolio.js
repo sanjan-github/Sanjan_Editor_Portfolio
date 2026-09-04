@@ -3,7 +3,19 @@ const isMobileViewport = window.matchMedia('(max-width: 47.99rem)').matches;
 const enableScrollMotion = !reduceMotion && !isMobileViewport;
 const heroTitle = document.querySelector('.hero-title');
 const parallaxItems = [...document.querySelectorAll('[data-parallax]')];
+const activeParallaxItems = new Set(parallaxItems);
 let ticking = false;
+
+// On desktop, only calculate parallax for elements near the viewport.
+if ('IntersectionObserver' in window && enableScrollMotion) {
+    const parallaxObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) activeParallaxItems.add(entry.target);
+            else activeParallaxItems.delete(entry.target);
+        });
+    }, { rootMargin: '25% 0px' });
+    parallaxItems.forEach((element) => parallaxObserver.observe(element));
+}
 
 function updateHeroTitle() {
     if (!heroTitle) return;
@@ -13,7 +25,7 @@ function updateHeroTitle() {
 }
 
 function updateParallax() {
-    parallaxItems.forEach((element) => {
+    activeParallaxItems.forEach((element) => {
         const speed = Number(element.dataset.parallax || 0);
         const rect = element.getBoundingClientRect();
         const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed * 1.35;
@@ -50,9 +62,12 @@ const revealTargets = [...new Set([...document.querySelectorAll('[data-reveal]')
 if ('IntersectionObserver' in window && !reduceMotion) {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            entry.target.classList.toggle('is-visible', entry.isIntersecting);
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            // Reveal once: avoids repeated compositing work while scrolling on desktop.
+            observer.unobserve(entry.target);
         });
-    }, { threshold: isMobileViewport ? 0.06 : 0.12 });
+    }, { threshold: isMobileViewport ? 0.06 : 0.12, rootMargin: '0px 0px -4% 0px' });
     revealTargets.forEach((element, index) => {
         element.classList.add('js-reveal');
         element.style.setProperty('--reveal-delay', enableScrollMotion ? `${Math.min(index * 24, 360)}ms` : '0ms');
@@ -93,8 +108,8 @@ previewVideos.forEach((video) => {
         video.play().catch(() => {});
     };
 
-    video.addEventListener('loadeddata', startPreview);
-    video.addEventListener('canplay', startPreview);
+    video.addEventListener('loadeddata', startPreview, { once: true });
+    video.addEventListener('canplay', startPreview, { once: true });
     video.addEventListener('volumechange', () => {
         if (!video.muted) keepOnlyOneAudio(video);
         updateAudioButton(video);
