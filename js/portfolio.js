@@ -57,7 +57,7 @@ if (heroTitle && enableScrollMotion) {
 }
 
 const automaticTextTargets = [...document.querySelectorAll('h1, h2, h3, p, a, button, li, strong')]
-    .filter((element) => element.textContent.trim() && !element.classList.contains('work-card-trigger') && !element.classList.classList.contains('hero-title') && !element.closest('.work-card'));
+    .filter((element) => element.textContent.trim() && !element.classList.contains('work-card-trigger') && !element.classList.contains('hero-title') && !element.closest('.work-card'));
 
 automaticTextTargets.forEach((element) => {
     if (!element.hasAttribute('data-reveal')) element.dataset.reveal = 'slide-up';
@@ -88,9 +88,9 @@ cardLayoutFix.textContent = `
 .work-card { position: relative; isolation: isolate; }
 .work-card-media { position: relative; overflow: hidden; line-height: 0; }
 .work-card video { display: block; width: 100%; height: auto; }
-.work-card-actions { position: absolute; inset: auto 1rem 1rem auto; z-index: 4; max-width: calc(100% - 2rem); }
-.work-card-meta { position: relative; zindex: 1; clear: both; transform: none; }
-@media (max-width: 47.99rem) { .work-card-actions { inset: auto .65rem .65rem auto; } }
+.work-card-actions { position: absolute; inset: 1rem 1rem auto auto; z-index: 4; max-width: calc(100% - 2rem); }
+.work-card-meta { position: relative; z-index: 1; clear: both; transform: none; }
+@media (max-width: 47.99rem) { .work-card-actions { inset: .65rem .65rem auto auto; } }
 `;
 document.head.append(cardLayoutFix);
 
