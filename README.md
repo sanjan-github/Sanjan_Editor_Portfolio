@@ -63,15 +63,7 @@ WhatsApp is intentionally not hardcoded yet. The site expects the official Whats
 
 ## Fonts
 
-The site uses Bricolage Grotesque for headings and branding, and Anybody for body text, with DM Mono retained for small metadata on the homepage. Fonts are loaded from Google Fonts.
-
-## Performance & Accessibility
-
-- Lighthouse performance and accessibility scores: not yet measured.
-- Responsive layouts support mobile and desktop viewports.
-- Both pages retain their existing color palettes; automatic system dark-mode recoloring is not enabled.
-- The native video dialog supports keyboard dismissal with Escape and returns focus to its opener.
-- Initial load size and First Contentful Paint: not yet measured.
+The initial implementation loads Plus Jakarta Sans and Inter from Google Fonts. If self-hosted font files are added later, update the HTML and current-state notes together.
 
 ## GitHub Pages notes
 

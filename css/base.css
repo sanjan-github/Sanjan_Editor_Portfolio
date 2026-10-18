@@ -73,6 +73,9 @@
         --color-accent-soft: rgba(29, 78, 216, 0.1);
         --color-overlay: rgba(255, 255, 255, 0.92);
 
+        --font-display: "Oswald", "Plus Jakarta Sans", sans-serif;
+        --font-body: "Inter", "Segoe UI", sans-serif;
+
         --space-1: 0.25rem;
         --space-2: 0.5rem;
         --space-3: 0.75rem;
@@ -109,8 +112,8 @@
         background: transparent;
         color: var(--color-text-primary);
         font-family: var(--font-body);
-        font-size: var(--font-base);
-        line-height: var(--line-height);
+        font-size: 1rem;
+        line-height: 1.6;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
     }
