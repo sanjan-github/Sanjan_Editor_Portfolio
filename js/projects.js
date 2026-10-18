@@ -70,6 +70,7 @@ function createProjectCard(project) {
         preview.autoplay = true;
         preview.playsInline = true;
         preview.preload = "metadata";
+        preview.loading = "lazy";
         preview.src = project.video;
         preview.setAttribute("aria-hidden", "true");
         media.append(preview);
